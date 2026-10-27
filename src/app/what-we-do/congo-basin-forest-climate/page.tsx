@@ -1,0 +1,151 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Congo Basin Forest Protection & Climate Action | Strategic Pillar 3 | HOJA Network",
+  description: "Protecting community forests, advancing agroforestry, building climate resilience, and championing equitable, rights-based environmental stewardship in Eastern DRC.",
+};
+
+export default function CongoBasinForestClimatePage() {
+  return (
+    <main className="mt-[10.3125rem] bg-background max-lg:mt-0" id="main">
+      {/* Hero */}
+      <section className="relative bg-accent text-background py-16 px-6 lg:py-24">
+        <div className="max-w-300 mx-auto">
+          <div className="inline-flex items-center gap-2 bg-primary text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
+            <span>Strategic Pillar 3</span>
+            <span>•</span>
+            <span>Orientation Stratégique</span>
+          </div>
+          <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
+            Congo Basin Forest Protection &amp; Climate Action
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-220 leading-relaxed">
+            Preserving crucial rainforest carbon sinks, advancing community-based agroforestry, and strengthening local climate adaptation through transparent, rights-based stewardship.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="max-w-300 mx-auto px-6 py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Main Column */}
+          <div className="lg:col-span-2 space-y-10 text-foreground/90">
+            <div>
+              <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
+                The Congo Basin: The Earth&apos;s Vital Ecological Lung
+              </h2>
+              <p className="text-base leading-relaxed mb-4">
+                The Congo Basin contains the second largest tropical rainforest on Earth and represents one of the planet&apos;s most critical carbon sinks, regulating regional precipitation and global climate stability. In Eastern DRC, forest edges are under severe strain from slash-and-burn farming, shifting agriculture, unmanaged timber harvesting, and the lack of alternative economic opportunities for vulnerable rural populations.
+              </p>
+              <p className="text-base leading-relaxed">
+                HOJA Network believes climate action and forest protection cannot succeed in isolation from community land rights and rural livelihoods. Our strategic orientation focuses on community agroforestry, sustainable soil management, and empowering grassroots land custodians.
+              </p>
+            </div>
+
+            {/* Strategic Focus Areas */}
+            <div className="space-y-6">
+              <h3 className="[font-family:questa,_serif] text-xl md:text-2xl font-bold text-accent">
+                Core Strategic Focus Areas
+              </h3>
+
+              <div className="p-6 bg-surface-2 rounded-sm border-l-4 border-primary">
+                <h4 className="text-lg font-bold text-accent mb-2">1. Community Agroforestry &amp; Sustainable Land Use</h4>
+                <p className="text-sm text-foreground/85 leading-relaxed mb-3">
+                  Encouraging smallholder farmers to integrate nitrogen-fixing, fruit, and multi-purpose indigenous trees into crop fields, enhancing soil fertility, diversifying nutritional food sources, and curbing agricultural encroachment into primary forests.
+                </p>
+                <div className="text-xs text-muted-foreground italic">
+                  Statut : Orientation stratégique en phase de structuration pilote avec des coopératives agricoles locales.
+                </div>
+              </div>
+
+              <div className="p-6 bg-surface-3 rounded-sm border-l-4 border-color-011">
+                <h4 className="text-lg font-bold text-accent mb-2">2. Climate Resilience &amp; Watershed Management</h4>
+                <p className="text-sm text-foreground/85 leading-relaxed mb-3">
+                  Strengthening community adaptation capacities against extreme weather events, unpredictable seasonal rains, and land degradation along steep volcanic hillsides and fragile river basins flowing toward Lake Kivu.
+                </p>
+                <div className="text-xs text-muted-foreground italic">
+                  Statut : Orientation stratégique en développement.
+                </div>
+              </div>
+
+              <div className="p-6 bg-surface-4 rounded-sm border-l-4 border-color-008">
+                <h4 className="text-lg font-bold text-accent mb-2">3. Local Environmental Governance &amp; Land Stewardship</h4>
+                <p className="text-sm text-foreground/85 leading-relaxed mb-3">
+                  Facilitating community dialogues between customary authorities, women farmers, and youth to establish participatory land management agreements that safeguard natural woodlots and communal water springs.
+                </p>
+                <div className="text-xs text-muted-foreground italic">
+                  Statut : En synergie avec les cercles de dialogue communautaires de HOJA.
+                </div>
+              </div>
+            </div>
+
+            {/* Rigorous Position on Carbon Finance */}
+            <div className="p-6 bg-surface-3 border border-border rounded-sm">
+              <h4 className="font-bold text-accent text-sm mb-2 uppercase tracking-wider">
+                Position Éthique &amp; Prudente sur les Mécanismes Carbone
+              </h4>
+              <p className="text-xs text-foreground/85 leading-relaxed mb-2">
+                HOJA Network adopte une position délibérément prudente, rigoureuse et conditionnelle vis-à-vis des marchés et crédits carbone.
+              </p>
+              <p className="text-xs text-foreground/85 leading-relaxed">
+                Toute future exploration d&apos;instruments de finance climatique ou de compensation carbone devra impérativement satisfaire aux conditions suivantes : (1) <strong>reconnaissance préalable et inaliénable des droits fonciers et coutumiers des communautés locales</strong>, (2) <strong>consentement libre, préalable et éclairé (CLIP)</strong>, (3) <strong>méthodologies de mesure et de vérification scientifiques indépendantes</strong>, et (4) <strong>partage équitable, transparent et auditable des bénéfices</strong> en faveur directe des populations riveraines. HOJA Network ne commercialise actuellement aucun crédit carbone.
+              </p>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <aside className="space-y-8">
+            <div className="p-6 bg-accent text-background rounded-sm">
+              <h3 className="font-bold text-lg mb-3">The 4 Strategic Pillars</h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link href="/what-we-do/renewable-energy-clean-cooking" className="hover:text-primary transition-colors">
+                    1. Renewable Energy &amp; Clean Cooking
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/what-we-do/biodiversity-virunga-protection" className="hover:text-primary transition-colors">
+                    2. Biodiversity &amp; Virunga Landscape
+                  </Link>
+                </li>
+                <li className="font-bold text-primary flex items-center gap-2">
+                  <span>→</span>
+                  <span>3. Congo Basin Forest &amp; Climate Action</span>
+                </li>
+                <li>
+                  <Link href="/what-we-do/green-entrepreneurship-circular-economy" className="hover:text-primary transition-colors">
+                    4. Green Entrepreneurship &amp; Circular Economy
+                  </Link>
+                </li>
+              </ul>
+              <div className="pt-4 mt-4 border-t border-background/20 text-xs">
+                <Link href="/what-we-do/responsible-digital-ai" className="hover:text-primary text-background/80 block mb-1">
+                  Transversal: Responsible Digital &amp; AI →
+                </Link>
+                <Link href="/what-we-do/green-great-lakes-initiative" className="hover:text-primary text-background/80 block">
+                  Proposed: Hoja Green Great Lakes Initiative →
+                </Link>
+              </div>
+            </div>
+
+            <div className="p-6 bg-surface-2 rounded-sm border border-border">
+              <h4 className="font-bold text-accent text-sm mb-2">Connected Grassroots Programs</h4>
+              <p className="text-xs text-foreground/80 mb-4 leading-relaxed">
+                Rural resilience builds directly on our community economic and family programs:
+              </p>
+              <div className="space-y-2 text-xs">
+                <Link href="/what-we-do/youth-empowerment" className="block text-primary font-bold hover:underline">
+                  • Youth Vocational Skills in Agriculture
+                </Link>
+                <Link href="/what-we-do/humanitarian-consultancy" className="block text-primary font-bold hover:underline">
+                  • Humanitarian Advisory &amp; Field Studies
+                </Link>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  );
+}

@@ -1,0 +1,39 @@
+{
+  "site": {
+    "name": "HOJA Network",
+    "tagline": "Nature. Clean Energy. Green Enterprise.",
+    "motto": "Solve Problems, Create Opportunities",
+    "metaDescription": "HOJA Network is an African grassroots non-profit organization operating at the intersection of nature protection, clean energy, green entrepreneurship, and community resilience in Eastern DRC and the Great Lakes."
+  },
+  "nav": {
+    "whoWeAre": "Who we are",
+    "ourHistory": "Our history",
+    "leadership": "Leadership & Governance",
+    "ourNetwork": "Our network & presence",
+    "whatWeDo": "What we do",
+    "pillar1CleanEnergy": "Clean Cooking & Energy",
+    "pillar2Virunga": "Biodiversity & Virunga",
+    "pillar3CongoBasin": "Congo Basin & Climate",
+    "pillar4GreenEnterprise": "Green Entrepreneurship",
+    "responsibleDigitalAi": "Responsible Digital & AI",
+    "greenGreatLakes": "Hoja Green Great Lakes Initiative",
+    "youthEmpowerment": "Youth Economic Empowerment",
+    "womenEmpowerment": "Women's Economic Empowerment",
+    "hojaEduc": "HOJA EDUC & Creative Learning",
+    "parentingInCrisis": "Parenting in Crisis",
+    "humanitarianConsultancy": "Humanitarian Consultancy",
+    "summit": "The HOJA Summit",
+    "news": "News & views",
+    "publications": "Publications",
+    "contact": "Contact us",
+    "partnerWithUs": "Partner with us",
+    "donate": "Support our work"
+  },
+  "footer": {
+    "about": "HOJA Network operates in Eastern DRC and the Great Lakes region under DRC Registration No. JUST.G.S.112/S-KV/0508/2021 & Rwanda RGB e-Imiryango Law No. 058/2024.",
+    "rights": "All Rights Reserved. Registered Non-Profit Organization.",
+    "newsletterTitle": "Subscribe to our newsletter",
+    "newsletterSubtitle": "Inspiring grassroots innovations & impact updates straight into your inbox",
+    "subscribeButton": "Sign up now"
+  }
+}

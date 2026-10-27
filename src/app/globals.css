@@ -1,0 +1,581 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./";
+
+/* Tailwind theme: color tokens (so bg-primary/text-foreground resolve to our vars) +
+   breakpoints. @theme inline keeps the var() reference (theme-swappable at runtime). */
+@theme inline {
+  --breakpoint-vp375: 375px;
+  --breakpoint-vp768: 768px;
+  --breakpoint-vp1280: 1280px;
+  --breakpoint-vp1920: 1920px;
+  --breakpoint-md: 572px;
+  --breakpoint-lg: 1025px;
+  --breakpoint-2xl: 1601px;
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-clr-0: var(--clr-0);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-color-008: var(--color-008);
+  --color-surface-2: var(--surface-2);
+  --color-color-003: var(--color-003);
+  --color-color-005: var(--color-005);
+  --color-color-002: var(--color-002);
+  --color-color-004: var(--color-004);
+  --color-color-001: var(--color-001);
+  --color-surface: var(--surface);
+  --color-color-010: var(--color-010);
+  --color-color-009: var(--color-009);
+  --color-clr-1: var(--clr-1);
+  --color-color-011: var(--color-011);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+  --color-color-012: var(--color-012);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-clr-2: var(--clr-2);
+  --color-clr-3: var(--clr-3);
+  --color-clr-4: var(--clr-4);
+  --color-clr-5: var(--clr-5);
+  --color-color-006: var(--color-006);
+  --color-color-007: var(--color-007);
+  --color-clr-6: var(--clr-6);
+  --color-clr-7: var(--clr-7);
+}
+
+/* Design tokens (values) — HOJA Network Official Brand */
+:root {
+  --background: rgb(255, 255, 255);
+  --foreground: rgb(12, 27, 36);
+  --primary: rgb(33, 168, 125); /* Vert Émeraude HOJA #21A87D */
+  --primary-text: rgb(23, 128, 95); /* Vert Forêt pour texte lisible WCAG AA */
+  --primary-text-dark: rgb(52, 211, 153); /* Vert Menthe sur fond sombre */
+  --accent: rgb(12, 27, 36); /* Bleu Nuit / Deep Navy #0C1B24 */
+  --border: rgb(223, 234, 240);
+  --surface: rgb(248, 250, 252); /* Blanc Sable Écologique */
+  --surface-2: rgb(240, 253, 244); /* Gris Émeraude Pâle */
+  --surface-3: rgb(237, 246, 249);
+  --muted-foreground: rgb(100, 116, 139);
+  --surface-4: rgb(241, 245, 249);
+  --color-001: rgb(12, 27, 36);
+  --color-002: rgb(59, 89, 153);
+  --color-003: rgb(0, 119, 181);
+  --color-004: rgb(68, 195, 155);
+  --color-005: rgb(228, 64, 95);
+  --color-006: rgb(85, 172, 238);
+  --color-007: rgb(37, 211, 102);
+  --color-008: rgb(46, 125, 50); /* Vert Canopée Écologique */
+  --color-009: rgb(214, 153, 41); /* Or Sahélien #D69929 */
+  --color-010: rgba(12, 27, 36, 0.08);
+  --color-011: rgb(2, 132, 199); /* Bleu Cyan Innovation / IA */
+  --color-012: rgb(15, 23, 42);
+}
+
+:root {
+  /* fonts */
+  --font-body: proxima-nova, sans-serif;
+  --font-001: questa, serif;
+  /* fontSizes */
+  --font-size-001: 14px;
+  --font-size-002: 14.4px;
+  --font-size-003: 16px;
+  --font-size-004: 18px;
+  --font-size-005: 20px;
+  --font-size-006: 22px;
+  --font-size-007: 25px;
+  --font-size-008: 39.06px;
+  /* fontWeights */
+  --font-weight-001: 400;
+  --font-weight-002: 700;
+  /* lineHeights */
+  --line-height-001: 24px;
+  --line-height-002: 27px;
+  --line-height-003: 30px;
+  --line-height-004: 21.6px;
+  --line-height-005: 46.872px;
+  --line-height-006: 21px;
+  --line-height-007: 33px;
+  /* spacing */
+  --space-001: -1px;
+  --space-002: 2px;
+  --space-003: 8px;
+  --space-004: 10.6667px;
+  --space-005: 12.8px;
+  --space-006: 16px;
+  --space-007: 19.2px;
+  --space-008: 20.8px;
+  --space-009: 24px;
+  --space-010: 32px;
+  --space-011: 48px;
+  --space-012: 64px;
+  --space-013: 80px;
+  /* radii */
+  --radius-001: 4px;
+  --radius-002: 100%;
+  /* shadows */
+  --shadow-001: rgba(0, 0, 0, 0.15) 0px 4px 4px 0px;
+  /* zIndices */
+  --z-001: 1;
+  --z-002: 2;
+  --z-003: 11;
+  /* breakpoints */
+  --bp-375: 375px;
+  --bp-768: 768px;
+  --bp-1280: 1280px;
+  --bp-1920: 1920px;
+}
+
+:root {
+  --clr-0: rgba(255, 255, 255, 0.1);
+  --clr-1: rgba(0, 0, 0, 0.15);
+  --clr-2: rgb(68, 68, 68);
+  --clr-3: rgb(136, 136, 136);
+  --clr-4: rgba(0, 0, 0, 0);
+  --clr-5: rgba(0, 0, 0, 0.5);
+  --clr-6: rgba(0, 0, 0, 0.2);
+  --clr-7: rgb(242, 242, 242);
+}
+
+@layer base {
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid currentColor; }
+html { -webkit-text-size-adjust: 100%; line-height: normal; }
+body { margin: 0; }
+ul, ol, menu { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea, optgroup { font: inherit; color: inherit; background: transparent; border: 0; padding: 0; margin: 0; text-align: inherit; letter-spacing: inherit; }
+button { cursor: pointer; }
+table { border-collapse: separate; border-spacing: 0; }
+img, picture, video, canvas, svg { display: inline-block; }
+/* Lottie runtime fit: the player re-mounts its svg/canvas into an absolute overlay that fills
+   the host's captured (per-viewport, definite) box. Force that runtime media to fit the box so
+   an aspect-mismatched viewBox (e.g. a portrait animation in a shorter, letterboxed source box)
+   can't inflate past the pinned height. Scoped to the runtime-marked host only. */
+[data-ditto-lottie] > div > svg, [data-ditto-lottie] > div > canvas { width: 100%; height: 100%; display: block; }
+h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+/* Neutralize UA text defaults to inherit so the generator's default-skipping is
+   correct: a property equal to its inherited value is simply not emitted. */
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+b, strong, th { font-weight: inherit; }
+em, i, cite, var, dfn, address, q { font-style: inherit; }
+small, big, sub, sup { font-size: inherit; }
+sub, sup { vertical-align: inherit; }
+code, kbd, samp, pre, tt, var { font-family: inherit; font-size: inherit; }
+mark { background-color: transparent; color: inherit; }
+abbr[title] { text-decoration: none; }
+fieldset, legend { min-width: 0; }
+
+/* fonts */
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/9ed6dd7ccfed.woff2") format("woff2");
+  unicode-range: U+600-6FF, U+750-77F, U+870-88E, U+890-891, U+898-8E1, U+8E3-8FF, U+2010, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/df257faa902d.woff2") format("woff2");
+  unicode-range: U+600-6FF, U+750-77F, U+870-88E, U+890-891, U+898-8E1, U+8E3-8FF, U+2010, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/742ac9f200e0.woff2") format("woff2");
+  unicode-range: U+600-6FF, U+750-77F, U+870-88E, U+890-891, U+898-8E1, U+8E3-8FF, U+2010, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/0c14582282ca.woff2") format("woff2");
+  unicode-range: U+600-6FF, U+750-77F, U+870-88E, U+890-891, U+898-8E1, U+8E3-8FF, U+2010, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/eca6e284c37c.woff2") format("woff2");
+  unicode-range: U+600-6FF, U+750-77F, U+870-88E, U+890-891, U+898-8E1, U+8E3-8FF, U+2010, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Hebrew";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/46dde84b6662.woff2") format("woff2");
+  unicode-range: U+307-308, U+590-5FF, U+20AA, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Hebrew";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/0d520f3b8501.woff2") format("woff2");
+  unicode-range: U+307-308, U+590-5FF, U+20AA, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Hebrew";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/655f54a1dd2f.woff2") format("woff2");
+  unicode-range: U+307-308, U+590-5FF, U+20AA, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Hebrew";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/126f50856f5d.woff2") format("woff2");
+  unicode-range: U+307-308, U+590-5FF, U+20AA, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Hebrew";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/cce040acad83.woff2") format("woff2");
+  unicode-range: U+307-308, U+590-5FF, U+20AA, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/d33976c7e60f.woff2") format("woff2");
+  unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/8f90bfae5108.woff2") format("woff2");
+  unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/bff100f569c8.woff2") format("woff2");
+  unicode-range: U+370-3FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/afa6be8a9fa7.woff2") format("woff2");
+  unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/ee50bfb5bf2f.woff2") format("woff2");
+  unicode-range: U+100-2AF, U+304, U+308, U+329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/8ae27fa84b0d.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/87e13aa1e785.woff2") format("woff2");
+  unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/89bbfddd3bde.woff2") format("woff2");
+  unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/c61c1ee20b4a.woff2") format("woff2");
+  unicode-range: U+370-3FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/18a145050233.woff2") format("woff2");
+  unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/070c6e30dd76.woff2") format("woff2");
+  unicode-range: U+100-2AF, U+304, U+308, U+329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/89fbb76ce1cc.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/c72ef4cf897b.woff2") format("woff2");
+  unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/4b9136bbf088.woff2") format("woff2");
+  unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/f20111bae8dc.woff2") format("woff2");
+  unicode-range: U+370-3FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/70fa55106a3b.woff2") format("woff2");
+  unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/af18db8e4e33.woff2") format("woff2");
+  unicode-range: U+100-2AF, U+304, U+308, U+329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/f327fe882bcd.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/24634782874a.woff2") format("woff2");
+  unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/486bc68008b9.woff2") format("woff2");
+  unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/80529628b142.woff2") format("woff2");
+  unicode-range: U+370-3FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/6ee0ad291d51.woff2") format("woff2");
+  unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/4b7cf44cf485.woff2") format("woff2");
+  unicode-range: U+100-2AF, U+304, U+308, U+329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/d6bbeb2f6fd1.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/c6931981e98d.woff2") format("woff2");
+  unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/4997a3216fdf.woff2") format("woff2");
+  unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/75d494ef9e4d.woff2") format("woff2");
+  unicode-range: U+370-3FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/9623521f6854.woff2") format("woff2");
+  unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/36222da4fa81.woff2") format("woff2");
+  unicode-range: U+100-2AF, U+304, U+308, U+329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/508b1e3ddf6d.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "lg";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/2fde9304a119.woff") format("woff"), url("/assets/cloned/fonts/b5629bbc1935.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "proxima-nova";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("/assets/cloned/fonts/383f2398c8b2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "proxima-nova";
+  font-style: normal;
+  font-weight: 700;
+  font-display: auto;
+  src: url("/assets/cloned/fonts/b5756eab486f.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "questa";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("/assets/cloned/fonts/91a77da786e6.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "questa";
+  font-style: normal;
+  font-weight: 700;
+  font-display: auto;
+  src: url("/assets/cloned/fonts/267c9e73f1c7.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "slick";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/74d0bc4cd0d7.woff") format("woff"), url("/assets/cloned/fonts/9f56dd1a4afc.ttf") format("truetype");
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+html, body { overflow-x: clip; }
+}
+
+.hoja-partner-track { will-change: transform; }
