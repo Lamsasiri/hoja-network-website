@@ -11,76 +11,108 @@ export const metadata: Metadata = {
 };
 
 const ListRow_data = [
-    { href: "/what-we-do/renewable-energy-clean-cooking", label: "1. Clean Cooking & Energy" },
-    { href: "/what-we-do/biodiversity-virunga-protection", label: "2. Biodiversity & Virunga" },
-    { href: "/what-we-do/congo-basin-forest-climate", label: "3. Congo Basin & Climate" },
-    { href: "/what-we-do/green-entrepreneurship-circular-economy", label: "4. Green Entrepreneurship" },
-    { href: "/what-we-do/responsible-digital-ai", label: "• Responsible Digital & AI" },
-    { href: "/what-we-do/green-great-lakes-initiative", label: "• Green Great Lakes (Concept)" },
-    { href: "/what-we-do/youth-empowerment", label: "• Youth Economic Empowerment" },
-    { href: "/what-we-do/women-empowerment", label: "• Women's Enterprise" }
+    { href: "/what-we-do/renewable-energy-clean-cooking", label: "1. Clean Cooking & Energy", labelFr: "1. Cuisson propre et énergie" },
+    { href: "/what-we-do/biodiversity-virunga-protection", label: "2. Biodiversity & Virunga", labelFr: "2. Biodiversité et Virunga" },
+    { href: "/what-we-do/congo-basin-forest-climate", label: "3. Congo Basin & Climate", labelFr: "3. Bassin du Congo et climat" },
+    { href: "/what-we-do/green-entrepreneurship-circular-economy", label: "4. Green Entrepreneurship", labelFr: "4. Entrepreneuriat vert" },
+    { href: "/what-we-do/responsible-digital-ai", label: "• Responsible Digital & AI", labelFr: "• Numérique responsable et IA" },
+    { href: "/what-we-do/green-great-lakes-initiative", label: "• Green Great Lakes (Concept)", labelFr: "• Grands Lacs verts (concept)" },
+    { href: "/what-we-do/youth-empowerment", label: "• Youth Economic Empowerment", labelFr: "• Autonomisation économique des jeunes" },
+    { href: "/what-we-do/women-empowerment", label: "• Women's Enterprise", labelFr: "• Entrepreneuriat des femmes" }
 ];
 
 const MediaCard_data = [
     {
         alt: "Renewable Energy & Clean Cooking",
+        altFr: "Énergie renouvelable et cuisson propre",
         imgSrc: "/assets/cloned/images/2780166559e6.jpg",
         srcSet: "/assets/cloned/images/2780166559e6.jpg 960w",
         ariaLabel: "Pillar 1: Clean Cooking",
+        ariaLabelFr: "Pilier 1 : cuisson propre",
         description: "Pillar 1",
+        descriptionFr: "Pilier 1",
         ariaLabel2: "Clean Energy",
+        ariaLabel2Fr: "Énergie propre",
         href: "/what-we-do/renewable-energy-clean-cooking",
         description2: "Energy Access",
+        description2Fr: "Accès à l’énergie",
         href2: "/what-we-do/renewable-energy-clean-cooking",
         title: "Renewable Energy & Clean Cooking",
+        titleFr: "Énergie renouvelable et cuisson propre",
         dateTime: "2026-01-15",
         date: "Pillar 1",
+        dateFr: "Pilier 1",
         description3: "Reducing forest extraction pressure through efficient cookstoves, solar mini-services, and local youth clean energy enterprise."
+        , description3Fr: "Réduire la pression sur les forêts grâce aux foyers améliorés, aux services solaires de proximité et aux entreprises locales d’énergie propre portées par les jeunes."
     },
     {
         alt: "Biodiversity Conservation & Virunga Landscape",
+        altFr: "Conservation de la biodiversité et paysage des Virunga",
         imgSrc: "/assets/cloned/images/ca4aca8671c4.jpg",
         srcSet: "/assets/cloned/images/ca4aca8671c4.jpg 960w",
         ariaLabel: "Pillar 2: Virunga Conservation",
+        ariaLabelFr: "Pilier 2 : conservation des Virunga",
         description: "Pillar 2",
+        descriptionFr: "Pilier 2",
         ariaLabel2: "Virunga Landscape",
+        ariaLabel2Fr: "Paysage des Virunga",
         href: "/what-we-do/biodiversity-virunga-protection",
         description2: "Conservation",
+        description2Fr: "Conservation",
         href2: "/what-we-do/biodiversity-virunga-protection",
         title: "Biodiversity & Virunga Landscape",
+        titleFr: "Biodiversité et paysage des Virunga",
         dateTime: "2026-02-10",
         date: "Pillar 2",
+        dateFr: "Pilier 2",
         description3: "Community-driven conservation, buffer zone ecological restoration, and nature-positive livelihoods around protected ecosystems."
+        , description3Fr: "Conservation menée par les communautés, restauration écologique des zones tampons et moyens de subsistance favorables à la nature autour des écosystèmes protégés."
     },
     {
         alt: "Congo Basin Forest Protection & Climate Action",
+        altFr: "Protection des forêts du bassin du Congo et action climatique",
         imgSrc: "/assets/cloned/images/96bc94985e5a.jpg",
         srcSet: "/assets/cloned/images/96bc94985e5a.jpg 960w",
         ariaLabel: "Pillar 3: Congo Basin",
+        ariaLabelFr: "Pilier 3 : bassin du Congo",
         description: "Pillar 3",
+        descriptionFr: "Pilier 3",
         ariaLabel2: "Climate Action",
+        ariaLabel2Fr: "Action climatique",
         href: "/what-we-do/congo-basin-forest-climate",
         description2: "Forests",
+        description2Fr: "Forêts",
         href2: "/what-we-do/congo-basin-forest-climate",
         title: "Congo Basin & Climate Action",
+        titleFr: "Bassin du Congo et action climatique",
         dateTime: "2026-03-01",
         date: "Pillar 3",
+        dateFr: "Pilier 3",
         description3: "Preserving vital tropical rainforest carbon sinks, community agroforestry, and equitable rights-based environmental stewardship."
+        , description3Fr: "Préserver les puits de carbone essentiels de la forêt tropicale, soutenir l’agroforesterie communautaire et promouvoir une gestion environnementale équitable fondée sur les droits."
     },
     {
         alt: "Green Entrepreneurship & Circular Economy",
+        altFr: "Entrepreneuriat vert et économie circulaire",
         imgSrc: "/assets/cloned/images/60e72df5260d.jpg",
         srcSet: "/assets/cloned/images/60e72df5260d.jpg 960w",
         ariaLabel: "Pillar 4: Green Economy",
+        ariaLabelFr: "Pilier 4 : économie verte",
         description: "Pillar 4",
+        descriptionFr: "Pilier 4",
         ariaLabel2: "Circular Economy",
+        ariaLabel2Fr: "Économie circulaire",
         href: "/what-we-do/green-entrepreneurship-circular-economy",
         description2: "Green Enterprise",
+        description2Fr: "Entreprise verte",
         href2: "/what-we-do/green-entrepreneurship-circular-economy",
         title: "Green Entrepreneurship & Circular Economy",
+        titleFr: "Entrepreneuriat vert et économie circulaire",
         dateTime: "2026-04-05",
         date: "Pillar 4",
+        dateFr: "Pilier 4",
         description3: "Incubating youth and women in circular business models, solid and organic waste upcycling, and regenerative micro-enterprises."
+        , description3Fr: "Accompagner les jeunes et les femmes dans les modèles circulaires, la valorisation des déchets et la création de microentreprises régénératives."
     }
 ];
 
@@ -155,9 +187,9 @@ export default function WhatWeDoPage() {
               <div className="mt-6 p-5 bg-surface-2 rounded-sm border border-border">
                 <h4 className="font-bold text-accent text-sm mb-2"><LanguageText fr="Trois niveaux distincts" en="Three Clear Levels" /></h4>
                 <div className="space-y-2 text-xs text-foreground/80">
-                  <p><strong>1. Piliers Stratégiques :</strong> Vision directrice environnement &amp; économie verte.</p>
-                  <p><strong>2. Technologie Transversale :</strong> Numérique responsable &amp; IA sobre.</p>
-                  <p><strong>3. Programmes Historiques :</strong> Ancrage opérationnel vérifié de terrain.</p>
+                  <p><strong><LanguageText fr="1. Piliers stratégiques :" en="1. Strategic Pillars:" /></strong> <LanguageText fr="Vision directrice pour l’environnement et l’économie verte." en="Guiding vision for the environment and green economy." /></p>
+                  <p><strong><LanguageText fr="2. Technologie transversale :" en="2. Cross-cutting Technology:" /></strong> <LanguageText fr="Numérique responsable et IA sobre." en="Responsible digital tools and frugal AI." /></p>
+                  <p><strong><LanguageText fr="3. Programmes historiques :" en="3. Historic Programs:" /></strong> <LanguageText fr="Ancrage opérationnel vérifié sur le terrain." en="Verified operational roots in the field." /></p>
                 </div>
               </div>
             </aside>
