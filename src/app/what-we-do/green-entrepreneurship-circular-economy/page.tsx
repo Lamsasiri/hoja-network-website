@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Green Entrepreneurship & Circular Economy | Strategic Pillar 4 | HOJA Network",
@@ -18,10 +19,10 @@ export default function GreenEntrepreneurshipCircularEconomyPage() {
             <span>Orientation Stratégique</span>
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            Green Entrepreneurship &amp; Circular Economy
+            <LanguageText fr="Entrepreneuriat vert et économie circulaire" en="Green Entrepreneurship & Circular Economy" />
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-220 leading-relaxed">
-            Unlocking sustainable economic opportunities for youth and women through circular business models, waste reduction and upcycling, and regenerative local enterprises.
+            <LanguageText fr="Développer des perspectives économiques durables pour les jeunes et les femmes grâce aux modèles d’affaires circulaires, à la réduction et à la valorisation des déchets, ainsi qu’aux entreprises locales régénératrices." en="Unlocking sustainable economic opportunities for youth and women through circular business models, waste reduction and upcycling, and regenerative local enterprises." />
           </p>
         </div>
       </section>
@@ -33,24 +34,24 @@ export default function GreenEntrepreneurshipCircularEconomyPage() {
           <div className="lg:col-span-2 space-y-10 text-foreground/90">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                Economic Dignity Through Environmental Innovation
+                <LanguageText fr="Dignité économique et innovation environnementale" en="Economic Dignity Through Environmental Innovation" />
               </h2>
               <p className="text-base leading-relaxed mb-4">
                 Rapid urbanization in cities like Goma and Rubavu generates acute waste management challenges: organic markets discard tonnes of agricultural residues daily, plastic pollution clogs urban drainages and threatens Lake Kivu&apos;s waters, and raw materials are rarely reprocessed locally. At the same time, thousands of motivated young people and women seek viable, dignifying employment opportunities.
               </p>
               <p className="text-base leading-relaxed">
-                HOJA Network views the circular economy as a powerful engine for local job creation. By transforming discarded materials, agricultural by-products, and solid waste into valuable local products, communities reduce environmental pollution while generating sustainable household income.
+                <LanguageText fr="Le réseau HOJA considère l’économie circulaire comme un puissant moteur de création d’emplois locaux. En transformant les matériaux mis au rebut, les sous-produits agricoles et les déchets solides en produits locaux utiles, les communautés réduisent la pollution tout en générant des revenus durables pour les ménages." en="HOJA Network views the circular economy as a powerful engine for local job creation. By transforming discarded materials, agricultural by-products, and solid waste into valuable local products, communities reduce environmental pollution while generating sustainable household income." />
               </p>
             </div>
 
             {/* Strategic Focus Areas */}
             <div className="space-y-6">
               <h3 className="[font-family:questa,_serif] text-xl md:text-2xl font-bold text-accent">
-                Core Strategic Focus Areas
+                <LanguageText fr="Axes stratégiques prioritaires" en="Core Strategic Focus Areas" />
               </h3>
 
               <div className="p-6 bg-surface-2 rounded-sm border-l-4 border-primary">
-                <h4 className="text-lg font-bold text-accent mb-2">1. Solid Waste Reduction &amp; Local Upcycling</h4>
+                <h4 className="text-lg font-bold text-accent mb-2"><LanguageText fr="1. Réduction des déchets solides et valorisation locale" en="1. Solid Waste Reduction & Local Upcycling" /></h4>
                 <p className="text-sm text-foreground/85 leading-relaxed mb-3">
                   Incubating youth-led micro-enterprises that collect, sort, and upcycle municipal plastic and textile waste into durable consumer goods, construction materials, or reusable packaging, reducing litter in public corridors and Lake Kivu shorelines.
                 </p>
@@ -62,7 +63,7 @@ export default function GreenEntrepreneurshipCircularEconomyPage() {
               <div className="p-6 bg-surface-3 rounded-sm border-l-4 border-color-011">
                 <h4 className="text-lg font-bold text-accent mb-2">2. Organic Waste Valorization &amp; Eco-Composting</h4>
                 <p className="text-sm text-foreground/85 leading-relaxed mb-3">
-                  Training urban farming collectives and youth groups to recover organic food waste from central markets and convert it into high-grade organic compost and soil conditioners for peri-urban vegetable gardens.
+                  <LanguageText fr="Former des collectifs d’agriculture urbaine et des groupes de jeunes à récupérer les déchets alimentaires organiques des marchés centraux et à les transformer en compost organique de qualité et en amendements pour les potagers périurbains." en="Training urban farming collectives and youth groups to recover organic food waste from central markets and convert it into high-grade organic compost and soil conditioners for peri-urban vegetable gardens." />
                 </p>
                 <div className="text-xs text-muted-foreground italic">
                   Statut : Projets pilotes d&apos;apprentissage en milieu communautaire.
@@ -94,7 +95,7 @@ export default function GreenEntrepreneurshipCircularEconomyPage() {
           {/* Sidebar */}
           <aside className="space-y-8">
             <div className="p-6 bg-accent text-background rounded-sm">
-              <h3 className="font-bold text-lg mb-3">The 4 Strategic Pillars</h3>
+              <h3 className="font-bold text-lg mb-3"><LanguageText fr="Les 4 piliers stratégiques" en="The 4 Strategic Pillars" /></h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link href="/what-we-do/renewable-energy-clean-cooking" className="hover:text-primary transition-colors">
@@ -127,9 +128,9 @@ export default function GreenEntrepreneurshipCircularEconomyPage() {
             </div>
 
             <div className="p-6 bg-surface-2 rounded-sm border border-border">
-              <h4 className="font-bold text-accent text-sm mb-2">Connected Grassroots Programs</h4>
+              <h4 className="font-bold text-accent text-sm mb-2"><LanguageText fr="Programmes communautaires associés" en="Connected Grassroots Programs" /></h4>
               <p className="text-xs text-foreground/80 mb-4 leading-relaxed">
-                This pillar represents the green evolution of our core verified work:
+                <LanguageText fr="Ce pilier représente l’évolution verte de notre travail de terrain vérifié :" en="This pillar represents the green evolution of our core verified work:" />
               </p>
               <div className="space-y-2 text-xs">
                 <Link href="/what-we-do/youth-empowerment" className="block text-primary font-bold hover:underline">

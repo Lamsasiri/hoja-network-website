@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Youth Economic Empowerment | HOJA Network",
@@ -16,10 +17,10 @@ export default function YouthEmpowermentPage() {
             Documented Core Program • Programme Historique Vérifié
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            Youth Economic Empowerment
+            <LanguageText fr="Autonomisation économique des jeunes" en="Youth Economic Empowerment" />
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-200 leading-relaxed">
-            Equipping young job-seekers and emerging entrepreneurs with practical vocational skills, micro-enterprise incubation, and commercial mentorship.
+            <LanguageText fr="Donner aux jeunes demandeurs d’emploi et aux entrepreneurs en devenir des compétences professionnelles pratiques, un accompagnement à l’incubation de microentreprises et un mentorat commercial." en="Equipping young job-seekers and emerging entrepreneurs with practical vocational skills, micro-enterprise incubation, and commercial mentorship." />
           </p>
         </div>
       </section>
@@ -31,7 +32,7 @@ export default function YouthEmpowermentPage() {
           <div className="lg:col-span-2 space-y-10">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                Tackling Youth Unemployment Through Practical Enterprise
+                <LanguageText fr="Lutter contre le chômage des jeunes par l’entrepreneuriat pratique" en="Tackling Youth Unemployment Through Practical Enterprise" />
               </h2>
               <p className="text-base leading-relaxed text-foreground/85 mb-4">
                 In Eastern DRC and the Great Lakes region, youth constitute the majority of the population but face acute structural underemployment. Formal job openings remain scarce, leaving many graduates and out-of-school youth without viable livelihood prospects.
@@ -44,7 +45,7 @@ export default function YouthEmpowermentPage() {
             {/* Action Areas */}
             <div className="space-y-6">
               <h3 className="[font-family:questa,_serif] text-xl font-bold text-accent">
-                Program Components
+                <LanguageText fr="Composantes du programme" en="Program Components" />
               </h3>
 
               <div className="border border-border p-6 rounded-sm bg-surface-2">
@@ -83,7 +84,7 @@ export default function YouthEmpowermentPage() {
           {/* Sidebar */}
           <aside className="space-y-6">
             <div className="p-6 bg-surface-3 rounded-sm border border-border">
-              <h3 className="font-bold text-accent text-base mb-3">Our Programs</h3>
+              <h3 className="font-bold text-accent text-base mb-3"><LanguageText fr="Nos programmes" en="Our Programs" /></h3>
               <ul className="space-y-2 text-sm text-foreground/80">
                 <li className="font-bold text-primary">• Youth Economic Empowerment</li>
                 <li><Link href="/what-we-do/women-empowerment" className="hover:text-primary">Women's Economic Empowerment</Link></li>
@@ -94,15 +95,15 @@ export default function YouthEmpowermentPage() {
             </div>
 
             <div className="p-6 bg-accent text-background rounded-sm">
-              <h3 className="font-bold text-base mb-2">Partner With Us</h3>
+              <h3 className="font-bold text-base mb-2"><LanguageText fr="Devenir partenaire" en="Partner With Us" /></h3>
               <p className="text-xs text-foreground/85 mb-4 leading-relaxed">
-                Support youth apprenticeships, enterprise startup kits, and vocational training across our programs.
+                <LanguageText fr="Soutenez les apprentissages, les kits de démarrage d’entreprise et la formation professionnelle des jeunes dans le cadre de nos programmes." en="Support youth apprenticeships, enterprise startup kits, and vocational training across our programs." />
               </p>
               <Link
                 href="/get-involved/partner-with-us"
                 className="inline-block py-2.5 px-4 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
               >
-                Get Involved →
+                <LanguageText fr="S’impliquer →" en="Get Involved →" />
               </Link>
             </div>
           </aside>

@@ -3,6 +3,7 @@ import ListRow from "./components/list-row";
 import MediaCard from "./components/media-card";
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "What We Do | Strategic Pillars & Programs | HOJA Network",
@@ -121,15 +122,15 @@ export default function WhatWeDoPage() {
             <div className="w-[34.2rem] block z-2 mr-[41.8rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:mt-8 max-md:mr-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]" data-cid="n53">
               <div className="block p-6 text-background bg-accent" data-cid="n54">
                 <h1 className="block [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]" data-cid="n55" data-component="heading">
-                  What We Do
+                  <LanguageText fr="Nos actions" en="What We Do" />
                 </h1>
               </div>
               <div className="block p-6" data-cid="n56">
                 <p className="block text-xl leading-6.5 text-foreground font-medium" data-cid="n57">
-                  At the Intersection of Nature, Clean Energy, Green Enterprise &amp; Community Resilience
+                  <LanguageText fr="Au croisement de la nature, de l’énergie propre, de l’entreprise verte et de la résilience communautaire" en="At the Intersection of Nature, Clean Energy, Green Enterprise & Community Resilience" />
                 </p>
                 <p className="block text-base leading-6 mt-3 text-muted-foreground">
-                  HOJA Network aligns four forward-looking strategic pillars with our verified grassroots programs, deploying responsible digital innovation in service of people and ecosystems in the Great Lakes.
+                  <LanguageText fr="Le réseau HOJA articule quatre piliers stratégiques tournés vers l’avenir avec ses programmes communautaires vérifiés, en mettant l’innovation numérique responsable au service des populations et des écosystèmes des Grands Lacs." en="HOJA Network aligns four forward-looking strategic pillars with our verified grassroots programs, deploying responsible digital innovation in service of people and ecosystems in the Great Lakes." />
                 </p>
               </div>
             </div>
@@ -142,7 +143,7 @@ export default function WhatWeDoPage() {
             <aside className="w-full h-auto block sticky top-[12.3125rem] float-right z-1000 max-w-[30%] basis-[30%] overflow-hidden bg-background max-lg:top-8 max-lg:mb-6 max-lg:static max-lg:max-w-none max-lg:basis-full" data-cid="n60">
               <div className="block p-5 bg-surface-3 rounded-sm border border-border">
                 <h3 className="block text-accent text-base font-bold mb-4 pb-2 border-b border-border">
-                  Strategic Architecture
+                  <LanguageText fr="Architecture stratégique" en="Strategic Architecture" />
                 </h3>
                 <nav>
                   <ul className="space-y-2.5 text-sm">
@@ -152,7 +153,7 @@ export default function WhatWeDoPage() {
               </div>
 
               <div className="mt-6 p-5 bg-surface-2 rounded-sm border border-border">
-                <h4 className="font-bold text-accent text-sm mb-2">Three Clear Levels</h4>
+                <h4 className="font-bold text-accent text-sm mb-2"><LanguageText fr="Trois niveaux distincts" en="Three Clear Levels" /></h4>
                 <div className="space-y-2 text-xs text-foreground/80">
                   <p><strong>1. Piliers Stratégiques :</strong> Vision directrice environnement &amp; économie verte.</p>
                   <p><strong>2. Technologie Transversale :</strong> Numérique responsable &amp; IA sobre.</p>
@@ -165,59 +166,59 @@ export default function WhatWeDoPage() {
               <div className="space-y-8 text-foreground/90">
                 <div>
                   <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                    Our 4 Strategic Pillars
+                    <LanguageText fr="Nos 4 piliers stratégiques" en="Our 4 Strategic Pillars" />
                   </h2>
                   <p className="text-base leading-relaxed mb-4">
-                    In response to accelerating ecological degradation and systemic economic precarity in the Great Lakes, HOJA Network organizes its strategic direction around four interconnected pillars:
+                    <LanguageText fr="Face à l’accélération de la dégradation écologique et à la précarité économique systémique dans la région des Grands Lacs, le réseau HOJA organise son orientation stratégique autour de quatre piliers interdépendants :" en="In response to accelerating ecological degradation and systemic economic precarity in the Great Lakes, HOJA Network organizes its strategic direction around four interconnected pillars:" />
                   </p>
                 </div>
 
                 {/* 4 Pillars Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
                   <Link href="/what-we-do/renewable-energy-clean-cooking" className="p-5 bg-surface-2 border-l-4 border-primary rounded-sm hover:shadow-md transition-shadow group">
-                    <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Pillar 1</div>
-                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors">Renewable Energy &amp; Clean Cooking</h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed">Transitioning households from unsustainably harvested charcoal to efficient cookstoves and decentralized clean energy entrepreneurship.</p>
+                    <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1"><LanguageText fr="Pilier 1" en="Pillar 1" /></div>
+                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors"><LanguageText fr="Énergie renouvelable et cuisson propre" en="Renewable Energy &amp; Clean Cooking" /></h3>
+                    <p className="text-sm text-foreground/80 leading-relaxed"><LanguageText fr="Accompagner les ménages du charbon issu de coupes non durables vers des foyers améliorés et des activités locales d’énergie propre." en="Transitioning households from unsustainably harvested charcoal to efficient cookstoves and decentralized clean energy entrepreneurship." /></p>
                   </Link>
 
                   <Link href="/what-we-do/biodiversity-virunga-protection" className="p-5 bg-surface-3 border-l-4 border-color-011 rounded-sm hover:shadow-md transition-shadow group">
-                    <div className="text-xs font-bold uppercase tracking-wider text-color-011 mb-1">Pillar 2</div>
-                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors">Biodiversity &amp; Virunga Landscape</h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed">Community-led conservation, buffer zone reforestation, and nature-positive livelihoods around protected ecosystems.</p>
+                    <div className="text-xs font-bold uppercase tracking-wider text-color-011 mb-1"><LanguageText fr="Pilier 2" en="Pillar 2" /></div>
+                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors"><LanguageText fr="Biodiversité et paysage des Virunga" en="Biodiversity &amp; Virunga Landscape" /></h3>
+                    <p className="text-sm text-foreground/80 leading-relaxed"><LanguageText fr="Soutenir la conservation menée par les communautés, la restauration des zones tampons et des moyens de subsistance compatibles avec la nature." en="Community-led conservation, buffer zone reforestation, and nature-positive livelihoods around protected ecosystems." /></p>
                   </Link>
 
                   <Link href="/what-we-do/congo-basin-forest-climate" className="p-5 bg-surface-4 border-l-4 border-color-008 rounded-sm hover:shadow-md transition-shadow group">
-                    <div className="text-xs font-bold uppercase tracking-wider text-color-008 mb-1">Pillar 3</div>
-                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors">Congo Basin Forest &amp; Climate Action</h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed">Preserving critical rainforest carbon sinks, community agroforestry, and equitable rights-based land stewardship.</p>
+                    <div className="text-xs font-bold uppercase tracking-wider text-color-008 mb-1"><LanguageText fr="Pilier 3" en="Pillar 3" /></div>
+                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors"><LanguageText fr="Forêt du bassin du Congo et action climatique" en="Congo Basin Forest &amp; Climate Action" /></h3>
+                    <p className="text-sm text-foreground/80 leading-relaxed"><LanguageText fr="Préserver les puits de carbone forestiers, développer l’agroforesterie communautaire et promouvoir une gestion équitable des terres." en="Preserving critical rainforest carbon sinks, community agroforestry, and equitable rights-based land stewardship." /></p>
                   </Link>
 
                   <Link href="/what-we-do/green-entrepreneurship-circular-economy" className="p-5 bg-surface-2 border-l-4 border-color-012 rounded-sm hover:shadow-md transition-shadow group">
-                    <div className="text-xs font-bold uppercase tracking-wider text-color-012 mb-1">Pillar 4</div>
-                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors">Green Entrepreneurship &amp; Circular Economy</h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed">Incubating youth and women in waste reduction, upcycling, organic composting, and circular micro-business models.</p>
+                    <div className="text-xs font-bold uppercase tracking-wider text-color-012 mb-1"><LanguageText fr="Pilier 4" en="Pillar 4" /></div>
+                    <h3 className="font-bold text-accent text-base mb-1 group-hover:text-primary transition-colors"><LanguageText fr="Entrepreneuriat vert et économie circulaire" en="Green Entrepreneurship &amp; Circular Economy" /></h3>
+                    <p className="text-sm text-foreground/80 leading-relaxed"><LanguageText fr="Accompagner les jeunes et les femmes dans la réduction des déchets, le réemploi, le compostage et les microentreprises circulaires." en="Incubating youth and women in waste reduction, upcycling, organic composting, and circular micro-business models." /></p>
                   </Link>
                 </div>
 
                 {/* Transversal & Proposed Regional Boxes */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                   <div className="p-5 bg-surface-3 border-l-4 border-accent rounded-sm">
-                    <div className="text-xs font-bold uppercase tracking-wider text-accent mb-1">Transversal Enabler</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-accent mb-1"><LanguageText fr="Levier transversal" en="Transversal Enabler" /></div>
                     <Link href="/what-we-do/responsible-digital-ai">
-                      <h4 className="font-bold text-accent text-base mb-1 hover:text-primary transition-colors">Responsible Digital &amp; AI Innovation →</h4>
+                      <h4 className="font-bold text-accent text-base mb-1 hover:text-primary transition-colors"><LanguageText fr="Innovation numérique responsable et IA →" en="Responsible Digital &amp; AI Innovation →" /></h4>
                     </Link>
                     <p className="text-xs text-foreground/80 leading-relaxed">
-                      Practical, frugal tools for environmental telemetry, restoration tracking, and green enterprise efficiency with mandatory human oversight.
+                      <LanguageText fr="Des outils sobres pour le suivi environnemental, la restauration et l’efficacité des entreprises vertes, sous supervision humaine." en="Practical, frugal tools for environmental telemetry, restoration tracking, and green enterprise efficiency with mandatory human oversight." />
                     </p>
                   </div>
 
                   <div className="p-5 bg-surface-4 border-l-4 border-primary rounded-sm">
-                    <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Proposed Regional Initiative</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1"><LanguageText fr="Initiative régionale proposée" en="Proposed Regional Initiative" /></div>
                     <Link href="/what-we-do/green-great-lakes-initiative">
-                      <h4 className="font-bold text-accent text-base mb-1 hover:text-primary transition-colors">Hoja Green Great Lakes Initiative →</h4>
+                      <h4 className="font-bold text-accent text-base mb-1 hover:text-primary transition-colors"><LanguageText fr="Initiative HOJA Grands Lacs verts →" en="Hoja Green Great Lakes Initiative →" /></h4>
                     </Link>
                     <p className="text-xs text-foreground/80 leading-relaxed">
-                      A regional concept note integrating clean energy, community conservation, and a green enterprise accelerator across 5 strategic axes.
+                      <LanguageText fr="Un projet régional qui associe énergie propre, conservation communautaire et accélérateur d’entreprises vertes autour de cinq axes." en="A regional concept note integrating clean energy, community conservation, and a green enterprise accelerator across 5 strategic axes." />
                     </p>
                   </div>
                 </div>
@@ -225,26 +226,26 @@ export default function WhatWeDoPage() {
                 {/* Verified Historical Programs Section */}
                 <div className="pt-6 border-t border-border">
                   <h3 className="[font-family:questa,_serif] text-xl md:text-2xl font-bold text-accent mb-3">
-                    Documented Grassroots &amp; Historical Programs
+                    <LanguageText fr="Programmes communautaires et historiques documentés" en="Documented Grassroots &amp; Historical Programs" />
                   </h3>
                   <p className="text-sm text-foreground/85 leading-relaxed mb-4">
-                    Our environmental and green economy vision is anchored in our verified, field-tested community portfolio operating in North Kivu and regional borderlands:
+                    <LanguageText fr="Notre vision environnementale et d’économie verte s’appuie sur des programmes communautaires éprouvés au Nord-Kivu et dans les zones frontalières de la région :" en="Our environmental and green economy vision is anchored in our verified, field-tested community portfolio operating in North Kivu and regional borderlands:" />
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
                     <Link href="/what-we-do/youth-empowerment" className="p-3 bg-surface rounded-sm border border-border hover:border-primary transition-colors">
-                      <strong>• Youth Economic Empowerment:</strong> Vocational skills &amp; micro-business starter kits.
+                      <strong><LanguageText fr="• Autonomisation économique des jeunes :" en="• Youth Economic Empowerment:" /></strong> <LanguageText fr="Compétences professionnelles et kits de démarrage pour microentreprises." en="Vocational skills &amp; micro-business starter kits." />
                     </Link>
                     <Link href="/what-we-do/women-empowerment" className="p-3 bg-surface rounded-sm border border-border hover:border-primary transition-colors">
-                      <strong>• Women&apos;s Economic Autonomy:</strong> Cross-border trader literacy &amp; enterprise support.
+                      <strong><LanguageText fr="• Autonomie économique des femmes :" en="• Women's Economic Autonomy:" /></strong> <LanguageText fr="Littératie financière pour les commerçantes transfrontalières et accompagnement d’entreprise." en="Cross-border trader literacy &amp; enterprise support." />
                     </Link>
                     <Link href="/what-we-do/hoja-educ" className="p-3 bg-surface rounded-sm border border-border hover:border-primary transition-colors">
-                      <strong>• HOJA EDUC:</strong> Creative early learning materials &amp; eco-education workshops.
+                      <strong>• HOJA EDUC :</strong> <LanguageText fr="Matériel créatif d’éveil et ateliers d’éducation écologique." en="Creative early learning materials &amp; eco-education workshops." />
                     </Link>
                     <Link href="/what-we-do/parenting-in-crisis" className="p-3 bg-surface rounded-sm border border-border hover:border-primary transition-colors">
-                      <strong>• Parenting in Crisis:</strong> Psychosocial dialogue circles for displaced families.
+                      <strong><LanguageText fr="• Parentalité en temps de crise :" en="• Parenting in Crisis:" /></strong> <LanguageText fr="Cercles de dialogue psychosocial pour les familles déplacées." en="Psychosocial dialogue circles for displaced families." />
                     </Link>
                     <Link href="/what-we-do/humanitarian-consultancy" className="p-3 bg-surface rounded-sm border border-border hover:border-primary transition-colors sm:col-span-2">
-                      <strong>• Humanitarian Consultancy &amp; The HOJA Summit:</strong> Local capacity building &amp; annual regional convening.
+                      <strong><LanguageText fr="• Conseil humanitaire et Sommet HOJA :" en="• Humanitarian Consultancy &amp; The HOJA Summit:" /></strong> <LanguageText fr="Renforcement des capacités locales et rencontre régionale annuelle." en="Local capacity building &amp; annual regional convening." />
                     </Link>
                   </div>
                 </div>
@@ -252,7 +253,7 @@ export default function WhatWeDoPage() {
                 {/* Authentic Quote */}
                 <blockquote className="p-6 bg-accent text-background rounded-sm text-center my-8">
                   <p className="font-medium italic text-lg leading-relaxed">
-                    &ldquo;When people have the tools to analyze their own problems and the collective solidarity to pool their resources, they do not need to wait for outside assistance. They become the creators of their own opportunities.&rdquo;
+                    <LanguageText fr="« Lorsque les personnes disposent des outils pour analyser leurs propres problèmes et de la solidarité nécessaire pour mettre leurs ressources en commun, elles n’ont pas à attendre une aide extérieure. Elles deviennent actrices de leurs propres possibilités. »" en="“When people have the tools to analyze their own problems and the collective solidarity to pool their resources, they do not need to wait for outside assistance. They become the creators of their own opportunities.”" />
                   </p>
                   <span className="block not-italic font-bold text-primary text-sm mt-3 uppercase tracking-wider">
                     — Isaac Bugeri, Founder of HOJA Network &amp; Ashoka Fellow
@@ -267,10 +268,10 @@ export default function WhatWeDoPage() {
         <section className="block relative pt-16 pb-12 text-background bg-accent max-md:pt-12 max-lg:pb-8">
           <header className="block relative z-11 max-w-320 mb-8 px-8 text-center mx-auto max-md:px-4">
             <h2 className="block [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]">
-              Strategic Pillars in Action
+              <LanguageText fr="Les piliers stratégiques en action" en="Strategic Pillars in Action" />
             </h2>
             <p className="w-160 block max-w-full mx-auto pt-2 pb-4 text-foreground/80 text-sm">
-              Discover how our 4 strategic pillars translate into concrete community initiatives across Eastern DRC and the Great Lakes.
+              <LanguageText fr="Découvrez comment nos quatre piliers stratégiques se traduisent en initiatives communautaires concrètes dans l’est de la RDC et la région des Grands Lacs." en="Discover how our 4 strategic pillars translate into concrete community initiatives across Eastern DRC and the Great Lakes." />
             </p>
           </header>
           <div className="block relative z-11 max-w-320 px-8 mx-auto max-md:px-4">
@@ -284,17 +285,17 @@ export default function WhatWeDoPage() {
         <section className="block relative py-16 bg-surface-2 text-center">
           <div className="max-w-240 mx-auto px-6">
             <h3 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-3">
-              Partner with HOJA Network on Green &amp; Community Solutions
+              <LanguageText fr="Collaborez avec le réseau HOJA pour des solutions vertes et communautaires" en="Partner with HOJA Network on Green & Community Solutions" />
             </h3>
             <p className="text-base text-foreground/80 mb-6 max-w-180 mx-auto leading-relaxed">
-              We welcome collaboration with philanthropic foundations, conservation alliances, clean energy funds, and community leaders committed to sustainable prosperity in the Great Lakes.
+              <LanguageText fr="Nous accueillons les collaborations avec des fondations philanthropiques, des alliances de conservation, des fonds pour l’énergie propre et des responsables communautaires engagés en faveur d’une prospérité durable dans la région des Grands Lacs." en="We welcome collaboration with philanthropic foundations, conservation alliances, clean energy funds, and community leaders committed to sustainable prosperity in the Great Lakes." />
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
               <Link href="/get-involved/partner-with-us" className="py-3 px-6 bg-primary text-background font-bold uppercase text-xs tracking-wider rounded-sm hover:bg-primary/90 transition-colors">
-                Partner With Us
+                <LanguageText fr="Devenir partenaire" en="Partner With Us" />
               </Link>
               <Link href="/contact" className="py-3 px-6 bg-accent text-background font-bold uppercase text-xs tracking-wider rounded-sm hover:bg-accent/90 transition-colors">
-                Contact Our Offices
+                <LanguageText fr="Contacter nos bureaux" en="Contact Our Offices" />
               </Link>
             </div>
           </div>

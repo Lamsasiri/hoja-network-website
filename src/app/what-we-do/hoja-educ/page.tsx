@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "HOJA EDUC — Creative Education & Innovation | HOJA Network",
@@ -16,10 +17,10 @@ export default function HojaEducPage() {
             Documented Core Program • Programme Historique Vérifié
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            HOJA EDUC: Creative Education &amp; Innovation
+            <LanguageText fr="HOJA EDUC : éducation créative et innovation" en="HOJA EDUC: Creative Education & Innovation" />
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-200 leading-relaxed">
-            Nurturing curiosity, active pedagogy, and school perseverance among children and young learners through interactive discovery workshops.
+            <LanguageText fr="Éveiller la curiosité, favoriser une pédagogie active et soutenir la persévérance scolaire des enfants et jeunes apprenants grâce à des ateliers de découverte interactifs." en="Nurturing curiosity, active pedagogy, and school perseverance among children and young learners through interactive discovery workshops." />
           </p>
         </div>
       </section>
@@ -31,7 +32,7 @@ export default function HojaEducPage() {
           <div className="lg:col-span-2 space-y-10">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                Inspiring Children Through Practical, Active Learning
+                <LanguageText fr="Inspirer les enfants par un apprentissage pratique et actif" en="Inspiring Children Through Practical, Active Learning" />
               </h2>
               <p className="text-base leading-relaxed text-foreground/85 mb-4">
                 Education in crisis-affected environments often suffers from severe infrastructural deficits, crowded classrooms, and rote learning methodologies that fail to awaken children&apos;s innate creativity and problem-solving drive.
@@ -44,7 +45,7 @@ export default function HojaEducPage() {
             {/* Action Areas */}
             <div className="space-y-6">
               <h3 className="[font-family:questa,_serif] text-xl font-bold text-accent">
-                Key Learning Dimensions
+                <LanguageText fr="Principaux axes d’apprentissage" en="Key Learning Dimensions" />
               </h3>
 
               <div className="border border-border p-6 rounded-sm bg-surface-2">
@@ -83,7 +84,7 @@ export default function HojaEducPage() {
           {/* Sidebar */}
           <aside className="space-y-6">
             <div className="p-6 bg-surface-3 rounded-sm border border-border">
-              <h3 className="font-bold text-accent text-base mb-3">Our Programs</h3>
+              <h3 className="font-bold text-accent text-base mb-3"><LanguageText fr="Nos programmes" en="Our Programs" /></h3>
               <ul className="space-y-2 text-sm text-foreground/80">
                 <li><Link href="/what-we-do/youth-empowerment" className="hover:text-primary">Youth Economic Empowerment</Link></li>
                 <li><Link href="/what-we-do/women-empowerment" className="hover:text-primary">Women's Economic Empowerment</Link></li>
@@ -94,15 +95,15 @@ export default function HojaEducPage() {
             </div>
 
             <div className="p-6 bg-accent text-background rounded-sm">
-              <h3 className="font-bold text-base mb-2">Support HOJA EDUC</h3>
+              <h3 className="font-bold text-base mb-2"><LanguageText fr="Soutenir HOJA EDUC" en="Support HOJA EDUC" /></h3>
               <p className="text-xs text-foreground/85 mb-4 leading-relaxed">
-                Help equip community learning workshops with educational materials, books, and creative supplies.
+                <LanguageText fr="Aidez-nous à équiper les ateliers d’apprentissage communautaires en matériel pédagogique, livres et fournitures créatives." en="Help equip community learning workshops with educational materials, books, and creative supplies." />
               </p>
               <Link
                 href="/get-involved/partner-with-us"
                 className="inline-block py-2.5 px-4 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
               >
-                Support Education →
+                <LanguageText fr="Soutenir l’éducation →" en="Support Education →" />
               </Link>
             </div>
           </aside>

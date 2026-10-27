@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Parenting in Crisis | HOJA Network",
@@ -14,16 +15,16 @@ export default function ChildProtectionRedirectPage() {
       </head>
       <div className="max-w-160 mx-auto space-y-4">
         <h1 className="[font-family:questa,_serif] text-2xl font-bold text-accent">
-          Parenting in Crisis &amp; Family Support
+          <LanguageText fr="Accompagnement parental en situation de crise" en="Parenting in Crisis & Family Support" />
         </h1>
         <p className="text-foreground/80 text-sm">
-          Please explore our program supporting vulnerable families and children in North Kivu.
+          <LanguageText fr="Découvrez notre programme de soutien aux familles et aux enfants vulnérables du Nord-Kivu." en="Please explore our program supporting vulnerable families and children in North Kivu." />
         </p>
         <Link
           href="/what-we-do/parenting-in-crisis"
           className="inline-block py-2.5 px-6 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
         >
-          Go to Parenting in Crisis →
+          <LanguageText fr="Accéder au programme d’accompagnement parental →" en="Go to Parenting in Crisis →" />
         </Link>
       </div>
     </main>

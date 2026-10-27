@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Responsible Digital & AI Innovation | HOJA Network",
@@ -14,16 +15,16 @@ export default function ArtificialIntelligenceRedirectPage() {
       </head>
       <div className="max-w-160 mx-auto space-y-4">
         <h1 className="[font-family:questa,_serif] text-2xl font-bold text-accent">
-          Responsible Digital &amp; AI Innovation
+          <LanguageText fr="Innovation numérique responsable et IA" en="Responsible Digital & AI Innovation" />
         </h1>
         <p className="text-foreground/80 text-sm">
-          Redirecting to our transversal enabler page on responsible digital innovation and frugal AI with human supervision.
+          <LanguageText fr="Redirection vers notre page consacrée à l’innovation numérique responsable et à une IA sobre placée sous supervision humaine." en="Redirecting to our transversal enabler page on responsible digital innovation and frugal AI with human supervision." />
         </p>
         <Link
           href="/what-we-do/responsible-digital-ai"
           className="inline-block py-2.5 px-6 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
         >
-          Go to Responsible Digital &amp; AI →
+          <LanguageText fr="Accéder à la page Numérique responsable et IA →" en="Go to Responsible Digital & AI →" />
         </Link>
       </div>
     </main>

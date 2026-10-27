@@ -2,9 +2,31 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import { DONATION_CONFIG } from "@/config/donation";
 
+const copy = {
+  fr: {
+    heroBadge: "Don institutionnel sécurisé", heroTitle: "Soutenir les initiatives de HOJA Network", heroIntro: "Votre contribution soutient des solutions communautaires pour l’énergie propre, la conservation de la nature, l’entrepreneuriat vert et la résilience familiale.",
+    drcRegistration: "Enregistrement RDC", rwandaAuthorization: "Autorisation Rwanda", governance: "Gouvernance", governanceDetail: "Contrôle financier et rapports transparents",
+    bankTab: "Virement bancaire", bankAudience: "Pour les fondations, partenaires institutionnels et donateurs individuels.", antiFraudActive: "Vérification anti-fraude active", bankProtocol: "Protocole bancaire sécurisé", bankConfirmation: "Les coordonnées complètes sont communiquées après vérification de la demande.", beneficiary: "Bénéficiaire", receiptOnRequest: "Reçu officiel sur demande", bankCtaTitle: "Demander les coordonnées bancaires officielles", bankCtaBody: "Aucune coordonnée bancaire n’est publiée avant validation par la direction financière.", contactFinance: "Contacter les finances",
+    donationIn: "Don en", network: "Réseau", confirmations: "Confirmations requises", institutionalVerification: "Vérification institutionnelle", digitalAssetsIntro: "Les actifs numériques sont acceptés uniquement après validation des coordonnées officielles par notre équipe financière.", antiSpoofingTitle: "Protection contre l’usurpation", antiSpoofingBody: "Ne transférez aucun fonds vers une adresse reçue par un canal non vérifié. Demandez toujours une adresse officielle signée à HOJA Network.", treasuryStatus: "Trésorerie en cours de configuration", bitcoinAddressTitle: "Adresse Bitcoin non publiée", cryptoAddressNotice: "Aucune adresse de dépôt n’est actuellement configurée. Contactez directement l’équipe financière pour obtenir une adresse vérifiée.", requestBitcoinAddress: "Demander une adresse vérifiée",
+    stablecoin: "stablecoin", usdtIntro: "Choisissez le réseau souhaité pour consulter son statut de configuration.", networkSelectorActive: "Sélecteur de réseau actif", selectNetwork: "Sélectionner un réseau", assetProtocol: "Actif et protocole", issuingNetwork: "Réseau de transfert", recommendation: "Important", protocolWarning: "N’envoyez aucun USDT avant d’avoir reçu et vérifié l’adresse officielle sur le réseau sélectionné.", requestUsdtAddress: "Demander l’adresse vérifiée",
+    impactHeading: "L’impact de votre contribution", impactIntro: "Les allocations indiquées décrivent les affectations prévues pour chaque domaine d’intervention.", transparencyHeading: "Transparence et reçus", transparencyBody: "HOJA Network s’engage à assurer une gestion responsable des fonds, un suivi des activités et la remise de reçus officiels sur demande, conformément aux procédures applicables.", directContact: "Contact direct", governanceTeam: "Équipe de gouvernance", becomePartner: "Devenir partenaire",
+  },
+  en: {
+    heroBadge: "Secure institutional giving", heroTitle: "Support HOJA Network’s initiatives", heroIntro: "Your contribution supports community solutions for clean energy, nature conservation, green enterprise, and family resilience.",
+    drcRegistration: "DRC registration", rwandaAuthorization: "Rwanda authorization", governance: "Governance", governanceDetail: "Financial oversight and transparent reporting",
+    bankTab: "Bank transfer", bankAudience: "For foundations, institutional partners, and individual donors.", antiFraudActive: "Active anti-fraud checks", bankProtocol: "Secure banking protocol", bankConfirmation: "Complete details are shared after the request has been reviewed.", beneficiary: "Beneficiary", receiptOnRequest: "Official receipt upon request", bankCtaTitle: "Request official bank details", bankCtaBody: "Bank details are not published before approval by the finance team.", contactFinance: "Contact finance",
+    donationIn: "Donate in", network: "Network", confirmations: "Required confirmations", institutionalVerification: "Institutional verification", digitalAssetsIntro: "Digital assets are accepted only after the official details have been approved by our finance team.", antiSpoofingTitle: "Protection against impersonation", antiSpoofingBody: "Do not transfer funds to an address received through an unverified channel. Always request an official, verified address from HOJA Network.", treasuryStatus: "Treasury setup in progress", bitcoinAddressTitle: "Bitcoin address not published", cryptoAddressNotice: "No deposit address is currently configured. Contact the finance team directly to request a verified address.", requestBitcoinAddress: "Request a verified address",
+    stablecoin: "stablecoin", usdtIntro: "Choose a network to view its setup status.", networkSelectorActive: "Network selector active", selectNetwork: "Select a network", assetProtocol: "Asset and protocol", issuingNetwork: "Transfer network", recommendation: "Important", protocolWarning: "Do not send USDT until you have received and verified the official address for the selected network.", requestUsdtAddress: "Request a verified address",
+    impactHeading: "The impact of your contribution", impactIntro: "The allocations shown describe the intended use of funds for each program area.", transparencyHeading: "Transparency and receipts", transparencyBody: "HOJA Network is committed to responsible fund management, activity monitoring, and providing official receipts upon request, in accordance with applicable procedures.", directContact: "Direct contact", governanceTeam: "Governance team", becomePartner: "Become a partner",
+  },
+} as const;
+
 export default function DonatePage() {
+  const { language } = useLanguage();
+  const c = copy[language];
   const [selectedMethod, setSelectedMethod] = useState<"wire" | "btc" | "usdt">("wire");
   const [selectedUsdtNetwork, setSelectedUsdtNetwork] = useState<string>("trc20");
   const [copiedField, setCopiedField] = useState<string | null>(null);
@@ -19,6 +41,19 @@ export default function DonatePage() {
 
   const usdtNetworks = DONATION_CONFIG.supportedMethods.usdt.networks;
   const currentUsdt = usdtNetworks.find(n => n.networkId === selectedUsdtNetwork) || usdtNetworks[0];
+  const bankEmail = new URLSearchParams({ subject: language === "fr" ? "Demande de coordonnées bancaires pour un don à HOJA Network" : "Request for HOJA Network donation bank details" });
+  const bitcoinEmail = new URLSearchParams({
+    subject: language === "fr" ? "Don en Bitcoin (BTC) — HOJA Network" : "Bitcoin (BTC) donation — HOJA Network",
+    body: language === "fr"
+      ? "Bonjour, je souhaite effectuer une contribution en Bitcoin (BTC) pour soutenir vos initiatives. Merci de me transmettre l'adresse de dépôt officielle vérifiée et la procédure de reçu."
+      : "Hello, I would like to make a Bitcoin (BTC) contribution in support of your work. Please send me the verified official deposit address and receipt procedure.",
+  });
+  const usdtEmail = new URLSearchParams({
+    subject: `Donation USDT (${currentUsdt.networkName}) — HOJA Network`,
+    body: language === "fr"
+      ? `Bonjour, je souhaite effectuer une contribution en USDT sur le réseau ${currentUsdt.networkName}. Merci de me transmettre l'adresse officielle vérifiée.`
+      : `Hello, I would like to make a USDT contribution on the ${currentUsdt.networkName} network. Please send me the verified official address.`,
+  });
 
   return (
     <main className="min-h-screen bg-background text-foreground pt-32 pb-24 max-lg:pt-24" id="main">
@@ -26,27 +61,25 @@ export default function DonatePage() {
       <section className="max-w-300 mx-auto px-6 mb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-3 rounded-full text-xs font-bold uppercase tracking-wider text-accent mb-4 border border-border">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          Soutien Institutionnel &amp; Philanthropique
+          {c.heroBadge}
         </div>
         <h1 className="text-4xl md:text-5xl font-bold [font-family:questa,_serif] text-accent mb-4 leading-tight">
-          Soutenir l&apos;Action de Terrain de HOJA Network
+          {c.heroTitle}
         </h1>
         <p className="max-w-220 mx-auto text-base md:text-lg text-foreground/80 leading-relaxed">
-          Votre contribution finance directement nos programmes communautaires dans la région des Grands Lacs :
-          accès à l&apos;énergie propre et foyers améliorés, conservation citoyenne autour des Virunga,
-          entrepreneuriat vert des jeunes et protection des familles en zone de crise.
+          {c.heroIntro}
         </p>
 
         {/* Legal credentials banner */}
         <div className="mt-8 p-4 bg-surface-2 rounded-sm border border-border max-w-240 mx-auto text-xs text-muted-foreground flex flex-wrap justify-around gap-4 text-left md:text-center">
           <div>
-            <strong className="text-foreground">Enregistrement RDC :</strong> ASBL N° <code>JUST.G.S. 112/S-KV/0508/2021</code>
+            <strong className="text-foreground">{c.drcRegistration}</strong> ASBL No. <code>JUST.G.S. 112/S-KV/0508/2021</code>
           </div>
           <div>
-            <strong className="text-foreground">Autorisation Rwanda :</strong> RGB N° <code>058/2024</code>
+            <strong className="text-foreground">{c.rwandaAuthorization}</strong> RGB No. <code>058/2024</code>
           </div>
           <div>
-            <strong className="text-foreground">Gouvernance :</strong> Audit financier &amp; reçu officiel
+            <strong className="text-foreground">{c.governance}</strong> {c.governanceDetail}
           </div>
         </div>
       </section>
@@ -68,7 +101,7 @@ export default function DonatePage() {
               <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>
-              <span>Virement Bancaire (SWIFT / SEPA)</span>
+              <span>{c.bankTab}</span>
             </button>
 
             <button
@@ -110,30 +143,30 @@ export default function DonatePage() {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-border">
                   <div>
                     <h2 className="text-2xl font-bold [font-family:questa,_serif] text-accent">
-                      {DONATION_CONFIG.supportedMethods.bankWire.title}
+                      {language === "fr" ? DONATION_CONFIG.supportedMethods.bankWire.title : DONATION_CONFIG.supportedMethods.bankWire.titleEn}
                     </h2>
                     <p className="text-sm text-foreground/80 mt-1">
-                      Privilégié pour les fondations, bailleurs de fonds institutionnels et donateurs majeurs.
+                      {c.bankAudience}
                     </p>
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded text-amber-700 text-xs font-semibold">
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
-                    <span>Procédure de Sécurité Anti-Fraude Active</span>
+                    <span>{c.antiFraudActive}</span>
                   </div>
                 </div>
 
                 {/* Instructions Box */}
                 <div className="bg-surface-2 p-5 rounded-sm border border-border mb-8 text-sm leading-relaxed text-foreground/90">
                   <p className="font-semibold text-accent mb-2">
-                    Protocole de Transmission des Coordonnées Bancaires :
+                    {c.bankProtocol}
                   </p>
                   <p className="mb-3">
-                    {DONATION_CONFIG.supportedMethods.bankWire.wireInstructions}
+                    {language === "fr" ? DONATION_CONFIG.supportedMethods.bankWire.wireInstructions : DONATION_CONFIG.supportedMethods.bankWire.wireInstructionsEn}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Chaque don fait l&apos;objet d&apos;une convention d&apos;allocation ou d&apos;une confirmation écrite émise par la direction financière de HOJA Network.
+                    {c.bankConfirmation}
                   </p>
                 </div>
 
@@ -145,18 +178,18 @@ export default function DonatePage() {
                         <div className="flex justify-between items-center mb-3">
                           <span className="font-bold text-accent text-lg">{acc.currency}</span>
                           <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground px-2 py-0.5 bg-surface-1 rounded">
-                            {acc.country}
+                            {language === "fr" ? acc.country : acc.countryEn}
                           </span>
                         </div>
-                        <h3 className="font-semibold text-sm mb-1">{acc.bankName}</h3>
-                        <p className="text-xs text-muted-foreground mb-3">Bénéficiaire : {acc.accountName}</p>
+                        <h3 className="font-semibold text-sm mb-1">{language === "fr" ? acc.bankName : acc.bankNameEn}</h3>
+                        <p className="text-xs text-muted-foreground mb-3">{c.beneficiary}: {acc.accountName}</p>
                         <p className="text-xs text-foreground/80 italic leading-snug">
-                          {acc.statusNotice}
+                          {language === "fr" ? acc.statusNotice : acc.statusNoticeEn}
                         </p>
                       </div>
                       <div className="mt-4 pt-3 border-t border-border/60">
                         <span className="inline-block text-[11px] font-medium text-amber-700 bg-amber-50 px-2 py-1 rounded">
-                          Attestation sur demande
+                          {c.receiptOnRequest}
                         </span>
                       </div>
                     </div>
@@ -167,17 +200,17 @@ export default function DonatePage() {
                 <div className="bg-primary text-background p-6 rounded-sm flex flex-col md:flex-row justify-between items-center gap-6">
                   <div>
                     <h3 className="text-lg font-bold [font-family:questa,_serif]">
-                      Obtenir les Coordonnées Bancaires Officielles
+                      {c.bankCtaTitle}
                     </h3>
                     <p className="text-xs text-background/85 mt-1 max-w-160">
-                      Envoyez votre demande directement à notre direction financière. Un relevé bancaire certifié (RIB/SWIFT) et une note de cadrage vous seront transmis sous 24 à 48 heures ouvrées.
+                      {c.bankCtaBody}
                     </p>
                   </div>
                   <a
-                    href="mailto:contact@hojanetwork.org?subject=Demande%20de%20coordonnees%20bancaires%20pour%20don%20HOJA%20Network"
+                    href={`mailto:contact@hojanetwork.org?${bankEmail.toString()}`}
                     className="shrink-0 bg-background text-accent px-6 py-3 font-bold text-sm rounded-sm hover:bg-surface-2 transition-colors uppercase tracking-wider"
                   >
-                    Contacter la Direction Financière →
+                    {c.contactFinance} →
                   </a>
                 </div>
               </div>
@@ -189,17 +222,17 @@ export default function DonatePage() {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-border">
                   <div>
                     <h2 className="text-2xl font-bold [font-family:questa,_serif] text-accent">
-                      Don en {DONATION_CONFIG.supportedMethods.bitcoin.title}
+                      {c.donationIn} {DONATION_CONFIG.supportedMethods.bitcoin.titleEn}
                     </h2>
                     <p className="text-sm text-foreground/80 mt-1">
-                      Réseau : <strong>{DONATION_CONFIG.supportedMethods.bitcoin.network}</strong> • Confirmations requises : {DONATION_CONFIG.supportedMethods.bitcoin.minimumConfirmation}
+                      {c.network}: <strong>{DONATION_CONFIG.supportedMethods.bitcoin.network}</strong> • {c.confirmations}: {DONATION_CONFIG.supportedMethods.bitcoin.minimumConfirmation}
                     </p>
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/30 rounded text-blue-700 text-xs font-semibold">
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
-                    <span>Vérification Institutionnelle Obligatoire</span>
+                    <span>{c.institutionalVerification}</span>
                   </div>
                 </div>
 
@@ -207,18 +240,18 @@ export default function DonatePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 items-center">
                   <div className="space-y-4 text-sm text-foreground/85 leading-relaxed">
                     <p>
-                      HOJA Network reconnaît le potentiel des actifs numériques pour financer l&apos;action communautaire et climatique sans subir les délais et frais excessifs des transferts transfrontaliers traditionnels dans les Grands Lacs.
+                      {c.digitalAssetsIntro}
                     </p>
                     <div className="p-4 bg-surface-2 rounded-sm border-l-4 border-accent">
                       <h4 className="font-bold text-accent text-xs uppercase tracking-wider mb-1">
-                        Politique Anti-Spoofing &amp; Sécurité des Donateurs
+                        {c.antiSpoofingTitle}
                       </h4>
                       <p className="text-xs text-muted-foreground">
-                        Pour empêcher toute usurpation d&apos;adresse publique, piratage d&apos;affichage web ou tentative de phishing, l&apos;adresse Bitcoin de trésorerie officielle est communiquée et signée cryptographiquement lors de l&apos;initiation du don.
+                        {c.antiSpoofingBody}
                       </p>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {DONATION_CONFIG.supportedMethods.bitcoin.statusNotice}
+                      {language === "fr" ? DONATION_CONFIG.supportedMethods.bitcoin.statusNotice : DONATION_CONFIG.supportedMethods.bitcoin.statusNoticeEn}
                     </p>
                   </div>
 
@@ -230,17 +263,17 @@ export default function DonatePage() {
                       </svg>
                     </div>
                     <span className="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider rounded mb-2">
-                      Statut : Trésorerie Sécurisée
+                      {c.treasuryStatus}
                     </span>
-                    <h3 className="font-bold text-base mb-2">Adresse Bitcoin HOJA Network</h3>
+                    <h3 className="font-bold text-base mb-2">{c.bitcoinAddressTitle}</h3>
                     <p className="text-xs text-muted-foreground max-w-sm mx-auto mb-4">
-                      Les coordonnées cryptographiques vérifiées vous sont transmises directement avec signature PGP ou confirmation par canal officiel.
+                      {c.cryptoAddressNotice}
                     </p>
                     <a
-                      href="mailto:contact@hojanetwork.org?subject=Donation%20Bitcoin%20(BTC)%20-%20HOJA%20Network&body=Bonjour%20la%20direction%20financière%20de%20HOJA%20Network,%0A%0AJe%20souhaite%20effectuer%20une%20contribution%20en%20Bitcoin%20(BTC)%20en%20soutien%20à%20vos%20initiatives.%0AMerci%20de%20me%20transmettre%20l'adresse%20de%20dépôt%20officielle%20et%20la%20procédure%20de%20reçu."
+                      href={`mailto:contact@hojanetwork.org?${bitcoinEmail.toString()}`}
                       className="inline-block w-full py-3 px-4 bg-accent text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-accent/90 transition-colors"
                     >
-                      Solliciter l&apos;Adresse Bitcoin Officielle →
+                      {c.requestBitcoinAddress} →
                     </a>
                   </div>
                 </div>
@@ -253,21 +286,21 @@ export default function DonatePage() {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-border">
                   <div>
                     <h2 className="text-2xl font-bold [font-family:questa,_serif] text-accent">
-                      Don en {DONATION_CONFIG.supportedMethods.usdt.title} (Stablecoin)
+                      {c.donationIn} {DONATION_CONFIG.supportedMethods.usdt.titleEn} ({c.stablecoin})
                     </h2>
                     <p className="text-sm text-foreground/80 mt-1">
-                      Idéal pour des transferts rapides et stables indexés sur le dollar américain (USD).
+                      {c.usdtIntro}
                     </p>
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 border border-accent/20 rounded text-accent text-xs font-semibold">
-                    <span>Sélecteur Multi-Réseau Actif</span>
+                    <span>{c.networkSelectorActive}</span>
                   </div>
                 </div>
 
                 {/* Network Selection Buttons */}
                 <div className="mb-6">
                   <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                    Sélectionnez le Réseau Blockchain :
+                    {c.selectNetwork}
                   </label>
                   <div className="flex flex-wrap gap-3">
                     {usdtNetworks.map((net) => (
@@ -291,28 +324,28 @@ export default function DonatePage() {
                 <div className="bg-surface-2 p-6 rounded-sm border border-border mb-8">
                   <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 pb-4 border-b border-border/60 mb-4">
                     <div>
-                      <span className="text-xs text-muted-foreground block">Actif &amp; Protocole</span>
+                      <span className="text-xs text-muted-foreground block">{c.assetProtocol}</span>
                       <strong className="text-lg text-accent">{currentUsdt.symbol}</strong>
                     </div>
                     <div className="text-left md:text-right">
-                      <span className="text-xs text-muted-foreground block">Réseau d&apos;émission</span>
+                      <span className="text-xs text-muted-foreground block">{c.issuingNetwork}</span>
                       <span className="font-semibold text-sm">{currentUsdt.networkName}</span>
                     </div>
                   </div>
 
                   <p className="text-xs text-foreground/80 leading-relaxed mb-4">
-                    {currentUsdt.statusNotice}
+                    {language === "fr" ? currentUsdt.statusNotice : currentUsdt.statusNoticeEn}
                   </p>
 
                   <div className="p-4 bg-surface-3 rounded border border-border/80 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="text-xs text-muted-foreground">
-                      <strong>Recommandation :</strong> Vérifiez toujours le protocole choisi avant tout envoi pour éviter toute perte d&apos;actifs irréversible.
+                      <strong>{c.recommendation}:</strong> {c.protocolWarning}
                     </div>
                     <a
-                      href={`mailto:contact@hojanetwork.org?subject=Donation%20USDT%20(${currentUsdt.networkName})%20-%20HOJA%20Network&body=Bonjour%20la%20direction%20financière%20de%20HOJA%20Network,%0A%0AJe%20souhaite%20effectuer%20une%20contribution%20en%20USDT%20sur%20le%20réseau%20${currentUsdt.networkName}.%0AMerci%20de%20me%20transmettre%20l'adresse%20officielle%20validée.`}
+                      href={`mailto:contact@hojanetwork.org?${usdtEmail.toString()}`}
                       className="shrink-0 px-4 py-2.5 bg-accent text-background text-xs font-bold uppercase tracking-wider rounded-sm hover:bg-accent/90 transition-colors"
                     >
-                      Obtenir l&apos;Adresse USDT ({currentUsdt.networkName}) →
+                      {c.requestUsdtAddress} ({currentUsdt.networkName}) →
                     </a>
                   </div>
                 </div>
@@ -326,10 +359,10 @@ export default function DonatePage() {
       <section className="max-w-300 mx-auto px-6 mb-16">
         <header className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold [font-family:questa,_serif] text-accent mb-2">
-            Affectation Stratégique de Vos Dons
+            {c.impactHeading}
           </h2>
           <p className="text-sm text-foreground/75 max-w-xl mx-auto">
-            Chaque contribution est dirigée avec rigueur vers les priorités environnementales et communautaires identifiées sur le terrain :
+            {c.impactIntro}
           </p>
         </header>
 
@@ -340,11 +373,11 @@ export default function DonatePage() {
                 <div className="w-10 h-10 rounded-sm bg-accent text-background flex items-center justify-center font-bold text-sm mb-4">
                   ✓
                 </div>
-                <h3 className="font-bold text-base text-accent mb-2">{theme.title}</h3>
-                <p className="text-xs text-foreground/80 leading-relaxed mb-4">{theme.description}</p>
+                <h3 className="font-bold text-base text-accent mb-2">{language === "fr" ? theme.title : theme.titleEn}</h3>
+                <p className="text-xs text-foreground/80 leading-relaxed mb-4">{language === "fr" ? theme.description : theme.descriptionEn}</p>
               </div>
               <div className="pt-3 border-t border-border text-[11px] font-semibold text-accent/90">
-                {theme.allocation}
+                {language === "fr" ? theme.allocation : theme.allocationEn}
               </div>
             </div>
           ))}
@@ -356,14 +389,13 @@ export default function DonatePage() {
         <div className="bg-surface-3 p-8 rounded-sm border border-border flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2 max-w-xl">
             <h3 className="text-xl font-bold [font-family:questa,_serif] text-accent">
-              Transparence, Reçu Officiel &amp; Suivi Philanthropique
+              {c.transparencyHeading}
             </h3>
             <p className="text-xs text-foreground/80 leading-relaxed">
-              HOJA Network fournit une attestation de don officielle pour chaque contribution reçue (virement ou crypto-actifs).
-              Pour les dons majeurs et partenariats institutionnels, un rapport d&apos;impact dédié et un suivi d&apos;exécution semestriel sont systématiquement transmis.
+              {c.transparencyBody}
             </p>
             <p className="text-xs text-muted-foreground pt-1">
-              Contact direct : <a href="mailto:contact@hojanetwork.org" className="text-primary font-semibold underline">contact@hojanetwork.org</a>
+              {c.directContact}: <a href="mailto:contact@hojanetwork.org" className="text-primary font-semibold underline">contact@hojanetwork.org</a>
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
@@ -371,13 +403,13 @@ export default function DonatePage() {
               href="/who-we-are/governance-team"
               className="px-5 py-3 text-xs font-bold uppercase tracking-wider text-foreground border border-border bg-background hover:bg-surface-2 rounded-sm text-center"
             >
-              Gouvernance &amp; Équipe
+              {c.governanceTeam}
             </Link>
             <Link
               href="/get-involved/partner-with-us"
               className="px-5 py-3 text-xs font-bold uppercase tracking-wider bg-accent text-background hover:bg-accent/90 rounded-sm text-center"
             >
-              Devenir Partenaire →
+              {c.becomePartner} →
             </Link>
           </div>
         </div>

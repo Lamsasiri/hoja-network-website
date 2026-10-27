@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LanguageText from "../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "What We Do | HOJA Network",
@@ -14,16 +15,16 @@ export default function TopicRedirect() {
       </head>
       <div className="max-w-160 mx-auto space-y-4">
         <h1 className="[font-family:questa,_serif] text-2xl font-bold text-accent">
-          HOJA Network Focus Areas
+          <LanguageText fr="Nos domaines d’action" en="HOJA Network Focus Areas" />
         </h1>
         <p className="text-foreground/80 text-sm">
-          Redirecting to our strategic pillars and community programs.
+          <LanguageText fr="Redirection vers nos axes stratégiques et nos programmes communautaires." en="Redirecting to our strategic pillars and community programs." />
         </p>
         <Link
           href="/what-we-do"
           className="inline-block py-2.5 px-6 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
         >
-          Explore What We Do →
+          <LanguageText fr="Découvrir nos actions →" en="Explore What We Do →" />
         </Link>
       </div>
     </main>

@@ -188,6 +188,62 @@ async function main() {
       if (finalPath !== originalPath) failures.push("Language switcher changed the current route");
     }
 
+    const languageRoutes = routes.filter((route) =>
+      route !== "/news" &&
+      !route.startsWith("/news/") &&
+      !redirectTarget(route) &&
+      route !== "/founder"
+    );
+    const languageFailures = [];
+    let bilingualRoutesChecked = 0;
+
+    for (const route of languageRoutes) {
+      try {
+        await page.setViewport({ width: 1280, height: 900 });
+        await page.goto(new URL(route, baseUrl).href, { waitUntil: "domcontentloaded", timeout: 15000 });
+        await new Promise((resolve) => setTimeout(resolve, 200));
+        const initialPath = normalizeRoute(page.url());
+        if (initialPath !== route) continue;
+
+        const initialHeading = await page.$eval("h1", (heading) => heading.textContent.trim()).catch(() => "");
+        if (/^(redirecting|redirection vers|redirecting to)/i.test(initialHeading)) continue;
+        bilingualRoutesChecked++;
+
+        await page.evaluate(() => localStorage.setItem("hoja_lang", "fr"));
+        await page.reload({ waitUntil: "domcontentloaded" });
+        await page.waitForFunction(() => document.documentElement.lang === "fr", { timeout: 5000 });
+        const frenchContent = await page.$eval("main", (main) => main.innerText.replace(/\s+/g, " ").trim()).catch(() => "");
+        const englishClicked = await page.$$eval('[aria-label="Switch to English"]', (elements) => {
+          const visible = elements.find((element) => element.getClientRects().length > 0);
+          if (!visible) return false;
+          visible.click();
+          return true;
+        });
+        if (!englishClicked) {
+          languageFailures.push(`${route}: visible English switcher missing`);
+          continue;
+        }
+        await page.waitForFunction(() => document.documentElement.lang === "en", { timeout: 5000 });
+        const englishContent = await page.$eval("main", (main) => main.innerText.replace(/\s+/g, " ").trim()).catch(() => "");
+        if (!frenchContent || !englishContent || frenchContent === englishContent) {
+          languageFailures.push(`${route}: main content did not change between French and English`);
+        }
+
+        const frenchClicked = await page.$$eval('[aria-label="Passer en Français"]', (elements) => {
+          const visible = elements.find((element) => element.getClientRects().length > 0);
+          if (!visible) return false;
+          visible.click();
+          return true;
+        });
+        if (!frenchClicked) languageFailures.push(`${route}: visible French switcher missing`);
+        await page.waitForFunction(() => document.documentElement.lang === "fr", { timeout: 5000 });
+        if (normalizeRoute(page.url()) !== route) languageFailures.push(`${route}: language switcher changed the current route`);
+      } catch (error) {
+        languageFailures.push(`${route}: ${error.message}`);
+      }
+    }
+    failures.push(...languageFailures.map((item) => `Language check: ${item}`));
+
     if (routeSet.has("/donate")) {
       await page.goto(new URL("/donate", baseUrl).href, { waitUntil: "domcontentloaded" });
       await page.$$eval("button", (buttons) => buttons.find((button) => button.textContent.includes("Bitcoin"))?.click());
@@ -221,6 +277,8 @@ async function main() {
     console.log(JSON.stringify({
       routesChecked: routes.length,
       responsiveRoutes: responsiveRoutes.length,
+      bilingualRoutesChecked,
+      bilingualRouteFailures: languageFailures,
       viewports: [390, 768, 1024, 1440],
       consoleErrors: diagnostics.console.length,
       pageErrors: diagnostics.page.length,

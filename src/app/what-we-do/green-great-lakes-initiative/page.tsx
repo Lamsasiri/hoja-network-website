@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Hoja Green Great Lakes Initiative | Proposed Regional Initiative | HOJA Network",
@@ -15,13 +16,13 @@ export default function GreenGreatLakesInitiativePage() {
           <div className="inline-flex items-center gap-2 bg-color-011 text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
             <span>Proposition Stratégique Régionale</span>
             <span>•</span>
-            <span>Concept Under Development</span>
+            <span><LanguageText fr="Concept en cours d’élaboration" en="Concept Under Development" /></span>
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            Hoja Green Great Lakes Initiative
+            <LanguageText fr="Initiative verte de HOJA pour les Grands Lacs" en="Hoja Green Great Lakes Initiative" />
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-220 leading-relaxed">
-            An ambitious proposed regional framework designed to catalyze nature protection, decentralized clean energy, and green youth entrepreneurship across Eastern DRC and the Great Lakes borderlands.
+            <LanguageText fr="Un cadre régional ambitieux proposé pour stimuler la protection de la nature, l’énergie propre décentralisée et l’entrepreneuriat vert des jeunes dans l’est de la RDC et les zones frontalières des Grands Lacs." en="An ambitious proposed regional framework designed to catalyze nature protection, decentralized clean energy, and green youth entrepreneurship across Eastern DRC and the Great Lakes borderlands." />
           </p>
         </div>
       </section>
@@ -36,25 +37,25 @@ export default function GreenGreatLakesInitiativePage() {
                 Statut institutionnel : Proposition de programme régional en phase de conception et de dialogue partenarial
               </div>
               <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                Why a Regional Environmental &amp; Economic Framework?
+                <LanguageText fr="Pourquoi un cadre régional environnemental et économique ?" en="Why a Regional Environmental & Economic Framework?" />
               </h2>
               <p className="text-base leading-relaxed mb-4">
                 Ecosystems, climate impacts, and market flows in the Great Lakes do not halt at national boundaries. The Lake Kivu basin, the Virunga ecological corridor, and the Congo Basin periphery form an interdependent geographical landscape facing shared threats: forest degradation, energy poverty, vulnerable cross-border value chains, and youth underemployment.
               </p>
               <p className="text-base leading-relaxed">
-                The <strong>Hoja Green Great Lakes Initiative</strong> is formulated as an integrated, multi-year regional proposition. It translates HOJA Network&apos;s four strategic pillars into a synchronized operational architecture, bridging environmental stewardship with grassroots economic vitality.
+                <LanguageText fr="L’" en="The " /><strong>Hoja Green Great Lakes Initiative</strong><LanguageText fr=" est formulée comme une proposition régionale intégrée sur plusieurs années. Elle traduit les quatre piliers stratégiques du réseau HOJA en une architecture opérationnelle coordonnée, qui relie la gestion responsable de l’environnement au dynamisme économique local." en=" is formulated as an integrated, multi-year regional proposition. It translates HOJA Network's four strategic pillars into a synchronized operational architecture, bridging environmental stewardship with grassroots economic vitality." />
               </p>
             </div>
 
             {/* The 5 Strategic Axes */}
             <div className="space-y-6">
               <h3 className="[font-family:questa,_serif] text-xl md:text-2xl font-bold text-accent">
-                The Five Proposed Operational Axes
+                <LanguageText fr="Les cinq axes opérationnels proposés" en="The Five Proposed Operational Axes" />
               </h3>
 
               <div className="p-6 bg-surface-2 rounded-sm border-l-4 border-primary">
                 <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Axe 1</div>
-                <h4 className="text-lg font-bold text-accent mb-2">Clean Energy for Green Livelihoods</h4>
+                <h4 className="text-lg font-bold text-accent mb-2"><LanguageText fr="Énergie propre et moyens de subsistance verts" en="Clean Energy for Green Livelihoods" /></h4>
                 <p className="text-sm text-foreground/85 leading-relaxed">
                   Accelerating the community distribution of fuel-efficient cookstoves and decentralized renewable energy solutions, training local youth as certified maintenance and sales agents.
                 </p>
@@ -62,7 +63,7 @@ export default function GreenGreatLakesInitiativePage() {
 
               <div className="p-6 bg-surface-3 rounded-sm border-l-4 border-color-011">
                 <div className="text-xs font-bold uppercase tracking-wider text-color-011 mb-1">Axe 2</div>
-                <h4 className="text-lg font-bold text-accent mb-2">Virunga Community Conservation and Enterprise</h4>
+                <h4 className="text-lg font-bold text-accent mb-2"><LanguageText fr="Conservation communautaire et entreprises autour des Virunga" en="Virunga Community Conservation and Enterprise" /></h4>
                 <p className="text-sm text-foreground/85 leading-relaxed">
                   Fostering conservation-compatible micro-enterprises (beekeeping, agroecology, sustainable crafts) in community lands bordering protected areas, providing viable alternatives to forest extraction.
                 </p>
@@ -70,7 +71,7 @@ export default function GreenGreatLakesInitiativePage() {
 
               <div className="p-6 bg-surface-4 rounded-sm border-l-4 border-color-008">
                 <div className="text-xs font-bold uppercase tracking-wider text-color-008 mb-1">Axe 3</div>
-                <h4 className="text-lg font-bold text-accent mb-2">Congo Basin Restoration and Agroforestry</h4>
+                <h4 className="text-lg font-bold text-accent mb-2"><LanguageText fr="Restauration du bassin du Congo et agroforesterie" en="Congo Basin Restoration and Agroforestry" /></h4>
                 <p className="text-sm text-foreground/85 leading-relaxed">
                   Supporting smallholder farmers with indigenous tree seedlings and regenerative soil techniques to establish community agroforestry belts that mitigate hillside erosion.
                 </p>
@@ -78,7 +79,7 @@ export default function GreenGreatLakesInitiativePage() {
 
               <div className="p-6 bg-surface-2 rounded-sm border-l-4 border-color-012">
                 <div className="text-xs font-bold uppercase tracking-wider text-color-012 mb-1">Axe 4</div>
-                <h4 className="text-lg font-bold text-accent mb-2">Women and Youth Green Enterprise Accelerator</h4>
+                <h4 className="text-lg font-bold text-accent mb-2"><LanguageText fr="Accélérateur d’entreprises vertes pour les femmes et les jeunes" en="Women and Youth Green Enterprise Accelerator" /></h4>
                 <p className="text-sm text-foreground/85 leading-relaxed">
                   Mentoring, incubation, and business development services dedicated to young women and men creating enterprises in waste sorting, recycling, organic composting, and eco-services.
                 </p>
@@ -86,7 +87,7 @@ export default function GreenGreatLakesInitiativePage() {
 
               <div className="p-6 bg-surface-3 rounded-sm border-l-4 border-primary">
                 <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Axe 5</div>
-                <h4 className="text-lg font-bold text-accent mb-2">Digital Climate and Nature Innovation</h4>
+                <h4 className="text-lg font-bold text-accent mb-2"><LanguageText fr="Innovation numérique pour le climat et la nature" en="Digital Climate and Nature Innovation" /></h4>
                 <p className="text-sm text-foreground/85 leading-relaxed">
                   Deploying responsible digital tools for community environmental mapping, lightweight field telemetry, and verifiable impact monitoring with systematic human oversight.
                 </p>
@@ -128,9 +129,9 @@ export default function GreenGreatLakesInitiativePage() {
           {/* Sidebar */}
           <aside className="space-y-8">
             <div className="p-6 bg-accent text-background rounded-sm">
-              <h3 className="font-bold text-lg mb-3">Institutional Distinction</h3>
+              <h3 className="font-bold text-lg mb-3"><LanguageText fr="Distinction institutionnelle" en="Institutional Distinction" /></h3>
               <p className="text-xs text-background/85 leading-relaxed mb-3">
-                HOJA Network maintains a strict, transparent distinction between:
+                <LanguageText fr="Le réseau HOJA établit une distinction claire et transparente entre :" en="HOJA Network maintains a strict, transparent distinction between:" />
               </p>
               <ul className="space-y-2 text-xs text-background/80">
                 <li>• <strong>Existant &amp; Vérifié :</strong> Nos 5 programmes de terrain actifs à Goma et dans la région.</li>
@@ -140,12 +141,12 @@ export default function GreenGreatLakesInitiativePage() {
             </div>
 
             <div className="p-6 bg-surface-2 rounded-sm border border-border">
-              <h4 className="font-bold text-accent text-sm mb-2">Get Involved in Co-Design</h4>
+              <h4 className="font-bold text-accent text-sm mb-2"><LanguageText fr="Participer à la conception conjointe" en="Get Involved in Co-Design" /></h4>
               <p className="text-xs text-foreground/80 mb-4 leading-relaxed">
                 Foundations, technical agencies, and research bodies interested in co-designing or supporting this regional framework:
               </p>
               <Link href="/get-involved/partner-with-us" className="inline-block py-2.5 px-4 bg-primary text-background font-bold uppercase text-xs tracking-wider rounded-sm hover:bg-primary/90 transition-colors">
-                Contact Strategy Team →
+                <LanguageText fr="Contacter l’équipe stratégie →" en="Contact Strategy Team →" />
               </Link>
             </div>
           </aside>

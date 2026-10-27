@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Get Involved | HOJA Network",
@@ -12,13 +13,13 @@ export default function GetInvolvedPage() {
       <section className="relative bg-accent text-background py-16 px-6 lg:py-24 text-center">
         <div className="max-w-240 mx-auto">
           <div className="inline-block bg-primary text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
-            Take Action
+            <LanguageText fr="Agir" en="Take Action" />
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight">
-            Get Involved with HOJA Network
+            <LanguageText fr="S’engager auprès de HOJA Network" en="Get Involved with HOJA Network" />
           </h1>
           <p className="mt-6 text-lg text-foreground/85 leading-relaxed">
-            Whether you are an institutional foundation, a researcher, a corporate partner, or an active advocate, there are multiple avenues to contribute to our regional impact.
+            <LanguageText fr="Que vous soyez une fondation, un chercheur, une entreprise partenaire ou un défenseur actif de nos causes, plusieurs moyens vous permettent de contribuer à notre impact régional." en="Whether you are an institutional foundation, a researcher, a corporate partner, or an active advocate, there are multiple avenues to contribute to our regional impact." />
           </p>
         </div>
       </section>
@@ -28,34 +29,34 @@ export default function GetInvolvedPage() {
           <div className="border border-border p-8 rounded-sm bg-surface-2 flex flex-col justify-between">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl font-bold text-accent mb-3">
-                Strategic Partnerships
+                <LanguageText fr="Partenariats stratégiques" en="Strategic Partnerships" />
               </h2>
               <p className="text-foreground/80 text-sm leading-relaxed mb-6">
-                Collaborate with us on multi-year initiatives in clean cooking, Virunga biodiversity conservation, Congo Basin agroforestry, green youth enterprise acceleration, and community resilience across Eastern DRC and the Great Lakes.
+                <LanguageText fr="Collaborez avec nous sur des initiatives pluriannuelles : cuisson propre, conservation de la biodiversité des Virunga, agroforesterie dans le bassin du Congo, développement d’entreprises vertes dirigées par des jeunes et résilience communautaire dans l’est de la RDC et la région des Grands Lacs." en="Collaborate with us on multi-year initiatives in clean cooking, Virunga biodiversity conservation, Congo Basin agroforestry, green youth enterprise acceleration, and community resilience across Eastern DRC and the Great Lakes." />
               </p>
             </div>
             <Link
               href="/get-involved/partner-with-us"
               className="inline-block py-3 px-6 bg-primary text-background font-bold uppercase text-xs tracking-wider rounded-sm text-center hover:bg-primary/90 transition-colors"
             >
-              Partner With Us →
+              <LanguageText fr="Devenir partenaire →" en="Partner With Us →" />
             </Link>
           </div>
 
           <div className="border border-border p-8 rounded-sm bg-surface-3 flex flex-col justify-between">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl font-bold text-accent mb-3">
-                Contact & Inquiries
+                <LanguageText fr="Contact et demandes" en="Contact &amp; Inquiries" />
               </h2>
               <p className="text-foreground/80 text-sm leading-relaxed mb-6">
-                Reach out to our field offices in Goma and Rubavu for press inquiries, research cooperation, field visits, or direct institutional communication.
+                <LanguageText fr="Contactez nos bureaux de Goma et de Rubavu pour les demandes de presse, les collaborations de recherche, les visites de terrain ou les échanges institutionnels." en="Reach out to our field offices in Goma and Rubavu for press inquiries, research cooperation, field visits, or direct institutional communication." />
               </p>
             </div>
             <Link
               href="/contact"
               className="inline-block py-3 px-6 bg-accent text-background font-bold uppercase text-xs tracking-wider rounded-sm text-center hover:bg-accent/90 transition-colors"
             >
-              Contact Our Team →
+              <LanguageText fr="Contacter notre équipe →" en="Contact Our Team →" />
             </Link>
           </div>
         </div>

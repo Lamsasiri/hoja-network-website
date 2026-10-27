@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LanguageText from "../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Get Involved | HOJA Network",
@@ -14,16 +15,16 @@ export default function IgniteChangeRedirect() {
       </head>
       <div className="max-w-160 mx-auto space-y-4">
         <h1 className="[font-family:questa,_serif] text-2xl font-bold text-accent">
-          Partner with HOJA Network
+          <LanguageText fr="Devenir partenaire de HOJA Network" en="Partner with HOJA Network" />
         </h1>
         <p className="text-foreground/80 text-sm">
-          Redirecting to our collaboration and partnership opportunities.
+          <LanguageText fr="Redirection vers nos possibilités de collaboration et de partenariat." en="Redirecting to our collaboration and partnership opportunities." />
         </p>
         <Link
           href="/get-involved/partner-with-us"
           className="inline-block py-2.5 px-6 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
         >
-          Go to Partner With Us →
+          <LanguageText fr="Découvrir les partenariats →" en="Go to Partner With Us →" />
         </Link>
       </div>
     </main>

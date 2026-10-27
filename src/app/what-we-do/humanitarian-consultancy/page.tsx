@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Humanitarian Consultancy & Capacity Building | HOJA Network",
@@ -16,10 +17,10 @@ export default function HumanitarianConsultancyPage() {
             Documented Institutional Service • Service Institutionnel Vérifié
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            Humanitarian Consultancy &amp; Capacity Building
+            <LanguageText fr="Conseil humanitaire et renforcement des capacités" en="Humanitarian Consultancy & Capacity Building" />
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-200 leading-relaxed">
-            Strengthening local organizations, grassroots CSOs, and community initiatives through technical assistance, compliance support, and resource mobilization.
+            <LanguageText fr="Renforcer les organisations locales, les organisations de la société civile de terrain et les initiatives communautaires grâce à une assistance technique, un appui à la conformité et à la mobilisation des ressources." en="Strengthening local organizations, grassroots CSOs, and community initiatives through technical assistance, compliance support, and resource mobilization." />
           </p>
         </div>
       </section>
@@ -31,7 +32,7 @@ export default function HumanitarianConsultancyPage() {
           <div className="lg:col-span-2 space-y-10">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                Empowering Local Actors to Drive Sustainable Change
+                <LanguageText fr="Donner aux acteurs locaux les moyens d’impulser un changement durable" en="Empowering Local Actors to Drive Sustainable Change" />
               </h2>
               <p className="text-base leading-relaxed text-foreground/85 mb-4">
                 Grassroots civil society organizations in the Great Lakes are closest to the people and quickest to respond to emergencies. However, they frequently struggle with institutional bottlenecks: donor compliance standards, financial reporting frameworks, and structured project formulation.
@@ -44,7 +45,7 @@ export default function HumanitarianConsultancyPage() {
             {/* Action Areas */}
             <div className="space-y-6">
               <h3 className="[font-family:questa,_serif] text-xl font-bold text-accent">
-                Core Advisory Services
+                <LanguageText fr="Principaux services de conseil" en="Core Advisory Services" />
               </h3>
 
               <div className="border border-border p-6 rounded-sm bg-surface-2">
@@ -83,7 +84,7 @@ export default function HumanitarianConsultancyPage() {
           {/* Sidebar */}
           <aside className="space-y-6">
             <div className="p-6 bg-surface-3 rounded-sm border border-border">
-              <h3 className="font-bold text-accent text-base mb-3">Our Programs</h3>
+              <h3 className="font-bold text-accent text-base mb-3"><LanguageText fr="Nos programmes" en="Our Programs" /></h3>
               <ul className="space-y-2 text-sm text-foreground/80">
                 <li><Link href="/what-we-do/youth-empowerment" className="hover:text-primary">Youth Economic Empowerment</Link></li>
                 <li><Link href="/what-we-do/women-empowerment" className="hover:text-primary">Women's Economic Empowerment</Link></li>
@@ -94,15 +95,15 @@ export default function HumanitarianConsultancyPage() {
             </div>
 
             <div className="p-6 bg-accent text-background rounded-sm">
-              <h3 className="font-bold text-base mb-2">Request Advisory Support</h3>
+              <h3 className="font-bold text-base mb-2"><LanguageText fr="Demander un appui-conseil" en="Request Advisory Support" /></h3>
               <p className="text-xs text-foreground/85 mb-4 leading-relaxed">
-                Contact our consultancy team for institutional assessments and partnership opportunities.
+                <LanguageText fr="Contactez notre équipe de conseil pour une évaluation institutionnelle ou explorer des possibilités de partenariat." en="Contact our consultancy team for institutional assessments and partnership opportunities." />
               </p>
               <Link
                 href="/contact"
                 className="inline-block py-2.5 px-4 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
               >
-                Contact Advisory Team →
+                <LanguageText fr="Contacter l’équipe-conseil →" en="Contact Advisory Team →" />
               </Link>
             </div>
           </aside>

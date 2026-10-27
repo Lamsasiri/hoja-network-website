@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LanguageText from "../../../components/LanguageText";
 
 export const metadata: Metadata = {
   title: "Women's Economic Empowerment | HOJA Network",
@@ -16,10 +17,10 @@ export default function WomenEmpowermentPage() {
             Documented Core Program • Programme Historique Vérifié
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            Women&apos;s Economic Empowerment
+            <LanguageText fr="Autonomisation économique des femmes" en="Women's Economic Empowerment" />
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-200 leading-relaxed">
-            Supporting women entrepreneurs and market cooperatives through practical financial literacy, business skills, and sustainable enterprise management.
+            <LanguageText fr="Soutenir les entrepreneures et les coopératives marchandes grâce à une éducation financière pratique, des compétences commerciales et une gestion durable des entreprises." en="Supporting women entrepreneurs and market cooperatives through practical financial literacy, business skills, and sustainable enterprise management." />
           </p>
         </div>
       </section>
@@ -31,20 +32,20 @@ export default function WomenEmpowermentPage() {
           <div className="lg:col-span-2 space-y-10">
             <div>
               <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent mb-4">
-                Strengthening Women&apos;s Financial Agency and Leadership
+                <LanguageText fr="Renforcer l’autonomie financière et le leadership des femmes" en="Strengthening Women's Financial Agency and Leadership" />
               </h2>
               <p className="text-base leading-relaxed text-foreground/85 mb-4">
                 Women form the backbone of local commerce and household sustenance throughout Eastern DRC and the Great Lakes. However, women entrepreneurs frequently face barriers to business formalization, lack of financial education, and vulnerability to economic shocks.
               </p>
               <p className="text-base leading-relaxed text-foreground/85">
-                HOJA Network works directly with women merchants, market vendors, and artisanal collectives to strengthen their economic agency and protect their livelihoods.
+                <LanguageText fr="Le réseau HOJA travaille directement avec des commerçantes, des vendeuses de marché et des collectifs artisanaux pour renforcer leur autonomie économique et protéger leurs moyens de subsistance." en="HOJA Network works directly with women merchants, market vendors, and artisanal collectives to strengthen their economic agency and protect their livelihoods." />
               </p>
             </div>
 
             {/* Action Areas */}
             <div className="space-y-6">
               <h3 className="[font-family:questa,_serif] text-xl font-bold text-accent">
-                Program Focus Areas
+                <LanguageText fr="Axes du programme" en="Program Focus Areas" />
               </h3>
 
               <div className="border border-border p-6 rounded-sm bg-surface-2">
@@ -83,7 +84,7 @@ export default function WomenEmpowermentPage() {
           {/* Sidebar */}
           <aside className="space-y-6">
             <div className="p-6 bg-surface-3 rounded-sm border border-border">
-              <h3 className="font-bold text-accent text-base mb-3">Our Programs</h3>
+              <h3 className="font-bold text-accent text-base mb-3"><LanguageText fr="Nos programmes" en="Our Programs" /></h3>
               <ul className="space-y-2 text-sm text-foreground/80">
                 <li><Link href="/what-we-do/youth-empowerment" className="hover:text-primary">Youth Economic Empowerment</Link></li>
                 <li className="font-bold text-primary">• Women's Economic Empowerment</li>
@@ -94,15 +95,15 @@ export default function WomenEmpowermentPage() {
             </div>
 
             <div className="p-6 bg-accent text-background rounded-sm">
-              <h3 className="font-bold text-base mb-2">Support Women Entrepreneurs</h3>
+              <h3 className="font-bold text-base mb-2"><LanguageText fr="Soutenir les entrepreneures" en="Support Women Entrepreneurs" /></h3>
               <p className="text-xs text-foreground/85 mb-4 leading-relaxed">
-                Partner with us to fund financial literacy workshops and micro-business toolkits.
+                <LanguageText fr="Devenez partenaire pour financer des ateliers d’éducation financière et des kits destinés aux microentreprises." en="Partner with us to fund financial literacy workshops and micro-business toolkits." />
               </p>
               <Link
                 href="/get-involved/partner-with-us"
                 className="inline-block py-2.5 px-4 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
               >
-                Collaborate →
+                <LanguageText fr="Collaborer →" en="Collaborate →" />
               </Link>
             </div>
           </aside>
