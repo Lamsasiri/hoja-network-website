@@ -26,7 +26,22 @@ export interface WPPage {
 }
 
 export function sanitizeMediaUrl(url?: string): string | undefined {
-  return url || undefined;
+  if (!url || typeof url !== "string") return undefined;
+  const trimmed = url.trim();
+  if (trimmed.startsWith("https://") || trimmed.startsWith("http://") || trimmed.startsWith("/")) {
+    return trimmed;
+  }
+  return undefined;
+}
+
+export function sanitizeHtml(html = ""): string {
+  if (!html) return "";
+  return html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    .replace(/\s*on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/href\s*=\s*["']\s*javascript:[^"']*["']/gi, 'href="#"')
+    .replace(/src\s*=\s*["']\s*javascript:[^"']*["']/gi, 'src=""')
+    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "");
 }
 
 const WP_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || "https://hojanetwork.org/wp-json/wp/v2";
@@ -62,7 +77,7 @@ export async function getPosts(limit: number = 6): Promise<WPPost[]> {
       slug: item.slug,
       title: plainText(item.title?.rendered || ""),
       excerpt: plainText(item.excerpt?.rendered || ""),
-      content: item.content?.rendered || "",
+      content: sanitizeHtml(item.content?.rendered || ""),
       date: item.date,
       featuredMediaUrl: sanitizeMediaUrl(item._embedded?.["wp:featuredmedia"]?.[0]?.source_url),
       authorName: item._embedded?.author?.[0]?.name,
@@ -79,6 +94,38 @@ export async function getPosts(limit: number = 6): Promise<WPPost[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
-  const posts = await getPosts(100);
-  return posts.find((post) => post.slug === slug) || null;
+  try {
+    const res = await fetch(`${WP_API_URL}/posts?_embed&slug=${encodeURIComponent(slug)}`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) {
+      // Fallback to searching in recent posts
+      const posts = await getPosts(50);
+      return posts.find((post) => post.slug === slug) || null;
+    }
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      const posts = await getPosts(50);
+      return posts.find((post) => post.slug === slug) || null;
+    }
+    const item = data[0];
+    return {
+      id: item.id,
+      slug: item.slug,
+      title: plainText(item.title?.rendered || ""),
+      excerpt: plainText(item.excerpt?.rendered || ""),
+      content: sanitizeHtml(item.content?.rendered || ""),
+      date: item.date,
+      featuredMediaUrl: sanitizeMediaUrl(item._embedded?.["wp:featuredmedia"]?.[0]?.source_url),
+      authorName: item._embedded?.author?.[0]?.name,
+      categories: (item._embedded?.["wp:term"]?.flat() || [])
+        .filter((term: any) => term.taxonomy === "category")
+        .map((category: any) => plainText(category.name || ""))
+        .filter(Boolean),
+      lang: item.lang === "fr" ? "fr" : item.lang === "en" ? "en" : undefined,
+      url: item.link,
+    };
+  } catch {
+    return null;
+  }
 }

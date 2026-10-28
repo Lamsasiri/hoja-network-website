@@ -3,7 +3,6 @@ import "./ditto.css";
 import MediaCard from "./components/media-card";
 import MediaCard2 from "./components/media-card2";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 const partnerLogos = [
@@ -19,48 +18,17 @@ const partnerLogos = [
 ];
 
 function PartnerLogoTicker() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const pausedRef = useRef(false);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let offset = 0;
-    let previousTime = 0;
-    let frame = 0;
-    const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
-    const animate = (time: number) => {
-      if (!previousTime) previousTime = time;
-      if (!pausedRef.current) {
-        offset -= ((time - previousTime) / 1000) * 28;
-        let first = track.firstElementChild as HTMLElement | null;
-        while (first && -offset >= first.getBoundingClientRect().width + gap) {
-          offset += first.getBoundingClientRect().width + gap;
-          track.appendChild(first);
-          first = track.firstElementChild as HTMLElement | null;
-        }
-        track.style.transform = `translate3d(${offset}px, 0, 0)`;
-      }
-      previousTime = time;
-      frame = requestAnimationFrame(animate);
-    };
-
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-  }, []);
+  const allLogos = [...partnerLogos, ...partnerLogos];
 
   return (
     <div
-      className="w-full overflow-hidden"
+      className="w-full overflow-hidden py-4"
       aria-label="Logos de nos partenaires"
-      onMouseEnter={() => { pausedRef.current = true; }}
-      onMouseLeave={() => { pausedRef.current = false; }}
     >
-      <div ref={trackRef} className="hoja-partner-track flex w-max items-center gap-8" role="list" aria-live="off">
-        {partnerLogos.map((logo) => (
-          <div key={logo.src} className="flex h-28 w-56 shrink-0 items-center justify-center px-4" role="listitem">
-            <img className="h-20 w-full object-contain" src={`/assets/hoja/partners/${logo.src}`} alt={logo.alt} />
+      <div className="hoja-partner-ticker flex items-center gap-8" role="list" aria-live="off">
+        {allLogos.map((logo, index) => (
+          <div key={`${logo.src}-${index}`} className="flex h-24 w-52 shrink-0 items-center justify-center px-4" role="listitem">
+            <img className="h-16 w-full object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" src={`/assets/hoja/partners/${logo.src}`} alt={logo.alt} loading="lazy" />
           </div>
         ))}
       </div>

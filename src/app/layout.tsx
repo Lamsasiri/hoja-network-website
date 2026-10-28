@@ -5,18 +5,17 @@ import { SITE_ORIGIN } from "../lib/site";
 
 export const metadata = {
   "metadataBase": new URL(SITE_ORIGIN || "https://hojanetwork.org"),
-  "title": "HOJA Network — Nature. Clean Energy. Green Enterprise.",
+  "title": {
+    "default": "HOJA Network — Nature. Clean Energy. Green Enterprise.",
+    "template": "%s | HOJA Network",
+  },
   "description": "HOJA Network is an African grassroots non-profit organization operating at the intersection of nature protection, clean energy, green entrepreneurship, and community resilience in Eastern DRC and the Great Lakes.",
   "robots": "max-snippet:-1,max-image-preview:standard,max-video-preview:-1",
-  "alternates": {
-    "canonical": "/"
-  },
   "openGraph": {
     "title": "HOJA Network — Nature. Clean Energy. Green Enterprise.",
     "description": "HOJA Network is an African grassroots non-profit organization operating at the intersection of nature protection, clean energy, green entrepreneurship, and community resilience in Eastern DRC and the Great Lakes.",
     "type": "website",
     "siteName": "HOJA Network",
-    "url": "/",
     "images": [
       "/assets/hoja/logo_hoja_horizontal.png"
     ]
@@ -357,7 +356,7 @@ const TextLink_styles = [
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang={"en"}>
+    <html lang="fr">
       <head>
         <script
           key="ditto-json-ld-0"
@@ -370,8 +369,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 "@id": `${SITE_ORIGIN}/#/schema/WebSite`,
                 "url": `${SITE_ORIGIN}/`,
                 "name": "HOJA Network",
-                "description": "Empowering People. Building Businesses. Solving Problems.",
-                "inLanguage": "en-US",
+                "description": "Autonomiser les personnes. Créer des entreprises. Résoudre les problèmes.",
+                "inLanguage": "fr-FR",
                 "publisher": { "@id": `${SITE_ORIGIN}/#/schema/Organization` }
               },
               {
