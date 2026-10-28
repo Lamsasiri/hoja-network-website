@@ -14,7 +14,6 @@ const publicRoutes: Array<{
   { path: "/who-we-are/our-history", changeFrequency: "monthly", priority: 0.8 },
   { path: "/who-we-are/leadership-and-governance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/who-we-are/our-network", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/what-we-do", changeFrequency: "weekly", priority: 0.9 },
   { path: "/what-we-do/renewable-energy-clean-cooking", changeFrequency: "monthly", priority: 0.85 },
   { path: "/what-we-do/biodiversity-virunga-protection", changeFrequency: "monthly", priority: 0.85 },
   { path: "/what-we-do/congo-basin-forest-climate", changeFrequency: "monthly", priority: 0.85 },

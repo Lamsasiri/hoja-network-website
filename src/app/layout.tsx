@@ -241,7 +241,7 @@ const Tile2_data = [
 ];
 
 const ListRow2_data = [
-    { href: "/what-we-do", target: "_self", label: "Our Programs", labelFr: "Nos programmes" },
+    { href: "/impact", target: "_self", label: "Our Impact", labelFr: "Notre impact" },
     { href: "/news", target: "_self", label: "News & Field Stories", labelFr: "Actualités et récits de terrain" },
     { href: "/who-we-are/leadership-and-governance", target: "_self", label: "Leadership & Team", labelFr: "Direction et équipe" },
     { href: "/contact", target: "_self", label: "Contact our offices", labelFr: "Contacter nos bureaux" }
@@ -249,7 +249,7 @@ const ListRow2_data = [
 
 const ListRow3_data = [
     { href: "/who-we-are/our-history", label: "Our History (Since 2017)", labelFr: "Notre histoire (depuis 2017)" },
-    { href: "/what-we-do", label: "What We Do", labelFr: "Nos actions" },
+    { href: "/impact", label: "Impact", labelFr: "Impact" },
     { href: "/who-we-are/our-network", label: "Our Network & Presence", labelFr: "Notre réseau et notre présence" },
     { href: "/contact", label: "Offices & Contact", labelFr: "Bureaux et contact" },
     { href: "/sitemap.xml", label: "Sitemap", labelFr: "Plan du site" }
@@ -268,7 +268,7 @@ const TextLink_data = [
     { href: "/what-we-do/women-empowerment", text: "Women's Economic Empowerment", textFr: "Autonomisation économique des femmes", label: ", Financial Literacy & Sustainable Enterprise", labelFr: ", éducation financière et entreprises durables" },
     { href: "/what-we-do/hoja-educ", text: "HOJA EDUC", textFr: "HOJA EDUC", label: ", Creative Learning & Environmental Appreciation for Children", labelFr: ", apprentissage créatif et sensibilisation des enfants à l’environnement" },
     { href: "/who-we-are", text: "Ashoka Africa Fellowship", textFr: "Ashoka Africa Fellowship", label: ", Social Entrepreneurship Affiliation", labelFr: ", réseau d’entrepreneuriat social" },
-    { href: "/what-we-do", text: "Philosophy", textFr: "Notre philosophie", label: ", Solve Problems, Create Opportunities", labelFr: ", résoudre les problèmes et créer des opportunités" }
+    { href: "/who-we-are", text: "Philosophy", textFr: "Notre philosophie", label: ", Solve Problems, Create Opportunities", labelFr: ", résoudre les problèmes et créer des opportunités" }
 ];
 
 const Tile_cids: string[][] = [

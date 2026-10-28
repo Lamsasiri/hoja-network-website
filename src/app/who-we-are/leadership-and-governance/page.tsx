@@ -7,7 +7,7 @@ const ListRow_data = [
   { href: "/who-we-are/leadership-and-governance", label: "Leadership & Governance", labelFr: "Direction et gouvernance" },
   { href: "/who-we-are/our-history", label: "Our History (Since 2017)", labelFr: "Notre histoire (depuis 2017)" },
   { href: "/who-we-are/our-network", label: "Regional Network & Presence", labelFr: "Réseau et présence régionale" },
-  { href: "/what-we-do", label: "Strategic Pillars", labelFr: "Axes stratégiques" },
+  { href: "/impact", label: "Impact", labelFr: "Impact" },
   { href: "/contact", label: "Offices & Contact", labelFr: "Bureaux et contact" }
 ];
 

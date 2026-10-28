@@ -21,10 +21,10 @@ export default function WhyGirlsEducationRedirect() {
           <LanguageText fr="Redirection vers nos axes stratégiques et nos programmes communautaires dans la région des Grands Lacs." en="Redirecting to our strategic pillars and community programs in the Great Lakes region." />
         </p>
         <Link
-          href="/what-we-do"
+          href="/impact"
           className="inline-block py-2.5 px-6 bg-primary text-background font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-colors"
         >
-          <LanguageText fr="Découvrir nos actions →" en="Go to What We Do →" />
+          <LanguageText fr="Découvrir notre impact →" en="Explore our impact →" />
         </Link>
       </div>
     </main>

@@ -14,7 +14,7 @@ const ListRow_data = [
     { href: "/who-we-are/leadership-and-governance", label: "Leadership & Governance", labelFr: "Direction et gouvernance" },
     { href: "/who-we-are/our-history", label: "Our History (Since 2017)", labelFr: "Notre histoire (depuis 2017)" },
     { href: "/who-we-are/our-network", label: "Regional Network & Corridors", labelFr: "Réseau régional et corridors" },
-    { href: "/what-we-do", label: "4 Strategic Pillars", labelFr: "4 piliers stratégiques" },
+    { href: "/impact", label: "Our Impact", labelFr: "Notre impact" },
     { href: "/what-we-do/responsible-digital-ai", label: "Responsible Digital & AI", labelFr: "Numérique responsable et IA" },
     { href: "/contact", label: "Offices & Contact", labelFr: "Bureaux et contact" }
 ];

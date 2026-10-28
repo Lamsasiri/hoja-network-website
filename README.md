@@ -47,7 +47,7 @@ Because this project uses static export, API content is fetched at build time. R
 
 ## Routes
 
-Main HOJA routes include `/`, `/who-we-are`, `/who-we-are/our-history`, `/who-we-are/our-network`, `/who-we-are/team`, `/who-we-are/governance-team`, `/what-we-do`, `/impact`, `/green-economy`, `/hoja-academy`, `/hoja-farm`, `/moringa`, `/get-involved`, `/get-involved/partner-with-us`, `/contact`, `/donate`, and `/news`. Program detail routes are under `/what-we-do/`.
+Main HOJA routes include `/`, `/who-we-are`, `/who-we-are/our-history`, `/who-we-are/our-network`, `/who-we-are/team`, `/who-we-are/governance-team`, `/impact`, `/green-economy`, `/hoja-academy`, `/hoja-farm`, `/moringa`, `/get-involved`, `/get-involved/partner-with-us`, `/contact`, `/donate`, and `/news`. Program detail routes are under `/what-we-do/`.
 
 News articles use `/news/[slug]`; the set of static article routes is determined by WordPress content available when `npm run build` runs. The sitemap is maintained in `src/app/sitemap.ts`.
 

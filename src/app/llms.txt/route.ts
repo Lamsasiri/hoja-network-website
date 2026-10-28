@@ -5,7 +5,6 @@ export const dynamic = "force-static";
 const routes = [
   ["/", "HOJA Network public website"],
   ["/who-we-are", "About HOJA Network"],
-  ["/what-we-do", "HOJA Network programs"],
   ["/impact", "HOJA Network impact"],
   ["/green-economy", "Green economy"],
   ["/hoja-academy", "HOJA Academy"],
