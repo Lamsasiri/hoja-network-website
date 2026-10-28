@@ -134,8 +134,8 @@ function Tile({ d, cids }: { d: TileData; cids: string[] }) {
 
 function ListRow({ d, cids }: { d: ListRowData; cids: string[] }) {
   return (
-    <li data-cid={cids[0]} className="list-item relative float-left">
-      <a data-cid={cids[1]} className="block whitespace-nowrap mx-3.5 xl:mx-5 py-2 text-primary text-[1.15rem] xl:text-[1.3rem] font-bold leading-[2.0625rem] cursor-pointer hover:text-accent transition-colors" href={d.href}>
+    <li data-cid={cids[0]} className="list-item relative float-left shrink-0">
+      <a data-cid={cids[1]} className="block whitespace-nowrap mx-1.5 lg:mx-2 xl:mx-3 2xl:mx-4 py-2 text-primary text-[0.9rem] lg:text-[0.92rem] xl:text-[1.05rem] 2xl:text-[1.15rem] font-bold leading-[2.0625rem] cursor-pointer hover:text-accent transition-colors" href={d.href}>
         {d.href === "/who-we-are/our-network" ? <LanguageText fr="Notre réseau" en="Our Network" /> : d.href === "/green-economy" ? <LanguageText fr="Économie verte" en="Green Economy" /> : d.href === "/hoja-academy" ? "HOJA Academy" : d.href === "/hoja-farm" ? "HOJA Farm" : d.label}
       </a>
     </li>
@@ -429,14 +429,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
           </div>
-          <div className="w-full flex relative z-11 max-w-320 py-[1.1rem] px-8 flex-wrap items-center mx-auto max-md:px-4" data-cid="Ln32">
-            <a className="w-56 h-[4.4375rem] flex items-center cursor-pointer max-md:w-[21.4375rem] max-md:mb-4 max-lg:order-[1] md:max-lg:w-44 md:max-lg:h-13.5" data-cid="Ln33" href="/" id="logo">
+          <div className="w-full flex relative z-11 max-w-320 py-[1.1rem] px-8 flex-wrap lg:flex-nowrap items-center mx-auto max-md:px-4" data-cid="Ln32">
+            <a className="w-56 lg:w-40 xl:w-48 2xl:w-56 h-[4.4375rem] flex shrink-0 items-center cursor-pointer max-md:w-[21.4375rem] max-md:mb-4 max-lg:order-[1] md:max-lg:w-44 md:max-lg:h-13.5" data-cid="Ln33" href="/" id="logo">
               <img className="h-14 w-auto block max-w-full overflow-clip text-center max-md:mx-auto object-contain" data-cid="Ln34" alt="HOJA Network" src="/assets/hoja/logo_hoja_new.png" />
               <span className="w-px h-px block absolute -m-px overflow-hidden" data-cid="Ln35">
                 HOJA Network
               </span>
             </a>
-            <nav className="flex-1 flex justify-center items-center my-[0.6875rem] mx-4 max-md:w-[10.5rem] max-md:mx-[2.3px] max-lg:order-[3] max-lg:my-0 md:max-lg:w-[7.1875rem] md:max-lg:ml-2.5 md:max-lg:mr-0" data-cid="Ln36">
+            <nav className="min-w-0 flex-1 flex justify-center items-center my-[0.6875rem] mx-4 lg:mx-2 xl:mx-3 2xl:mx-4 max-md:w-[10.5rem] max-md:mx-[2.3px] max-lg:order-[3] max-lg:my-0 md:max-lg:w-[7.1875rem] md:max-lg:ml-2.5 md:max-lg:mr-0" data-cid="Ln36">
               <input type="checkbox" id="rnav-open" className="peer hidden" aria-label="Toggle navigation menu" />
               <label className="hidden relative py-[10.7px] pr-10 pl-4 text-background text-xl font-bold leading-7.5 text-left uppercase bg-accent cursor-pointer max-lg:block max-md:pr-6 max-md:text-center max-md:[font-size:inherit] max-md:leading-[inherit]" data-cid="Ln37" aria-expanded="false" htmlFor="rnav-open" id="rnav-button">
                 {"Menu "}
@@ -444,7 +444,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </label>
-              <ul className="flex items-center justify-center [list-style-type:none] list-outside max-lg:hidden after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln39">
+              <ul className="flex flex-nowrap items-center justify-center [list-style-type:none] list-outside max-lg:hidden after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln39">
                 {ListRow_data.map((d, i) => <ListRow key={i} d={d} cids={ListRow_cids[i]} />)}
               </ul>
               {/* Responsive Mobile Drawer */}
@@ -462,7 +462,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
               </div>
             </nav>
-            <a className="w-[10.5rem] block relative py-[10.7px] px-6 overflow-hidden text-background text-[1.45rem] font-bold leading-10 text-center bg-primary cursor-pointer max-md:w-[10.5rem] max-md:ml-[2.3px] max-lg:order-[2] max-md:[font-size:inherit] max-md:leading-[inherit] md:max-lg:w-32.5 md:max-lg:ml-[17.9375rem] md:max-lg:text-xl md:max-lg:leading-7.5 before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-30 before:w-[4.6875rem] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_31.6562px] max-md:before:left-[7.6875rem] max-md:before:origin-[37.5px_22.6562px] md:max-lg:before:left-[5.3125rem] md:max-lg:before:origin-[37.5px_25.6562px]" data-cid="Ln46" href="/donate">
+            <a className="w-[8.75rem] shrink-0 whitespace-nowrap block relative py-3 px-3 overflow-hidden text-background text-base font-bold leading-6 text-center bg-primary cursor-pointer max-md:w-[10.5rem] max-md:ml-[2.3px] max-lg:order-[2] max-md:[font-size:inherit] max-md:leading-[inherit] md:max-lg:w-32.5 md:max-lg:ml-[17.9375rem] md:max-lg:text-xl md:max-lg:leading-7.5 before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[5.5rem] before:w-[4.6875rem] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_31.6562px] max-md:before:left-[7.6875rem] max-md:before:origin-[37.5px_22.6562px] md:max-lg:before:left-[5.3125rem] md:max-lg:before:origin-[37.5px_25.6562px]" data-cid="Ln46" href="/donate">
               <LanguageText fr="Faire un don" en="Donate" />
             </a>
           </div>
