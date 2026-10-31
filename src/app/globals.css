@@ -222,9 +222,7 @@ html, body { overflow-x: clip; }
 }
 
 .hoja-partner-ticker {
-  display: flex;
-  width: max-content;
-  animation: hojaTicker 30s linear infinite;
+  animation: hojaTicker 22s linear infinite;
   will-change: transform;
 }
 
@@ -232,8 +230,69 @@ html, body { overflow-x: clip; }
   animation-play-state: paused;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html.has-scroll-motion [data-scroll-motion="pending"] {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.has-scroll-motion [data-scroll-motion="visible"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  main article[data-cid], main article[class*="border"], main article[class*="shadow"] {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease;
+  }
+
+  main article[data-cid] img[data-component="image"] {
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  button:not(:disabled), a[data-component="button"], a[class*="bg-primary"], a[class*="bg-accent"] {
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+  }
+
+  .hoja-partner-ticker img {
+    transition: transform 220ms ease, filter 220ms ease, opacity 220ms ease;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  main article[data-cid]:hover, main article[class*="border"]:hover, main article[class*="shadow"]:hover {
+    transform: translateY(-3px);
+  }
+
+  main article[data-cid]:hover img[data-component="image"] {
+    transform: scale(1.025);
+  }
+
+  button:not(:disabled):hover, a[data-component="button"]:hover, a[class*="bg-primary"]:hover, a[class*="bg-accent"]:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+  }
+
+  .hoja-partner-ticker img:hover {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button:not(:disabled):active, a[data-component="button"]:active, a[class*="bg-primary"]:active, a[class*="bg-accent"]:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hoja-partner-ticker {
     animation: none;
+  }
+
+  main article[data-cid], main article[class*="border"], main article[class*="shadow"],
+  main article[data-cid] img[data-component="image"],
+  button:not(:disabled), a[data-component="button"], a[class*="bg-primary"], a[class*="bg-accent"],
+  .hoja-partner-ticker img {
+    transition: none;
   }
 }

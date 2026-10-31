@@ -60,6 +60,7 @@ import ClientProviders from "../components/ClientProviders";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import LanguageText from "../components/LanguageText";
 import LocalizedSearchForm from "../components/LocalizedSearchForm";
+import ScrollMotion from "../components/ScrollMotion";
 
 type TileData = {
   value: string;
@@ -372,6 +373,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="cn0" data-cid="n0">
         <ClientProviders>
+        <ScrollMotion />
         <a className="w-[10.15rem] h-[48.3px] block fixed -top-40 left-0 z-40 py-[10.7px] px-[1.2rem] overflow-hidden text-background text-lg font-bold leading-[1.6875rem] text-center bg-primary cursor-pointer before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[7.3375rem] before:w-[4.6875rem] before:h-[48.3px] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_24.1562px]" data-cid="Ln1" href="#main">
           Skip to content
         </a>
