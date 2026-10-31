@@ -119,10 +119,6 @@ type TextLinkData = {
   labelFr?: string;
 };
 
-type TextLinkStyles = {
-  className?: string;
-};
-
 function Tile({ d, cids }: { d: TileData; cids: string[] }) {
   return (
     <option data-cid={cids[0]} className="box-content min-h-6 block min-w-6 pb-px px-0.5 items-center gap-[0.4375rem] whitespace-nowrap" value={d.value} selected={d.selected}>
@@ -198,9 +194,9 @@ function ListRow3({ d, cids }: { d: ListRow3Data; cids: string[] }) {
   );
 }
 
-function TextLink({ d, cids, styles }: { d: TextLinkData; cids: string[]; styles: TextLinkStyles }) {
+function TextLink({ d, cids }: { d: TextLinkData; cids: string[] }) {
   return (
-    <a data-cid={cids[0]} className={cn("block relative py-2 pr-8 text-left cursor-pointer", styles.className)} href={d.href}>
+    <a data-cid={cids[0]} className="block min-w-0 max-w-full relative py-2 pr-8 text-left cursor-pointer max-lg:w-full max-lg:basis-full max-lg:pr-0" href={d.href}>
       <b data-cid={cids[1]} className="inline font-bold">
         {d.textFr ? <LanguageText fr={d.textFr} en={d.text} /> : d.text}
       </b>
@@ -336,22 +332,6 @@ const ListRow2_styles = [
     { className: "max-lg:mt-2" },
     { className: "max-lg:mt-2" },
     { className: "max-lg:mt-2" }
-];
-
-const TextLink_styles = [
-    {  },
-    { className: "h-10" },
-    { className: "h-10" },
-    { className: "h-10" },
-    {  },
-    {  },
-    {  },
-    {  },
-    {  },
-    { className: "h-10" },
-    {  },
-    { className: "h-10" },
-    {  }
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -521,7 +501,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
             <div className="border-t-2 border-solid border-t-background border-b-2 border-b-background flex py-6 flex-wrap max-lg:mt-6 max-lg:pb-4" data-cid="Ln343">
-              {TextLink_data.map((d, i) => <TextLink key={i} d={d} cids={TextLink_cids[i]} styles={TextLink_styles[i]} />)}
+              {TextLink_data.map((d, i) => <TextLink key={i} d={d} cids={TextLink_cids[i]} />)}
             </div>
             <div className="flex py-8 flex-wrap justify-between" data-cid="Ln370">
               <p className="w-full block md:max-lg:w-176 text-sm opacity-90" data-cid="Ln371">

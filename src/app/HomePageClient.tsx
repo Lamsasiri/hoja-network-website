@@ -254,7 +254,7 @@ const MediaCard2_styles = [
           </header>
           <div className="block relative z-11 max-w-320 px-8 mx-auto max-md:px-4" data-cid="n170">
             <div className="w-312 flex relative -mx-4 flex-wrap max-md:w-full max-md:mx-0 md:max-lg:w-180 md:max-lg:-mx-2" data-cid="n171">
-              {posts.slice(0, 3).map((post, i) => <MediaCard2 key={post.id} d={{ alt: post.title, imgSrc: post.featuredMediaUrl || "", srcSet: post.featuredMediaUrl || "", title: post.title, description: post.excerpt, ariaLabel: t.home.news.readArticle, href: post.url || `/news/${post.slug}` }} cids={MediaCard2_cids[i]} styles={{}} />)}
+              {posts.slice(0, 3).map((post, i) => <MediaCard2 key={post.id} d={{ alt: post.title, imgSrc: post.featuredMediaUrl || "", srcSet: post.featuredMediaUrl || "", title: post.title, description: post.excerpt, ariaLabel: t.home.news.readArticle, href: `/news/${post.slug}` }} cids={MediaCard2_cids[i]} styles={{}} />)}
             </div>
           </div>
         </section>
