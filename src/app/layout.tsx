@@ -502,7 +502,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
               </div>
             </div>
-            <div className="border-t-2 border-solid border-t-background border-b-2 border-b-background flex py-6 flex-wrap max-lg:mt-6 max-lg:pb-4 max-md:hidden" data-cid="Ln343">
+            <div className="hoja-footer-addresses border-t-2 border-solid border-t-background border-b-2 border-b-background flex py-6 flex-wrap max-lg:mt-6 max-lg:pb-4" data-cid="Ln343">
               {TextLink_data.map((d, i) => <TextLink key={i} d={d} cids={TextLink_cids[i]} />)}
             </div>
             <div className="flex py-8 flex-wrap justify-between" data-cid="Ln370">

@@ -296,3 +296,9 @@ html, body { overflow-x: clip; }
     transition: none;
   }
 }
+
+@media (max-width: 767px) {
+  .hoja-footer-addresses {
+    display: none !important;
+  }
+}
