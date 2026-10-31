@@ -143,7 +143,7 @@
 html { -webkit-text-size-adjust: 100%; line-height: normal; }
 @media (max-width: 1024px) {
   /* Match the footer surface during mobile browser overscroll beyond the document edge. */
-  html { background-color: var(--primary); }
+  html, body { background-color: var(--primary); }
 }
 body { margin: 0; }
 ul, ol, menu { list-style: none; }
