@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node serve.js",
+    "start": "next start",
+    "serve:export": "node serve.js",
     "typecheck": "tsc --noEmit",
     "audit:browser": "node scripts/test-e2e-hoja.js"
   },

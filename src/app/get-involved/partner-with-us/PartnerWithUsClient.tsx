@@ -1,11 +1,61 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function PartnerWithUsPage() {
   const { language } = useLanguage();
   const fr = language === "fr";
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [pillar, setPillar] = useState("general");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          organization,
+          subject: `Partenariat (${pillar}) : ${organization || name}`,
+          message,
+          type: "partner",
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || (fr ? "Une erreur est survenue." : "An error occurred."));
+      }
+
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setOrganization("");
+      setMessage("");
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMessage(
+        err.message ||
+          (fr
+            ? "Impossible d'envoyer votre proposition pour le moment. Veuillez réessayer."
+            : "Unable to send your proposal right now. Please try again.")
+      );
+    }
+  }
+
   return (
     <main className="mt-[10.3125rem] bg-background max-lg:mt-0" id="main">
       {/* Hero */}
@@ -186,88 +236,138 @@ export default function PartnerWithUsPage() {
                 {fr ? "Présentez votre organisation et expliquez comment vous souhaitez collaborer avec HOJA Network." : "Tell us about your organization and how you would like to collaborate with HOJA Network."}
               </p>
 
-              <form className="space-y-4" action="mailto:contact@hojanetwork.org" method="GET">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {status === "success" ? (
+                <div className="p-6 bg-primary/10 border border-primary text-primary rounded-sm mb-6">
+                  <h4 className="font-bold text-base mb-1">
+                    {fr ? "✓ Demande de partenariat transmise avec succès !" : "✓ Partnership Inquiry Sent Successfully!"}
+                  </h4>
+                  <p className="text-sm">
+                    {fr
+                      ? "Merci pour votre intérêt. La direction des partenariats et des programmes examinera votre proposition sous 48 heures ouvrables."
+                      : "Thank you for your interest. Our partnerships and executive team will review your proposal within 48 business hours."}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="mt-4 text-xs font-bold uppercase tracking-wider underline hover:opacity-80 cursor-pointer"
+                  >
+                    {fr ? "Soumettre une autre proposition" : "Submit another inquiry"}
+                  </button>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  {status === "error" && (
+                    <div className="p-4 bg-red-500/10 border border-red-500 text-red-700 text-sm rounded-sm">
+                      <p>{errorMessage}</p>
+                      <p className="mt-2 text-xs">
+                        {fr
+                          ? "Vous pouvez également nous écrire directement à : "
+                          : "You can also write to us directly at: "}
+                        <a
+                          href={`mailto:partnership@hojanetwork.org?subject=${encodeURIComponent(`Partenariat : ${organization || name}`)}&body=${encodeURIComponent(message)}`}
+                          className="font-bold underline"
+                        >
+                          partnership@hojanetwork.org
+                        </a>
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
+                        {fr ? "Nom complet *" : "Full Name *"}
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder={fr ? "Ex. : Marie Dupont" : "e.g. Marie Dupont"}
+                        className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
+                        {fr ? "Adresse courriel *" : "Email Address *"}
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={fr ? "Ex. : marie@foundation.org" : "e.g. marie@foundation.org"}
+                        className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
+                        {fr ? "Organisation / fondation" : "Organization / Foundation"}
+                      </label>
+                      <input
+                        type="text"
+                        value={organization}
+                        onChange={(e) => setOrganization(e.target.value)}
+                        placeholder={fr ? "Nom de l’organisation" : "Organization Name"}
+                        className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
+                        {fr ? "Axe / domaine d’intérêt" : "Pillar / Focus Area of Interest"}
+                      </label>
+                      <select
+                        value={pillar}
+                        onChange={(e) => setPillar(e.target.value)}
+                        className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
+                      >
+                        <option value="general">{fr ? "Partenariat stratégique général" : "General Strategic Partnership"}</option>
+                        <option value="pillar-1">{fr ? "Axe 1 : Énergies renouvelables et cuisson propre" : "Pillar 1: Renewable Energy & Clean Cooking"}</option>
+                        <option value="pillar-2">{fr ? "Axe 2 : Biodiversité et paysage des Virunga" : "Pillar 2: Biodiversity & Virunga Landscape"}</option>
+                        <option value="pillar-3">{fr ? "Axe 3 : Forêt du bassin du Congo et agroforesterie" : "Pillar 3: Congo Basin Forest & Agroforestry"}</option>
+                        <option value="pillar-4">{fr ? "Axe 4 : Entrepreneuriat vert des jeunes et des femmes" : "Pillar 4: Green Youth & Women Enterprise"}</option>
+                        <option value="digital-ai">{fr ? "Innovation numérique et IA responsables" : "Responsible Digital & AI Innovation"}</option>
+                        <option value="green-great-lakes">{fr ? "Initiative Hoja Green Great Lakes (régionale)" : "Hoja Green Great Lakes Initiative (Regional)"}</option>
+                        <option value="community-education">{fr ? "HOJA EDUC et résilience familiale" : "HOJA EDUC & Family Resilience"}</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
-                      {fr ? "Nom complet *" : "Full Name *"}
+                      {fr ? "Votre message / proposition *" : "Your Message / Proposal *"}
                     </label>
-                    <input
-                      type="text"
+                    <textarea
+                      rows={5}
                       required
-                      name="name"
-                      placeholder={fr ? "Ex. : Marie Dupont" : "e.g. Marie Dupont"}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder={fr ? "Décrivez votre proposition de collaboration, son alignement stratégique ou vos questions institutionnelles…" : "Describe your proposed collaboration, strategic alignment, or institutional questions..."}
                       className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
                     />
                   </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
-                      {fr ? "Adresse courriel *" : "Email Address *"}
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      name="email"
-                      placeholder={fr ? "Ex. : marie@foundation.org" : "e.g. marie@foundation.org"}
-                      className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
-                    />
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
-                      {fr ? "Organisation / fondation" : "Organization / Foundation"}
-                    </label>
-                    <input
-                      type="text"
-                      name="organization"
-                      placeholder={fr ? "Nom de l’organisation" : "Organization Name"}
-                      className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
-                      {fr ? "Axe / domaine d’intérêt" : "Pillar / Focus Area of Interest"}
-                    </label>
-                    <select
-                      name="pillar"
-                      className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
-                    >
-                      <option value="general">{fr ? "Partenariat stratégique général" : "General Strategic Partnership"}</option>
-                      <option value="pillar-1">{fr ? "Axe 1 : Énergies renouvelables et cuisson propre" : "Pillar 1: Renewable Energy &amp; Clean Cooking"}</option>
-                      <option value="pillar-2">{fr ? "Axe 2 : Biodiversité et paysage des Virunga" : "Pillar 2: Biodiversity &amp; Virunga Landscape"}</option>
-                      <option value="pillar-3">{fr ? "Axe 3 : Forêt du bassin du Congo et agroforesterie" : "Pillar 3: Congo Basin Forest &amp; Agroforestry"}</option>
-                      <option value="pillar-4">{fr ? "Axe 4 : Entrepreneuriat vert des jeunes et des femmes" : "Pillar 4: Green Youth &amp; Women Enterprise"}</option>
-                      <option value="digital-ai">{fr ? "Innovation numérique et IA responsables" : "Responsible Digital &amp; AI Innovation"}</option>
-                      <option value="green-great-lakes">{fr ? "Initiative Hoja Green Great Lakes (régionale)" : "Hoja Green Great Lakes Initiative (Regional)"}</option>
-                      <option value="community-education">{fr ? "HOJA EDUC et résilience familiale" : "HOJA EDUC &amp; Family Resilience"}</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-accent mb-1">
-                    {fr ? "Votre message / proposition *" : "Your Message / Proposal *"}
-                  </label>
-                  <textarea
-                    rows={5}
-                    required
-                    name="message"
-                    placeholder={fr ? "Décrivez votre proposition de collaboration, son alignement stratégique ou vos questions institutionnelles…" : "Describe your proposed collaboration, strategic alignment, or institutional questions..."}
-                    className="w-full px-4 py-2.5 border border-border rounded-sm bg-background text-sm focus:outline-none focus:border-primary"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto py-3 px-8 bg-primary hover:bg-primary/90 text-background font-bold uppercase tracking-wider text-sm rounded-sm transition-colors cursor-pointer"
-                >
-                  {fr ? "Envoyer une demande de partenariat" : "Send Partnership Inquiry"}
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="w-full sm:w-auto py-3 px-8 bg-primary hover:bg-primary/90 text-background font-bold uppercase tracking-wider text-sm rounded-sm transition-colors cursor-pointer disabled:opacity-50"
+                  >
+                    {status === "submitting"
+                      ? fr
+                        ? "Envoi en cours…"
+                        : "Sending…"
+                      : fr
+                        ? "Envoyer une demande de partenariat"
+                        : "Send Partnership Inquiry"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
+
 
           {/* Sidebar */}
           <aside className="space-y-8">
