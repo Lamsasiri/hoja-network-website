@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/parenting-in-crisis",
   title: "Parenting in Crisis | HOJA Network",
   description: "Psychosocial dialogue circles and family support for households facing conflict, displacement, and vulnerability in North Kivu.",
-};
+});
+
+
 
 export default function ParentingInCrisisPage() {
   return (

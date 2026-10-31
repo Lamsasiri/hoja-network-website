@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/congo-basin-forest-climate",
   title: "Congo Basin Forest Protection & Climate Action | Strategic Pillar 3 | HOJA Network",
   description: "Protecting community forests, advancing agroforestry, building climate resilience, and championing equitable, rights-based environmental stewardship in Eastern DRC.",
-};
+});
+
+
 
 export default function CongoBasinForestClimatePage() {
   return (

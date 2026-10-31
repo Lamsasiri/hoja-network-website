@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/who-we-are/our-network",
   title: "Our Regional Network & Presence | HOJA Network",
   description: "Explore HOJA Network's physical presence and operational base: Headquarters in Goma, North Kivu, DRC, and connections across the Great Lakes region.",
-};
+});
+
+
 
 export default function OurNetworkPage() {
   return (

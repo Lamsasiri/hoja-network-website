@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/biodiversity-virunga-protection",
   title: "Biodiversity Conservation & Virunga Landscape Protection | Strategic Pillar 2 | HOJA Network",
   description: "Community-led conservation, buffer zone ecological restoration, and nature-positive livelihoods around the Virunga landscape in Eastern DRC.",
-};
+});
+
+
 
 export default function BiodiversityVirungaProtectionPage() {
   return (

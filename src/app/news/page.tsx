@@ -1,12 +1,15 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { getPosts, sanitizeMediaUrl } from "../../lib/wordpress";
 import LanguageText from "../../components/LanguageText";
+import { createPageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/news",
   title: "News & Field Stories | HOJA Network",
   description: "Latest news, field reports, community stories, and press releases from HOJA Network across Eastern DRC and Rwanda.",
-};
+});
+
+
 
 export default async function NewsArchivePage() {
   const posts = await getPosts(12);

@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/hoja-educ",
   title: "HOJA EDUC — Creative Education & Innovation | HOJA Network",
   description: "Fostering active learning, practical creativity, and school engagement for children through community workshops in Eastern DRC.",
-};
+});
+
+
 
 export default function HojaEducPage() {
   return (

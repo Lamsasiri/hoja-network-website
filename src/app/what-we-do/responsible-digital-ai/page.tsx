@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/responsible-digital-ai",
   title: "Responsible Digital & AI Innovation | Transversal Enabler | HOJA Network",
   description: "Leveraging responsible digital tools and artificial intelligence as practical enablers for environmental monitoring, green enterprise efficiency, and community-led climate action in Africa.",
-};
+});
+
+
 
 export default function ResponsibleDigitalAIPage() {
   return (

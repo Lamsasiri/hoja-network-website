@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/humanitarian-consultancy",
   title: "Humanitarian Consultancy & Capacity Building | HOJA Network",
   description: "Technical advisory, institutional strengthening, and fundraising guidance for local civil society organizations in the Great Lakes region.",
-};
+});
+
+
 
 export default function HumanitarianConsultancyPage() {
   return (

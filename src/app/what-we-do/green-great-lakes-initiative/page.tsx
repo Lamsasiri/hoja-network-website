@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/green-great-lakes-initiative",
   title: "Hoja Green Great Lakes Initiative | Proposed Regional Initiative | HOJA Network",
   description: "A proposed regional framework uniting clean energy, community conservation, agroforestry, green enterprise acceleration, and digital climate innovation across the Great Lakes.",
-};
+});
+
+
 
 export default function GreenGreatLakesInitiativePage() {
   return (

@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/green-entrepreneurship-circular-economy",
   title: "Green Entrepreneurship & Circular Economy | Strategic Pillar 4 | HOJA Network",
   description: "Promoting green jobs, waste valorization, circular business models, and eco-inclusive skills for young entrepreneurs and women in the Great Lakes region.",
-};
+});
+
+
 
 export default function GreenEntrepreneurshipCircularEconomyPage() {
   return (

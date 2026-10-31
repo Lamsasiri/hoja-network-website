@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/youth-empowerment",
   title: "Youth Economic Empowerment | HOJA Network",
   description: "Vocational skills training, micro-business incubation, and commercial mentoring to fight youth unemployment in the Great Lakes region.",
-};
+});
+
+
 
 export default function YouthEmpowermentPage() {
   return (

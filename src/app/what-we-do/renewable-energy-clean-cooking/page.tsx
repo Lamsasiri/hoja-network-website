@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/renewable-energy-clean-cooking",
   title: "Renewable Energy & Clean Cooking | Strategic Pillar 1 | HOJA Network",
   description: "Advancing community access to cleaner household cooking solutions, solar energy micro-services, and local green energy entrepreneurship in the Great Lakes region.",
-};
+});
+
+
 
 export default function RenewableEnergyCleanCookingPage() {
   return (

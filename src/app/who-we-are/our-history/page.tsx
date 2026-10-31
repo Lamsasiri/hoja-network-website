@@ -1,12 +1,15 @@
 import "../ditto.css";
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/who-we-are/our-history",
   title: "Our History & Milestones | HOJA Network",
   description: "Discover HOJA Network's journey from its foundation in 2017 to its active presence in Goma (DRC) and the Great Lakes region.",
-};
+});
+
+
 
 const TIMELINE = [
   {

@@ -1,6 +1,14 @@
 import "../ditto.css";
+import { createPageMetadata } from "../../../lib/seo";
 import ListRow from "../components/list-row";
 import LanguageText from "../../../components/LanguageText";
+
+export const metadata = createPageMetadata({
+  path: "/who-we-are/leadership-and-governance",
+  title: "Leadership And Governance",
+  description: "Discover HOJA Network’s work and initiatives related to leadership and governance across Eastern DRC and the Great Lakes region.",
+});
+
 
 const ListRow_data = [
   { href: "/who-we-are", label: "Who we are", labelFr: "Qui nous sommes" },

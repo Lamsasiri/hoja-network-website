@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/what-we-do/women-empowerment",
   title: "Women's Economic Empowerment | HOJA Network",
   description: "Financial education, enterprise coaching, and cooperative solidarity for women entrepreneurs in the Great Lakes region.",
-};
+});
+
+
 
 export default function WomenEmpowermentPage() {
   return (

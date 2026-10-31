@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../components/LanguageText";
+import { createPageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/get-involved",
   title: "Get Involved | HOJA Network",
   description: "Explore opportunities to support, partner with, or advocate for HOJA Network's mission in the Great Lakes region.",
-};
+});
+
+
 
 export default function GetInvolvedPage() {
   return (

@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPosts, getPostBySlug, sanitizeMediaUrl } from "../../../lib/wordpress";
 import LanguageText from "../../../components/LanguageText";
+import { createPageMetadata } from "../../../lib/seo";
+import { SITE_ORIGIN } from "../../../lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -26,12 +28,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${post.title} | HOJA Network`,
-    description: post.excerpt || "Read this story from HOJA Network.",
+    ...createPageMetadata({
+      path: `/news/${post.slug}`,
+      title: post.title,
+      description: post.excerpt || "Read this story from HOJA Network.",
+    }),
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.featuredMediaUrl ? [post.featuredMediaUrl] : [],
+      url: `${SITE_ORIGIN}/news/${post.slug}`,
+      type: "article",
+      images: post.featuredMediaUrl ? [post.featuredMediaUrl] : ["/assets/hoja/logo_hoja_horizontal.png"],
     },
   };
 }

@@ -2,13 +2,16 @@ import "./ditto.css";
 import ListRow from "./components/list-row";
 import MediaCard from "./components/media-card";
 import Link from "next/link";
-import type { Metadata } from "next";
 import LanguageText from "../../components/LanguageText";
+import { createPageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/who-we-are",
   title: "Who We Are | HOJA Network",
   description: "HOJA Network is an African regional organization founded in 2017 by Ashoka Fellow Isaac Bugeri, positioned at the intersection of nature protection, clean energy, green entrepreneurship, and community resilience.",
-};
+});
+
+
 
 const ListRow_data = [
     { href: "/who-we-are/leadership-and-governance", label: "Leadership & Governance", labelFr: "Direction et gouvernance" },

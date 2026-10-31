@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
 import LanguageText from "../../components/LanguageText";
 import ContactForm from "./ContactForm";
+import { createPageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/contact",
   title: "Contact Us | HOJA Network",
   description: "Get in touch with HOJA Network headquarters in Goma (DRC) and regional office in Rubavu (Rwanda). Verified addresses, phone numbers, and contact form.",
-};
+});
+
+
 
 export default function ContactPage() {
   return (
