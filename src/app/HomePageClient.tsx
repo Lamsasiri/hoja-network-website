@@ -28,7 +28,7 @@ function PartnerLogoTicker() {
           <div key={copy} className="flex shrink-0 items-center gap-4 pr-4" role="list" aria-hidden={copy === 1}>
             {partnerLogos.map((logo) => (
               <div key={`${logo.src}-${copy}`} className="flex h-24 w-44 shrink-0 items-center justify-center px-2" role="listitem">
-                <img className="h-16 w-full object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" src={`/assets/hoja/partners/${logo.src}`} alt={logo.alt} loading="lazy" />
+                <img className="h-16 w-full object-contain opacity-100" src={`/assets/hoja/partners/${logo.src}`} alt={logo.alt} loading="lazy" />
               </div>
             ))}
           </div>
