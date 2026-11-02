@@ -79,7 +79,7 @@ export default function HojaEducPage() {
                 <LanguageText fr="« Chaque enfant est naturellement curieux. Lorsqu’il a la liberté de créer, de questionner et de construire, il développe l’état d’esprit des acteurs du changement qui façonneront l’Afrique de demain. »" en="“Every child is naturally curious. When given the freedom to create, question, and build, they develop the mindset of changemakers who will shape tomorrow's Africa.”" />
               </p>
               <span className="block font-bold text-primary text-xs mt-3 uppercase tracking-wider">
-                <LanguageText fr="— Isaac Bugeri, fondateur et Ashoka Fellow" en="— Isaac Bugeri, Founder & Ashoka Fellow" />
+                <LanguageText fr="— Isaac Bugeri, fondateur de HOJA Network" en="— Isaac Bugeri, Founder of HOJA Network" />
               </span>
             </blockquote>
           </div>

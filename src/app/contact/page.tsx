@@ -54,6 +54,7 @@ export default function ContactPage() {
                     <p>
                       <strong><LanguageText fr="Téléphone / WhatsApp :" en="Phone / WhatsApp:" /></strong><br />
                       <a href="tel:+243897715819" className="text-primary hover:underline font-semibold block">+243 897 715 819</a>
+                      <span className="block text-xs text-foreground/70" aria-hidden="true">/</span>
                       <a href="tel:+243792369704" className="text-primary hover:underline font-semibold block">+243 792 369 704</a>
                     </p>
                     <p>
@@ -77,12 +78,16 @@ export default function ContactPage() {
                       <LanguageText fr="République du Rwanda" en="Republic of Rwanda" />
                     </p>
                     <p>
-                      <strong>E-mail :</strong><br />
-                      <a href="mailto:contact@hojanetwork.org" className="text-primary hover:underline font-semibold block">contact@hojanetwork.org</a>
+                      <strong><LanguageText fr="Téléphone / WhatsApp :" en="Phone / WhatsApp:" /></strong><br />
+                      <a href="tel:+250794359736" className="text-primary hover:underline font-semibold block">+250 794 359 736</a>
                     </p>
                     <p>
-                      <strong><LanguageText fr="Autorisation RGB :" en="RGB Authorization:" /></strong><br />
-                      <code className="text-xs bg-background px-2 py-0.5 rounded">Certificate No. 058/2024</code>
+                      <strong>E-mail :</strong><br />
+                      <a href="mailto:hojacommunication@gmail.com" className="text-primary hover:underline font-semibold block">hojacommunication@gmail.com</a>
+                    </p>
+                    <p>
+                      <strong><LanguageText fr="Enregistrement RDB :" en="RDB Registration:" /></strong><br />
+                      <span className="text-sm"><LanguageText fr="n° 131851993 — entreprise sociale (limited by guarantee), enregistrée le 26/02/2025" en="No. 131851993 — social enterprise (limited by guarantee), registered on 26/02/2025" /></span>
                     </p>
                   </div>
                 </div>

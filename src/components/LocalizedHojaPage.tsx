@@ -36,6 +36,7 @@ const sections: Record<PageKey, SectionSpec[]> = {
   ],
   farmPage: [
     { title: "approachTitle", paragraph: "approachText" },
+    { title: "porcineTitle", paragraph: "porcineDescription" },
     { title: "domainsTitle", lists: ["domain1Title", "domain1Points", "domain2Title", "domain2Points", "domain3Title", "domain3Points", "domain4Title", "domain4Points"] },
     { title: "expectedImpactTitle", lists: ["impactPoints"] },
   ],
@@ -119,7 +120,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
               {sections[pageKey].map((section, index) => (
                 <section key={section.title} className="space-y-4">
                   <h2 className="[font-family:questa,_serif] text-2xl md:text-3xl font-bold text-accent">{text(section.title)}</h2>
-                  {section.paragraph && !(pageKey === "academyPage" && index === 3) && !(pageKey === "moringaPage" && (index === 0 || index === 3)) && <p className="text-base leading-relaxed">{text(section.paragraph)}</p>}
+                  {section.paragraph && !(pageKey === "academyPage" && index === 3) && !(pageKey === "farmPage" && (index === 0 || index === 1)) && !(pageKey === "moringaPage" && (index === 0 || index === 3)) && <p className="text-base leading-relaxed">{text(section.paragraph)}</p>}
                   {pageKey === "greenEconomyPage" && index === 0 ? (
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
                       {[
@@ -149,6 +150,11 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                       ))}
                     </div>
                   ) : pageKey === "academyPage" && index === 0 ? (
+                    <>
+                    <article className="mb-5 rounded-sm border border-border border-l-4 border-l-primary bg-surface-2 p-6">
+                      <h3 className="text-lg font-bold text-accent">{text("aiTrainingTitle")}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-foreground/85">{text("aiTrainingDescription")}</p>
+                    </article>
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
                       {[
                         { title: text("offer1Title"), points: strings("offer1Points"), image: "academy-training.jpg", alt: "Young people participating in a community workshop" },
@@ -175,6 +181,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                         </article>
                       ))}
                     </div>
+                    </>
                   ) : pageKey === "academyPage" && index === 1 ? (
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       {[
@@ -227,6 +234,10 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                       <p className="p-6 text-base leading-relaxed text-foreground/85">{text("approachText")}</p>
                     </article>
                   ) : pageKey === "farmPage" && index === 1 ? (
+                    <article className="rounded-sm border border-border border-l-4 border-l-primary bg-surface-2 p-6">
+                      <p className="text-base leading-relaxed text-foreground/85">{text("porcineDescription")}</p>
+                    </article>
+                  ) : pageKey === "farmPage" && index === 2 ? (
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
                       {[
                         { title: text("domain1Title"), points: strings("domain1Points"), image: "WhatsApp Image 2026-10-17 at 22.04.52s.jpeg", alt: "Young plants growing in a community nursery" },
@@ -253,7 +264,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                         </article>
                       ))}
                     </div>
-                  ) : pageKey === "farmPage" && index === 2 ? (
+                  ) : pageKey === "farmPage" && index === 3 ? (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       {strings("impactPoints").map((impact, impactIndex) => (
                         <article key={impactIndex} className="relative flex min-h-32 items-start gap-4 overflow-hidden rounded-sm border border-border bg-background p-5 shadow-sm transition-shadow hover:shadow-md">

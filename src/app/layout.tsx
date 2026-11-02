@@ -231,7 +231,7 @@ const UtilityNav_data = [
 ];
 
 const Tile2_data = [
-    { description: "Community Supporter ", description2: "$50", description3: "Ashoka Africa Network ", description4: "Fellowship", description5: "Youth Training Advocate ", description6: "$250", description7: "HOJA EDUC Supporter ", description8: "$25", description9: "Women Enterprise Circle ", description10: "$100" },
+    { description: "Community Supporter ", description2: "$50", description3: "", description4: "", description5: "Youth Training Advocate ", description6: "$250", description7: "HOJA EDUC Supporter ", description8: "$25", description9: "Women Enterprise Circle ", description10: "$100" },
     { description: "Community Hub ", description2: "$150", description3: "Regional Development Ally ", description4: "$80", description5: "Local Enterprise Partner ", description6: "$300", description7: "Youth Mentorship Supporter ", description8: "$45", description9: "Family Resilience Fund ", description10: "$75" },
     { description: "African Youth Supporter ", description2: "$120", description3: "Child Protection Ally ", description4: "$60", description5: "Community Solidarity ", description6: "$210", description7: "Local Community Leader ", description8: "$35", description9: "Vocational Skills Circle ", description10: "$180" }
 ];
@@ -263,7 +263,6 @@ const TextLink_data = [
     { href: "/what-we-do/youth-empowerment", text: "Youth Economic Empowerment", textFr: "Autonomisation économique des jeunes", label: ", Practical Vocational Training & Enterprise", labelFr: ", formations professionnelles pratiques et entrepreneuriat" },
     { href: "/what-we-do/women-empowerment", text: "Women's Economic Empowerment", textFr: "Autonomisation économique des femmes", label: ", Financial Literacy & Sustainable Enterprise", labelFr: ", éducation financière et entreprises durables" },
     { href: "/what-we-do/hoja-educ", text: "HOJA EDUC", textFr: "HOJA EDUC", label: ", Creative Learning & Environmental Appreciation for Children", labelFr: ", apprentissage créatif et sensibilisation des enfants à l’environnement" },
-    { href: "/who-we-are", text: "Ashoka Africa Fellowship", textFr: "Ashoka Africa Fellowship", label: ", Social Entrepreneurship Affiliation", labelFr: ", réseau d’entrepreneuriat social" },
     { href: "/who-we-are", text: "Philosophy", textFr: "Notre philosophie", label: ", Solve Problems, Create Opportunities", labelFr: ", résoudre les problèmes et créer des opportunités" }
 ];
 
@@ -319,7 +318,6 @@ const TextLink_cids: string[][] = [
     ["Ln362", "Ln363"],
     ["Ln364", "Ln365"],
     ["Ln366", "Ln367"],
-    ["Ln368", "Ln369"]
 ];
 
 const Tile2_styles = [
@@ -419,11 +417,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
             <nav className="min-w-0 flex-1 flex justify-center items-center my-[0.6875rem] mx-4 lg:mx-2 xl:mx-3 2xl:mx-4 max-md:w-[10.5rem] max-md:mx-[2.3px] max-lg:order-[3] max-lg:my-0 md:max-lg:w-[7.1875rem] md:max-lg:ml-2.5 md:max-lg:mr-0" data-cid="Ln36">
               <input type="checkbox" id="rnav-open" className="peer hidden" aria-label="Toggle navigation menu" />
-              <label className="hidden relative py-[10.7px] pr-10 pl-4 text-background text-xl font-bold leading-7.5 text-left uppercase bg-accent cursor-pointer max-lg:block max-md:pr-6 max-md:text-center max-md:[font-size:inherit] max-md:leading-[inherit]" data-cid="Ln37" aria-expanded="false" htmlFor="rnav-open" id="rnav-button">
-                {"Menu "}
-                <svg className="w-5 h-5 block absolute top-[calc(50%_-_10px)] right-4 text-background pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <label className="hidden relative py-[10.7px] px-4 text-background text-xl font-bold leading-7.5 text-left uppercase bg-accent cursor-pointer max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-md:[font-size:inherit] max-md:leading-[inherit]" data-cid="Ln37" aria-expanded="false" htmlFor="rnav-open" id="rnav-button">
+                <svg className="w-5 h-5 block shrink-0 text-background pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
+                <span>Menu</span>
               </label>
               <ul className="flex flex-nowrap items-center justify-center [list-style-type:none] list-outside max-lg:hidden after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln39">
                 {ListRow_data.map((d, i) => <ListRow key={i} d={d} cids={ListRow_cids[i]} />)}

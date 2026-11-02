@@ -86,7 +86,7 @@ export default function PartnerWithUsPage() {
                 {fr ? "HOJA Network met en relation des fondations philanthropiques, des agences bilatérales de développement, des alliances de conservation et des entreprises à impact avec des initiatives communautaires vérifiées dans l’est de la RDC et les territoires voisins." : "HOJA Network connects philanthropic foundations, bilateral development agencies, conservation alliances, and corporate social innovators directly with verified community initiatives in Eastern DRC and neighboring territories."}
               </p>
               <p className="text-base leading-relaxed text-foreground/85">
-                {fr ? <>Nous relions les normes mondiales de gouvernance environnementale et sociale — inspirées par le statut Ashoka Fellow de notre fondateur — à une présence quotidienne fondée sur la confiance auprès des associations de jeunes, des commerçantes, des petits exploitants et des responsables communautaires.</> : <>We bridge global standards of environmental and social governance—inspired by our founder&apos;s Ashoka Fellowship—with daily, trust-based presence among youth associations, women merchants, smallholders, and community leaders.</>}
+                {fr ? "Nous relions les normes mondiales de gouvernance environnementale et sociale à une présence quotidienne fondée sur la confiance auprès des associations de jeunes, des commerçantes, des petits exploitants et des responsables communautaires." : "We connect global environmental and social governance standards with a trusted daily presence among youth associations, women merchants, smallholders, and community leaders."}
               </p>
             </div>
 
@@ -147,19 +147,6 @@ export default function PartnerWithUsPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                {/* 1. Ashoka */}
-                <div className="p-4 bg-surface-2 rounded-sm border border-border">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-accent uppercase tracking-wider">Ashoka Africa Network</span>
-                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
-                      {fr ? "Affiliation fondatrice" : "Founding affiliation"}
-                    </span>
-                  </div>
-                  <p className="text-foreground/80 leading-normal">
-                    {fr ? <>Lien institutionnel porté par Isaac Bugeri (Ashoka Fellow), avec accès au réseau mondial des entrepreneurs sociaux et à ses standards d’impact systémique.</> : <>Institutional affiliation held by Isaac Bugeri (Ashoka Fellow), with access to a global social entrepreneur network and systemic impact standards.</>}
-                  </p>
-                </div>
-
                 {/* 2. Ministère Justice RDC */}
                 <div className="p-4 bg-surface-2 rounded-sm border border-border">
                   <div className="flex justify-between items-center mb-1">
@@ -383,7 +370,7 @@ export default function PartnerWithUsPage() {
                 </div>
                 <div className="pt-2 border-t border-background/15">
                   <div className="font-bold text-background">Isaac Bugeri</div>
-                  <div className="text-xs text-primary">{fr ? "Fondateur et Ashoka Fellow" : "Founder &amp; Ashoka Fellow"}</div>
+                  <div className="text-xs text-primary">{fr ? "Fondateur" : "Founder"}</div>
                   <a href="mailto:bugeri@hojanetwork.org" className="text-xs underline hover:text-primary">
                     bugeri@hojanetwork.org
                   </a>
@@ -398,9 +385,6 @@ export default function PartnerWithUsPage() {
               </p>
               <p className="text-foreground/80 mb-2">
                 <strong>{fr ? "Rwanda :" : "Rwanda:"}</strong> {fr ? "Autorisée par le Rwanda Governance Board (RGB)" : "Authorized under Rwanda Governance Board (RGB)"} <code>{fr ? "n°" : "No."} 058/2024</code>.
-              </p>
-              <p className="text-foreground/80">
-                <strong>{fr ? "Affiliation :" : "Affiliation:"}</strong> Ashoka Global Fellowship Network.
               </p>
             </div>
           </aside>

@@ -188,6 +188,8 @@ export interface Translations {
     subtitle: string;
     intro: string;
     offerTitle: string;
+    aiTrainingTitle: string;
+    aiTrainingDescription: string;
     offer1Title: string;
     offer1Points: string[];
     offer2Title: string;
@@ -211,6 +213,8 @@ export interface Translations {
     intro: string;
     approachTitle: string;
     approachText: string;
+    porcineTitle: string;
+    porcineDescription: string;
     domainsTitle: string;
     domain1Title: string;
     domain1Points: string[];
@@ -336,7 +340,6 @@ export const translations: Record<Language, Translations> = {
         title: "Nos partenaires",
         description: "HOJA Network collabore avec des réseaux d’entrepreneuriat social, les autorités de tutelle en RDC et au Rwanda, des regroupements économiques locaux et les communautés de la région.",
         items: [
-          { category: "Réseau mondial", status: "Documenté", title: "Ashoka Africa & Global Network", description: "Isaac Bugeri, fondateur de HOJA Network, est Ashoka Fellow et Venture Manager. Ce réseau accompagne l’innovation sociale et l’entrepreneuriat.", relationship: "Affiliation du fondateur" },
           { category: "Tutelle publique — RDC", status: "Agrément officiel", title: "Ministère de la Justice (RDC)", description: "Autorisation ministérielle d’exercice N° JUST.G.S. 112/S-KV/0508/2021 pour les actions d’utilité publique dans l’Est de la RDC.", relationship: "Siège : Goma, Nord-Kivu" },
           { category: "Régulation — Rwanda", status: "Enregistrement RGB", title: "Rwanda Governance Board (RGB)", description: "Enregistrement via e-Imiryango sous le N° 058/2024 pour les activités de HOJA Network au Rwanda.", relationship: "Antenne : Rubavu" },
           { category: "Réseau économique", status: "Concertation", title: "RAVEC RDC", description: "Réseau des Acteurs de la Valorisation de l’Entrepreneuriat au Congo, présidé par Héritier Kitumaini, qui soutient l’insertion économique et l’incubation de micro-entreprises.", relationship: "Écosystème entrepreneurial" },
@@ -536,6 +539,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Former. Accompagner. Innover.",
       intro: "HOJA Academy est notre centre d’excellence de formation, d’incubation et d’accompagnement entrepreneurial au Rwanda et en République démocratique du Congo. Nous formons les jeunes et les femmes à devenir des entrepreneurs confiants, outillés et compétents, capables de bâtir des entreprises viables.",
       offerTitle: "Notre offre d'accompagnement :",
+      aiTrainingTitle: "AI Training to Job Creation",
+      aiTrainingDescription: "Former les jeunes aux métiers de l’intelligence artificielle et les connecter à l’emploi : compétences IA pratiques, accompagnement vers des missions et des emplois rémunérés.",
       offer1Title: "Formation entrepreneuriale pratique",
       offer1Points: [
         "Création et structuration juridique et opérationnelle d'entreprise",
@@ -589,6 +594,8 @@ export const translations: Record<Language, Translations> = {
       intro: "HOJA Farm promeut la production agricole durable et la distribution de produits nutritifs au Rwanda et en République démocratique du Congo. Nous travaillons aux côtés des communautés rurales pour restaurer la nutrition, dynamiser l’économie locale et renforcer la résilience face aux dérèglements climatiques.",
       approachTitle: "Notre démarche agroécologique :",
       approachText: "HOJA Farm identifie des cultures et des pratiques agricoles qui profitent simultanément à la santé humaine, à la prospérité paysanne et à la régénération des sols. Le moringa en constitue la première illustration concrète, démontrant qu'une agriculture respectueuse de l'environnement peut être un moteur économique puissant.",
+      porcineTitle: "Élevage porcin",
+      porcineDescription: "HOJA Farm développe l'élevage porcin durable aux côtés des communautés rurales : formation des éleveurs, amélioration des pratiques d'élevage et création de revenus stables pour les femmes et les jeunes.",
       domainsTitle: "Nos domaines d’intervention :",
       domain1Title: "Production locale durable",
       domain1Points: [
@@ -743,7 +750,6 @@ export const translations: Record<Language, Translations> = {
         title: "Our Partners",
         description: "HOJA Network works with social enterprise networks, the relevant authorities in the DRC and Rwanda, local economic groups, and communities across the region.",
         items: [
-          { category: "Global Network", status: "Documented", title: "Ashoka Africa & Global Network", description: "HOJA Network founder Isaac Bugeri is an Ashoka Fellow and Venture Manager. The network supports social innovation and entrepreneurship.", relationship: "Founder affiliation" },
           { category: "Public Oversight — DRC", status: "Official Authorization", title: "Ministry of Justice (DRC)", description: "Ministerial authorization No. JUST.G.S. 112/S-KV/0508/2021 for public-interest work in eastern DRC.", relationship: "Headquarters: Goma, North Kivu" },
           { category: "Regulation — Rwanda", status: "RGB Registration", title: "Rwanda Governance Board (RGB)", description: "Registration through e-Imiryango under No. 058/2024 for HOJA Network’s activities in Rwanda.", relationship: "Office: Rubavu" },
           { category: "Economic Network", status: "Coordination", title: "RAVEC DRC", description: "The Network of Actors for the Promotion of Entrepreneurship in Congo, chaired by Héritier Kitumaini, supports economic inclusion and microenterprise incubation.", relationship: "Entrepreneurship ecosystem" },
@@ -943,6 +949,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Train. Mentor. Innovate.",
       intro: "HOJA Academy is our flagship entrepreneurial education, incubation, and acceleration hub operating in Rwanda and the Democratic Republic of Congo. We equip youth and women with the concrete skills, tools, and confidence required to build enduring businesses.",
       offerTitle: "Our Core Curriculum & Support:",
+      aiTrainingTitle: "AI Training to Job Creation",
+      aiTrainingDescription: "Train young people for careers in artificial intelligence and connect them with work through practical AI skills and support toward paid assignments and jobs.",
       offer1Title: "Practical Entrepreneurship Training",
       offer1Points: [
         "Business launch, registration, and operational compliance",
@@ -996,6 +1004,8 @@ export const translations: Record<Language, Translations> = {
       intro: "HOJA Farm champions regenerative farming and the production of nutrient-dense staples across Rwanda and the Democratic Republic of Congo. We work alongside rural communities to defeat malnutrition, foster green jobs, and establish resilience against harsh climate shocks.",
       approachTitle: "Our Agroecological Approach:",
       approachText: "HOJA Farm identifies agricultural crops and regenerative methods that advance human nutrition, rural farmer earnings, and soil restoration all at once. Moringa is our pioneering showcase, proving that ecological agriculture can serve as an engine of regional prosperity.",
+      porcineTitle: "Pig Farming",
+      porcineDescription: "HOJA Farm develops sustainable pig farming alongside rural communities through farmer training, improved husbandry practices, and stable income opportunities for women and young people.",
       domainsTitle: "Our Key Action Areas:",
       domain1Title: "Sustainable Local Production",
       domain1Points: [

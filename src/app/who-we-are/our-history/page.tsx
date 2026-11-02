@@ -16,8 +16,8 @@ const TIMELINE = [
     year: "2017",
     title: "Origins & Foundation by Isaac Bugeri",
     titleFr: "Origines et fondation par Isaac Bugeri",
-    description: "Isaac Bugeri, Congolese social entrepreneur and Ashoka Fellow, establishes HOJA Network in Nairobi, Kenya, driven by a conviction: youth unemployment and community challenges must be tackled through practical skills, enterprise creation, and local problem-solving.",
-    descriptionFr: "Isaac Bugeri, entrepreneur social congolais et Ashoka Fellow, fonde HOJA Network à Nairobi, au Kenya. Sa conviction : le chômage des jeunes et les défis des communautés appellent des compétences pratiques, la création d’entreprises et des solutions locales."
+    description: "Isaac Bugeri, Congolese social entrepreneur, establishes HOJA Network in Nairobi, Kenya, driven by a conviction: youth unemployment and community challenges must be tackled through practical skills, enterprise creation, and local problem-solving.",
+    descriptionFr: "Isaac Bugeri, entrepreneur social congolais, fonde HOJA Network à Nairobi, au Kenya. Sa conviction : le chômage des jeunes et les défis des communautés appellent des compétences pratiques, la création d’entreprises et des solutions locales."
   },
   {
     year: "2019",
@@ -95,7 +95,7 @@ export default function HistoryPage() {
               <LanguageText fr="« La véritable transformation ne vient pas de l’assistanat. Elle advient lorsque les jeunes et les femmes des communautés disposent des outils, de la rigueur financière et de la confiance technique nécessaires pour bâtir des solutions durables. »" en="“True transformation never comes from hand-outs. It emerges when grassroots youth and women gain the tools, the financial discipline, and the technical confidence to build solutions that last.”" />
             </blockquote>
             <p className="font-semibold text-primary text-sm">
-              — Isaac Bugeri, <LanguageText fr="fondateur de HOJA Network (Ashoka Fellow)" en="Founder of HOJA Network (Ashoka Fellow)" />
+              — Isaac Bugeri, <LanguageText fr="fondateur de HOJA Network" en="Founder of HOJA Network" />
             </p>
           </div>
 

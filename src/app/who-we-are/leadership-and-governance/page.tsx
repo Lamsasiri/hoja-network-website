@@ -46,10 +46,10 @@ const LEADERS: LeaderProfile[] = [
     role: "Founder of HOJA Network",
     roleFr: "Fondateur de HOJA Network",
     category: "Leadership & Founder",
-    bio: "Ashoka Africa Fellow & Venture Manager. Former Executive Director of Groupe ISACOM. Founded HOJA Network in 2017 to eradicate youth unemployment and build sustainable community enterprise across the Great Lakes.",
-    bioFr: "Ashoka Africa Fellow et Venture Manager. Ancien directeur exécutif du Groupe ISACOM. Il a fondé HOJA Network en 2017 pour lutter contre le chômage des jeunes et développer des entreprises communautaires durables dans la région des Grands Lacs.",
-    tag: "Founder & Ashoka Fellow",
-    tagFr: "Fondateur et Ashoka Fellow"
+    bio: "Venture Manager. Former Executive Director of Groupe ISACOM. Founded HOJA Network in 2017 to eradicate youth unemployment and build sustainable community enterprise across the Great Lakes.",
+    bioFr: "Venture Manager. Ancien directeur exécutif du Groupe ISACOM. Il a fondé HOJA Network en 2017 pour lutter contre le chômage des jeunes et développer des entreprises communautaires durables dans la région des Grands Lacs.",
+    tag: "Founder",
+    tagFr: "Fondateur"
   },
   {
     name: "Daniel Mirambi",

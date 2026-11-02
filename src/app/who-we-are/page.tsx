@@ -8,7 +8,7 @@ import { createPageMetadata } from "../../lib/seo";
 export const metadata = createPageMetadata({
   path: "/who-we-are",
   title: "Who We Are | HOJA Network",
-  description: "HOJA Network is an African regional organization founded in 2017 by Ashoka Fellow Isaac Bugeri, positioned at the intersection of nature protection, clean energy, green entrepreneurship, and community resilience.",
+  description: "HOJA Network is an African regional organization founded in 2017 by Isaac Bugeri, positioned at the intersection of nature protection, clean energy, green entrepreneurship, and community resilience.",
 });
 
 
@@ -109,7 +109,7 @@ export default function WhoWeArePage() {
               </div>
               <div className="block p-6" data-cid="n56">
                 <p className="block text-xl leading-6.5 text-foreground font-medium" data-cid="n57">
-                  <LanguageText fr="HOJA Network est une organisation régionale africaine fondée en 2017 par Isaac Bugeri, Ashoka Fellow." en="HOJA Network is an African regional organization founded in 2017 by Ashoka Fellow Isaac Bugeri." />
+                  <LanguageText fr="HOJA Network est une organisation régionale africaine fondée en 2017 par Isaac Bugeri." en="HOJA Network is an African regional organization founded in 2017 by Isaac Bugeri." />
                 </p>
                 <p className="block text-base leading-6 mt-3 text-muted-foreground">
                   <LanguageText fr="Nous agissons à la croisée de la conservation écologique, de l’énergie propre, de l’entrepreneuriat vert et de la résilience communautaire dans l’est de la RDC et la région des Grands Lacs." en="Positioned at the nexus of ecological conservation, clean energy, green entrepreneurship, and community resilience in Eastern DRC and the Great Lakes borderlands." />
