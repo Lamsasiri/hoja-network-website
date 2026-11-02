@@ -87,7 +87,9 @@ const MediaCard2_styles = [
         {/* Hero Section */}
         <section className="h-170 min-h-170 flex relative py-12 flex-wrap items-center overflow-hidden bg-color-009 max-md:h-auto max-lg:pb-8 max-lg:min-h-0 max-lg:pt-0 md:max-lg:h-[966px] 2xl:h-229.5 2xl:min-h-229.5" data-cid="n49">
           <div className="w-240 h-170 block absolute top-0 left-80 min-w-0 max-md:w-full max-md:h-[263.7px] max-lg:right-0 max-lg:static max-lg:left-auto md:max-lg:w-192 md:max-lg:h-135 2xl:w-360 2xl:h-229.5 2xl:left-120" data-cid="n50">
-            <img className="w-full h-170 block max-w-full overflow-clip object-cover text-center max-md:h-66 md:max-lg:h-135 2xl:h-229.5" data-cid="n51" data-component="image" alt="A mother carrying her child through a green field" src="/assets/hoja/photos/home-hero-great-lakes.webp" />
+            <video className="w-full h-170 block max-w-full overflow-clip object-cover text-center max-md:h-66 md:max-lg:h-135 2xl:h-229.5" data-cid="n51" autoPlay muted loop playsInline preload="metadata" poster="/assets/hoja/photos/home-hero-great-lakes.webp" aria-hidden="true">
+              <source src="/assets/hoja/videos/homepage-hero-virunga-zoom.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4" data-cid="n52">
             <div className="w-[34.2rem] block z-2 mr-[41.8rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:mt-8 max-md:mr-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]" data-cid="n53">
