@@ -42,6 +42,13 @@ function PartnerLogoTicker() {
 export default function HomePageClient({ posts }: { posts: import("../lib/wordpress").WPPost[] }) {
   const { t } = useLanguage();
 
+  const impactStats = [
+    { value: "10K+", description: t.home.keyFigures.line1, color: "bg-accent", surface: "bg-surface-3" },
+    { value: "1K+", description: t.home.keyFigures.line2, color: "bg-color-008", surface: "bg-surface-2" },
+    { value: "500", description: t.home.keyFigures.line3, color: "bg-color-002", surface: "bg-surface-4" },
+    { value: "1K", description: t.home.keyFigures.line4, color: "bg-[#9A3412]", surface: "bg-[#FFF7ED]" },
+  ];
+
   const MediaCard_data = [
     { alt: t.home.whyHoja.card1Title, imgSrc: "/assets/hoja/photos/home-economic-empowerment.webp", srcSet: "/assets/hoja/photos/home-economic-empowerment.webp 414w", href: "/impact", title: t.home.whyHoja.card1Title, description: t.home.whyHoja.card1Text },
     { alt: t.home.whyHoja.card2Title, imgSrc: "/assets/hoja/photos/home-entrepreneurship.webp", srcSet: "/assets/hoja/photos/home-entrepreneurship.webp 1200w", href: "/hoja-academy", title: t.home.whyHoja.card2Title, description: t.home.whyHoja.card2Text },
@@ -173,44 +180,29 @@ const MediaCard2_styles = [
               {t.home.approach.description}
             </p>
           </header>
-          <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4" data-cid="n125">
-            <div className="block relative max-w-[calc(42%-0.75rem)] mr-6 basis-[calc(42%-0.75rem)] order-[1] max-md:max-w-full max-md:basis-full max-md:mr-0 max-md:mb-6" data-cid="n126">
-              <img className="w-full h-full block rounded-sm max-w-full overflow-clip object-cover text-center min-h-80" data-cid="n127" data-component="image" alt="HOJA impact field" src="/assets/hoja/photos/home-impact.webp" />
+          <div className="flex relative z-11 max-w-320 px-8 flex-wrap items-stretch mx-auto max-md:px-4" data-cid="n125">
+            <div className="block relative max-w-[37%] basis-[37%] min-h-[26rem] order-[1] max-md:max-w-full max-md:basis-full max-md:min-h-64 max-md:mb-5" data-cid="n126">
+              <img className="w-full h-full block rounded-sm max-w-full overflow-clip object-cover text-center min-h-80 max-md:min-h-64" data-cid="n127" data-component="image" alt="HOJA impact field" src="/assets/hoja/photos/home-impact.webp" />
             </div>
-            <div className="block z-1 max-w-[calc(58%-0.75rem)] py-4 self-center basis-[calc(58%-0.75rem)] order-[2] max-md:max-w-full max-md:basis-full" data-cid="n128">
-              <ul className="flex flex-col gap-4 text-center [list-style-type:none] list-outside" data-cid="n129">
-                <li className="flex overflow-hidden bg-surface-3 shadow-sm rounded-sm max-md:flex-col">
-                  <div className="w-40 flex p-4 justify-center items-center text-background bg-accent max-md:w-full max-md:py-3">
-                    <span className="text-3xl font-bold">1</span>
-                  </div>
-                  <div className="p-4 text-left self-center text-sm text-foreground/85">
-                    {t.home.keyFigures.line1}
-                  </div>
-                </li>
-                <li className="flex overflow-hidden bg-surface-2 shadow-sm rounded-sm max-md:flex-col">
-                  <div className="w-40 flex p-4 justify-center items-center text-background bg-primary max-md:w-full max-md:py-3">
-                    <span className="text-lg font-bold uppercase tracking-wider">2</span>
-                  </div>
-                  <div className="p-4 text-left self-center text-sm text-foreground/85">
-                    {t.home.keyFigures.line2}
-                  </div>
-                </li>
-                <li className="flex overflow-hidden bg-surface-4 shadow-sm rounded-sm max-md:flex-col">
-                  <div className="w-40 flex p-4 justify-center items-center text-background bg-color-008 max-md:w-full max-md:py-3">
-                    <span className="text-lg font-bold uppercase tracking-wider">3</span>
-                  </div>
-                  <div className="p-4 text-left self-center text-sm text-foreground/85">
-                    {t.home.keyFigures.line3}
-                  </div>
-                </li>
-                <li className="flex overflow-hidden bg-surface shadow-sm rounded-sm max-md:flex-col">
-                  <div className="w-40 flex p-4 justify-center items-center text-background bg-color-012 max-md:w-full max-md:py-3">
-                    <span className="text-lg font-bold uppercase tracking-wider">4</span>
-                  </div>
-                  <div className="p-4 text-left self-center text-sm text-foreground/85">
-                    {t.home.keyFigures.line4}
-                  </div>
-                </li>
+            <div className="relative z-10 -ml-24 max-w-[70%] basis-[70%] py-4 self-center order-[2] max-md:ml-0 max-md:max-w-full max-md:basis-full max-md:py-0">
+              <ul className="flex flex-col gap-4 [list-style-type:none] list-outside max-md:gap-3">
+                {impactStats.map((stat, index) => {
+                  const numberOnRight = index % 2 === 1;
+                  return (
+                    <li key={stat.value + index} className={`flex min-h-28 items-stretch overflow-hidden rounded-md shadow-md transition-transform duration-300 hover:-translate-y-0.5 ${stat.surface} ${numberOnRight ? "flex-row-reverse" : ""}`}>
+                      <div
+                        className={`flex w-[28%] min-w-24 shrink-0 items-center justify-center px-3 py-4 text-background max-md:w-[30%] ${stat.color}`}
+                        style={{ clipPath: numberOnRight ? "polygon(12% 0, 100% 0, 100% 100%, 0 100%)" : "polygon(0 0, 100% 0, 88% 100%, 0 100%)" }}
+                        aria-hidden="true"
+                      >
+                        <span className="[font-family:questa,_serif] text-4xl font-extrabold leading-none text-background md:text-5xl">{stat.value}</span>
+                      </div>
+                      <div className="flex flex-1 items-center p-5 text-left text-sm leading-relaxed text-foreground/90 md:p-6 md:text-base">
+                        {stat.description}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
