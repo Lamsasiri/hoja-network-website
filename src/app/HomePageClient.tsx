@@ -43,10 +43,10 @@ export default function HomePageClient({ posts }: { posts: import("../lib/wordpr
   const { t } = useLanguage();
 
   const MediaCard_data = [
-    { alt: t.home.whyHoja.card1Title, imgSrc: "/assets/hoja/photos/IMG_0525.jpg", srcSet: "/assets/hoja/photos/IMG_0525.jpg 960w", href: "/impact", title: t.home.whyHoja.card1Title, description: t.home.whyHoja.card1Text },
-    { alt: t.home.whyHoja.card2Title, imgSrc: "/assets/hoja/photos/IMG_0531.jpg", srcSet: "/assets/hoja/photos/IMG_0531.jpg 960w", href: "/hoja-academy", title: t.home.whyHoja.card2Title, description: t.home.whyHoja.card2Text },
-    { alt: t.home.whyHoja.card3Title, imgSrc: "/assets/hoja/photos/IMG_7113.jpg", srcSet: "/assets/hoja/photos/IMG_7113.jpg 960w", href: "/green-economy", title: t.home.whyHoja.card3Title, description: t.home.whyHoja.card3Text },
-    { alt: t.home.whyHoja.card4Title, imgSrc: "/assets/hoja/photos/IMG_8302.jpg", srcSet: "/assets/hoja/photos/IMG_8302.jpg 960w", href: "/hoja-academy", title: t.home.whyHoja.card4Title, description: t.home.whyHoja.card4Text },
+    { alt: t.home.whyHoja.card1Title, imgSrc: "/assets/hoja/photos/home-economic-empowerment.webp", srcSet: "/assets/hoja/photos/home-economic-empowerment.webp 414w", href: "/impact", title: t.home.whyHoja.card1Title, description: t.home.whyHoja.card1Text },
+    { alt: t.home.whyHoja.card2Title, imgSrc: "/assets/hoja/photos/home-entrepreneurship.webp", srcSet: "/assets/hoja/photos/home-entrepreneurship.webp 1200w", href: "/hoja-academy", title: t.home.whyHoja.card2Title, description: t.home.whyHoja.card2Text },
+    { alt: t.home.whyHoja.card3Title, imgSrc: "/assets/hoja/photos/home-climate-action.webp", srcSet: "/assets/hoja/photos/home-climate-action.webp 1024w", href: "/green-economy", title: t.home.whyHoja.card3Title, description: t.home.whyHoja.card3Text },
+    { alt: t.home.whyHoja.card4Title, imgSrc: "/assets/hoja/photos/home-education-innovation.webp", srcSet: "/assets/hoja/photos/home-education-innovation.webp 1200w", href: "/hoja-academy", title: t.home.whyHoja.card4Title, description: t.home.whyHoja.card4Text },
   ];
 
 const MediaCard_cids: string[][] = [
@@ -87,7 +87,7 @@ const MediaCard2_styles = [
         {/* Hero Section */}
         <section className="h-170 min-h-170 flex relative py-12 flex-wrap items-center overflow-hidden bg-color-009 max-md:h-auto max-lg:pb-8 max-lg:min-h-0 max-lg:pt-0 md:max-lg:h-[966px] 2xl:h-229.5 2xl:min-h-229.5" data-cid="n49">
           <div className="w-240 h-170 block absolute top-0 left-80 min-w-0 max-md:w-full max-md:h-[263.7px] max-lg:right-0 max-lg:static max-lg:left-auto md:max-lg:w-192 md:max-lg:h-135 2xl:w-360 2xl:h-229.5 2xl:left-120" data-cid="n50">
-            <img className="w-full h-170 block max-w-full overflow-clip object-cover text-center max-md:h-66 md:max-lg:h-135 2xl:h-229.5" data-cid="n51" data-component="image" alt="A mother carrying her child through a green field" src="/assets/hoja/photos/annie-spratt-1YnBzhJISg4-unsplash.jpg" />
+            <img className="w-full h-170 block max-w-full overflow-clip object-cover text-center max-md:h-66 md:max-lg:h-135 2xl:h-229.5" data-cid="n51" data-component="image" alt="A mother carrying her child through a green field" src="/assets/hoja/photos/home-hero-great-lakes.webp" />
           </div>
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4" data-cid="n52">
             <div className="w-[34.2rem] block z-2 mr-[41.8rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:mt-8 max-md:mr-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]" data-cid="n53">
@@ -135,7 +135,7 @@ const MediaCard2_styles = [
         {/* Field Feature Section */}
         <section className="h-180 min-h-180 flex relative py-12 flex-wrap items-center overflow-hidden bg-color-011 max-md:h-auto max-lg:pb-8 max-lg:min-h-0 max-lg:pt-0 md:max-lg:h-[53.425rem] 2xl:h-243 2xl:min-h-243" data-cid="n110">
           <div className="w-240 h-180 block absolute top-0 left-0 min-w-0 max-md:w-full max-md:h-64 max-lg:static md:max-lg:w-192 md:max-lg:h-135 2xl:w-360 2xl:h-243" data-cid="n111">
-            <img className="w-full h-180 block max-w-full overflow-clip object-cover text-center max-md:h-64 md:max-lg:h-135 2xl:h-243" data-cid="n112" data-component="image" alt="HOJA Network team member with a community member" src="/assets/hoja/photos/IMG_7752-1-1-scaled.jpg" />
+            <img className="w-full h-180 block max-w-full overflow-clip object-cover text-center max-md:h-64 md:max-lg:h-135 2xl:h-243" data-cid="n112" data-component="image" alt="HOJA Network team member with a community member" src="/assets/hoja/photos/home-local-roots.webp" />
           </div>
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4" data-cid="n113">
             <div className="w-[32.5rem] block z-2 -mt-12.5 ml-[43.5rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:ml-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]" data-cid="n114">
@@ -173,7 +173,7 @@ const MediaCard2_styles = [
           </header>
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4" data-cid="n125">
             <div className="block relative max-w-[calc(42%-0.75rem)] mr-6 basis-[calc(42%-0.75rem)] order-[1] max-md:max-w-full max-md:basis-full max-md:mr-0 max-md:mb-6" data-cid="n126">
-              <img className="w-full h-full block rounded-sm max-w-full overflow-clip object-cover text-center min-h-80" data-cid="n127" data-component="image" alt="HOJA impact field" src="/assets/hoja/photos/IMG_7211.jpg" />
+              <img className="w-full h-full block rounded-sm max-w-full overflow-clip object-cover text-center min-h-80" data-cid="n127" data-component="image" alt="HOJA impact field" src="/assets/hoja/photos/home-impact.webp" />
             </div>
             <div className="block z-1 max-w-[calc(58%-0.75rem)] py-4 self-center basis-[calc(58%-0.75rem)] order-[2] max-md:max-w-full max-md:basis-full" data-cid="n128">
               <ul className="flex flex-col gap-4 text-center [list-style-type:none] list-outside" data-cid="n129">
@@ -218,7 +218,7 @@ const MediaCard2_styles = [
         <section className="block relative py-16 bg-primary text-background" data-cid="n154">
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4">
             <div className="block max-w-[45%] self-center basis-[45%] max-lg:max-w-full max-lg:basis-full max-lg:order-[2]" data-cid="n156">
-              <img className="w-full h-80 block max-w-full overflow-clip text-center object-cover rounded-sm shadow-md" data-cid="n157" data-component="image" alt="Agroforesterie et régénération des sols par HOJA Network" src="/assets/hoja/photos/WhatsApp Image 2026-10-17 at 22.04.50.jpeg" />
+            <img className="w-full h-80 block max-w-full overflow-clip text-center object-cover rounded-sm shadow-md" data-cid="n157" data-component="image" alt="Agroforesterie et régénération des sols par HOJA Network" src="/assets/hoja/photos/home-green-economy.webp" />
             </div>
             <div className="block max-w-[55%] px-10 self-center basis-[55%] text-background max-lg:max-w-full max-lg:mb-8 max-lg:basis-full max-lg:px-0" data-cid="n158">
               <h2 className="block [font-family:questa,_serif] text-[2.2rem] leading-[2.75rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]" data-cid="n159" data-component="heading">
