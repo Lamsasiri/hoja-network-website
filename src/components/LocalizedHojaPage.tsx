@@ -151,9 +151,12 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                     </div>
                   ) : pageKey === "academyPage" && index === 0 ? (
                     <>
-                    <article className="mb-5 rounded-sm border border-border border-l-4 border-l-primary bg-surface-2 p-6">
-                      <h3 className="text-lg font-bold text-accent">{text("aiTrainingTitle")}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-foreground/85">{text("aiTrainingDescription")}</p>
+                    <article className="mb-5 overflow-hidden rounded-sm border border-border border-l-4 border-l-primary bg-surface-2 shadow-sm">
+                      <img className="h-48 w-full object-cover object-center md:h-64" src="/assets/hoja/photos/academy-ai-training.jpg" alt="Young adults collaborating around a laptop during digital skills training" />
+                      <div className="p-6">
+                        <h3 className="text-lg font-bold text-accent">{text("aiTrainingTitle")}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-foreground/85">{text("aiTrainingDescription")}</p>
+                      </div>
                     </article>
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
                       {[
@@ -234,8 +237,9 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                       <p className="p-6 text-base leading-relaxed text-foreground/85">{text("approachText")}</p>
                     </article>
                   ) : pageKey === "farmPage" && index === 1 ? (
-                    <article className="rounded-sm border border-border border-l-4 border-l-primary bg-surface-2 p-6">
-                      <p className="text-base leading-relaxed text-foreground/85">{text("porcineDescription")}</p>
+                    <article className="overflow-hidden rounded-sm border border-border border-l-4 border-l-primary bg-surface-2 shadow-sm">
+                      <img className="h-56 w-full object-cover object-center md:h-80" src="/assets/hoja/photos/hoja-pig-farming.png" alt="Sow nursing piglets at the HOJA Network pig farm" />
+                      <p className="p-6 text-base leading-relaxed text-foreground/85">{text("porcineDescription")}</p>
                     </article>
                   ) : pageKey === "farmPage" && index === 2 ? (
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">

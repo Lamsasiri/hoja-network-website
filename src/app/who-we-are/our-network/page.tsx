@@ -84,7 +84,7 @@ export default function OurNetworkPage() {
                   </p>
                   <p>
                     <strong><LanguageText fr="Téléphone / WhatsApp :" en="Phone / WhatsApp:" /></strong><br />
-                    <a href="tel:+243897715819" className="text-primary hover:underline font-semibold">+243 897 715 819</a> / <a href="tel:+243792369704" className="text-primary hover:underline font-semibold">+243 792 369 704</a>
+                    <a href="tel:+243897715819" className="text-primary hover:underline font-semibold">+243 897 715 819</a>
                   </p>
                 </div>
               </div>

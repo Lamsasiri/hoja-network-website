@@ -54,8 +54,6 @@ export default function ContactPage() {
                     <p>
                       <strong><LanguageText fr="Téléphone / WhatsApp :" en="Phone / WhatsApp:" /></strong><br />
                       <a href="tel:+243897715819" className="text-primary hover:underline font-semibold block">+243 897 715 819</a>
-                      <span className="block text-xs text-foreground/70" aria-hidden="true">/</span>
-                      <a href="tel:+243792369704" className="text-primary hover:underline font-semibold block">+243 792 369 704</a>
                     </p>
                     <p>
                       <strong><LanguageText fr="Enregistrement officiel :" en="Official Reg:" /></strong><br />
@@ -101,19 +99,19 @@ export default function ContactPage() {
           <aside className="space-y-8">
             <div className="p-6 bg-accent text-background rounded-sm">
               <h3 className="font-bold text-lg mb-3"><LanguageText fr="Horaires et visites" en="Office Hours &amp; Visits" /></h3>
-              <div className="space-y-3 text-sm text-foreground/85">
+              <div className="space-y-3 text-sm text-background/90">
                 <p>
-                  <strong><LanguageText fr="Lundi – vendredi :" en="Monday – Friday:" /></strong><br />
+                  <strong className="text-background"><LanguageText fr="Lundi – vendredi :" en="Monday – Friday:" /></strong><br />
                   08:30 – 17:00 (CAT / GMT+2)
                 </p>
                 <p>
-                  <strong><LanguageText fr="Samedi :" en="Saturday:" /></strong><br />
+                  <strong className="text-background"><LanguageText fr="Samedi :" en="Saturday:" /></strong><br />
                   09:00 – 13:00 (<LanguageText fr="suivi de terrain uniquement" en="Field monitoring only" />)
                 </p>
                 <p>
-                  <strong><LanguageText fr="Dimanche :" en="Sunday:" /></strong> <LanguageText fr="fermé" en="Closed" />
+                  <strong className="text-background"><LanguageText fr="Dimanche :" en="Sunday:" /></strong> <LanguageText fr="fermé" en="Closed" />
                 </p>
-                <div className="pt-3 border-t border-background/20 text-xs">
+                <div className="pt-3 border-t border-background/30 text-xs text-background/85">
                   <em><LanguageText fr="Remarque : pour des raisons de sécurité et de logistique dans la région frontalière, les visiteurs et délégations sont invités à prendre rendez-vous au moins 48 heures à l’avance." en="Note: Due to security and logistics protocols in the border region, external visitors and delegations are invited to schedule meetings at least 48 hours in advance." /></em>
                 </div>
               </div>
