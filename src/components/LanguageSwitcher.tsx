@@ -8,31 +8,29 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-xs font-bold text-background border border-white/20">
-      <span
+      <button
+        type="button"
         onClick={() => setLanguage("en")}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLanguage("en"); }}
-        className={`cursor-pointer px-1 transition-opacity ${
+        aria-pressed={language === "en"}
+        className={`cursor-pointer px-1 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
           language === "en" ? "text-primary font-extrabold" : "opacity-70 hover:opacity-100"
         }`}
         aria-label="Switch to English"
       >
         EN
-      </span>
+      </button>
       <span className="opacity-40 select-none">|</span>
-      <span
+      <button
+        type="button"
         onClick={() => setLanguage("fr")}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLanguage("fr"); }}
-        className={`cursor-pointer px-1 transition-opacity ${
+        aria-pressed={language === "fr"}
+        className={`cursor-pointer px-1 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
           language === "fr" ? "text-primary font-extrabold" : "opacity-70 hover:opacity-100"
         }`}
         aria-label="Passer en Français"
       >
         FR
-      </span>
+      </button>
     </div>
   );
 }

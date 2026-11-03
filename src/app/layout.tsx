@@ -375,8 +375,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="w-[10.15rem] h-[48.3px] block fixed -top-40 left-0 z-40 py-[10.7px] px-[1.2rem] overflow-hidden text-background text-lg font-bold leading-[1.6875rem] text-center bg-primary cursor-pointer before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[7.3375rem] before:w-[4.6875rem] before:h-[48.3px] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_24.1562px]" data-cid="Ln1" href="#main">
           Skip to content
         </a>
-        <header className="h-[10.3125rem] flex fixed top-0 inset-x-0 z-40 flex-wrap bg-background max-md:h-[11.875rem] max-lg:relative max-lg:bottom-0 md:max-lg:h-[6.975rem] after:content-[''] after:table after:w-0 after:h-[7.0375rem] max-md:after:h-[10.875rem] md:max-lg:after:h-[5.975rem]" data-cid="Ln2">
-          <div className="w-full block py-2 text-background bg-accent" data-cid="Ln3">
+        <header className="h-[10.3125rem] flex fixed top-0 inset-x-0 z-40 flex-wrap bg-background max-lg:h-auto max-lg:relative max-lg:bottom-0 after:content-[''] after:table after:w-0 after:h-[7.0375rem] max-lg:after:hidden" data-cid="Ln2">
+          <div className="w-full block py-2 text-background bg-accent max-lg:py-0" data-cid="Ln3">
             <div className="flex relative z-11 max-w-320 px-8 flex-wrap justify-between items-center mx-auto max-lg:hidden" data-cid="Ln4">
               <nav className="block" data-cid="Ln5">
                 <ul className="block text-right [list-style-type:none] list-outside after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln6">
@@ -407,41 +407,49 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <LocalizedSearchForm />
               </div>
             </div>
+            <div className="hidden max-lg:block" data-cid="Ln4-mobile">
+              <nav aria-label="Navigation secondaire" className="h-10 flex items-center overflow-x-auto px-4 whitespace-nowrap">
+                <ul className="flex items-center gap-5">
+                  {UtilityNav_data.map((item) => <li key={item.href} className="shrink-0"><a className="py-2 text-xs font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href={item.href}><LanguageText fr={item.label} en={item.en} /></a></li>)}
+                </ul>
+              </nav>
+              <div className="h-10 flex items-center justify-between gap-3 border-t border-white/10 px-4">
+                <LanguageSwitcher />
+                <div className="w-[min(12rem,60vw)]"><LocalizedSearchForm inputId="search-mobile" className="block w-full" /></div>
+              </div>
+            </div>
           </div>
-          <div className="w-full flex relative z-11 max-w-320 py-[1.1rem] px-8 flex-wrap lg:flex-nowrap items-center mx-auto max-md:px-4" data-cid="Ln32">
-            <a className="w-56 lg:w-40 xl:w-48 2xl:w-56 h-[4.4375rem] flex shrink-0 items-center cursor-pointer max-md:w-40 max-md:mb-2 max-lg:order-[1] md:max-lg:w-44 md:max-lg:h-13.5" data-cid="Ln33" href="/" id="logo">
-              <img className="h-14 w-auto block max-w-full overflow-clip text-center max-md:mx-auto max-md:h-10 object-contain" data-cid="Ln34" alt="HOJA Network" src="/assets/hoja/logo_hoja_new.png" />
+          <div className="w-full flex relative z-11 max-w-320 py-[1.1rem] px-8 flex-nowrap items-center mx-auto max-lg:gap-2 max-lg:py-3 max-md:px-4" data-cid="Ln32">
+            <a className="w-56 lg:w-40 xl:w-48 2xl:w-56 h-[4.4375rem] flex shrink-0 items-center cursor-pointer max-lg:order-[1] max-lg:w-44 max-lg:h-13.5 max-md:w-[7.75rem] max-md:h-12" data-cid="Ln33" href="/" id="logo">
+              <img className="h-14 w-auto block max-w-full overflow-clip text-center max-lg:h-12 max-md:h-10 object-contain" data-cid="Ln34" alt="HOJA Network" src="/assets/hoja/logo_hoja_new.png" />
               <span className="w-px h-px block absolute -m-px overflow-hidden" data-cid="Ln35">
                 HOJA Network
               </span>
             </a>
-            <nav className="min-w-0 flex-1 flex justify-center items-center my-[0.6875rem] mx-4 lg:mx-2 xl:mx-3 2xl:mx-4 max-md:w-[10.5rem] max-md:mx-[2.3px] max-lg:order-[3] max-lg:my-0 md:max-lg:w-[7.1875rem] md:max-lg:ml-2.5 md:max-lg:mr-0" data-cid="Ln36">
-              <details className="group relative max-lg:w-full">
-                <summary className="hidden relative min-h-12 py-3 px-4 text-background text-base font-bold text-left uppercase bg-accent cursor-pointer max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-lg:list-none max-lg:marker:content-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" data-cid="Ln37" id="rnav-button">
+            <nav aria-label="Navigation principale" className="min-w-0 flex-1 flex justify-center items-center my-[0.6875rem] mx-4 lg:mx-2 xl:mx-3 2xl:mx-4 max-lg:order-[3] max-lg:my-0 max-lg:mx-0 max-lg:justify-end" data-cid="Ln36">
+              <ul className="flex flex-nowrap items-center justify-center [list-style-type:none] list-outside max-lg:hidden">
+                {ListRow_data.map((d, i) => <ListRow key={i} d={d} cids={ListRow_cids[i]} />)}
+              </ul>
+              <details className="group relative hidden max-lg:block">
+                <summary className="relative flex min-h-11 w-[5.25rem] items-center justify-center gap-2 px-2 text-background text-sm font-bold uppercase bg-accent cursor-pointer list-none marker:content-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" data-cid="Ln37" id="rnav-button">
                   <svg className="w-5 h-5 block shrink-0 text-background pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                   <LanguageText fr="Menu" en="Menu" />
                 </summary>
-                <ul className="flex flex-nowrap items-center justify-center [list-style-type:none] list-outside max-lg:hidden after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln39">
-                {ListRow_data.map((d, i) => <ListRow key={i} d={d} cids={ListRow_cids[i]} />)}
-                </ul>
-                {/* Native details/summary provides keyboard and assistive-technology support. */}
-              <div className="hidden group-open:max-lg:block fixed inset-x-0 top-[11.875rem] md:max-lg:top-[6.975rem] bottom-0 z-50 bg-accent text-background overflow-y-auto px-6 py-8 shadow-2xl border-t border-white/10">
+                <div className="hidden group-open:block fixed inset-x-0 top-[9.875rem] bottom-0 z-50 bg-accent text-background overflow-y-auto px-6 py-8 shadow-2xl border-t border-white/10">
                 <div className="max-w-md mx-auto space-y-5">
                   <div className="pb-4 border-b border-white/20"><span className="text-xs font-bold uppercase tracking-widest text-white">HOJA Network</span></div>
-                  <div className="pb-4 border-b border-white/20"><LanguageSwitcher /></div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/80"><LanguageText fr="Découvrir HOJA" en="Discover HOJA" /></p>
-                  {UtilityNav_data.map((d) => <a key={d.href} href={d.href} className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><LanguageText fr={d.label} en={d.en} /></a>)}
                   <p className="pt-3 border-t border-white/20 text-xs font-bold uppercase tracking-widest text-white/80"><LanguageText fr="Nos actions" en="Our work" /></p>
                   {ListRow_data.map((d) => <a key={d.href} href={d.href} className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">{d.href === "/who-we-are/our-network" ? <LanguageText fr="Notre réseau" en="Our Network" /> : d.href === "/impact" ? "Impact" : d.href === "/green-economy" ? <LanguageText fr="Économie verte" en="Green Economy" /> : d.href === "/hoja-academy" ? "HOJA Academy" : "HOJA Farm"}</a>)}
                   <a href="/get-involved/partner-with-us" className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><LanguageText fr="Partenariats" en="Partnerships" /></a>
                   <a href="/contact" className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><LanguageText fr="Contact" en="Contact" /></a>
                 </div>
-              </div>
+                </div>
+                {/* Native details/summary provides keyboard and assistive-technology support. */}
               </details>
             </nav>
-            <a className="w-[8.75rem] shrink-0 whitespace-nowrap block relative py-3 px-3 overflow-hidden text-background text-base font-bold leading-6 text-center bg-accent cursor-pointer max-md:w-40 max-md:ml-[2.3px] max-lg:order-[2] max-md:[font-size:inherit] max-md:leading-[inherit] md:max-lg:w-32.5 md:max-lg:ml-[17.9375rem] md:max-lg:text-xl md:max-lg:leading-7.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[5.5rem] before:w-[4.6875rem] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_31.6562px] max-md:before:left-[7.6875rem] max-md:before:origin-[37.5px_22.6562px] md:max-lg:before:left-[5.3125rem] md:max-lg:before:origin-[37.5px_25.6562px]" data-cid="Ln46" href="/donate">
+            <a className="w-[8.75rem] shrink-0 whitespace-nowrap block relative py-3 px-3 overflow-hidden text-background text-base font-bold leading-6 text-center bg-accent cursor-pointer max-lg:order-[2] max-lg:w-auto max-lg:ml-0 max-lg:px-3 max-lg:text-sm max-lg:leading-5 max-md:w-[7.25rem] max-md:px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[5.5rem] before:w-[4.6875rem] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_31.6562px] max-lg:before:left-[4.5rem] max-lg:before:origin-[37.5px_25.6562px]" data-cid="Ln46" href="/donate">
               <LanguageText fr="Faire un don" en="Donate" />
             </a>
           </div>
