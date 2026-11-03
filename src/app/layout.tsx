@@ -131,7 +131,7 @@ function Tile({ d, cids }: { d: TileData; cids: string[] }) {
 function ListRow({ d, cids }: { d: ListRowData; cids: string[] }) {
   return (
     <li data-cid={cids[0]} className="list-item relative float-left shrink-0">
-      <a data-cid={cids[1]} className="block whitespace-nowrap mx-1.5 lg:mx-2 xl:mx-3 2xl:mx-4 py-2 text-primary text-[0.9rem] lg:text-[0.92rem] xl:text-[1.05rem] 2xl:text-[1.15rem] font-bold leading-[2.0625rem] cursor-pointer hover:text-accent transition-colors" href={d.href}>
+      <a data-cid={cids[1]} className="block whitespace-nowrap mx-1.5 lg:mx-2 xl:mx-3 2xl:mx-4 py-2 text-[var(--primary-text)] text-[0.9rem] lg:text-[0.92rem] xl:text-[1.05rem] 2xl:text-[1.15rem] font-bold leading-[2.0625rem] cursor-pointer hover:text-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" href={d.href}>
         {d.href === "/who-we-are/our-network" ? <LanguageText fr="Notre réseau" en="Our Network" /> : d.href === "/green-economy" ? <LanguageText fr="Économie verte" en="Green Economy" /> : d.href === "/hoja-academy" ? "HOJA Academy" : d.href === "/hoja-farm" ? "HOJA Farm" : d.label}
       </a>
     </li>
@@ -409,48 +409,45 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
           <div className="w-full flex relative z-11 max-w-320 py-[1.1rem] px-8 flex-wrap lg:flex-nowrap items-center mx-auto max-md:px-4" data-cid="Ln32">
-            <a className="w-56 lg:w-40 xl:w-48 2xl:w-56 h-[4.4375rem] flex shrink-0 items-center cursor-pointer max-md:w-[21.4375rem] max-md:mb-4 max-lg:order-[1] md:max-lg:w-44 md:max-lg:h-13.5" data-cid="Ln33" href="/" id="logo">
-              <img className="h-14 w-auto block max-w-full overflow-clip text-center max-md:mx-auto object-contain" data-cid="Ln34" alt="HOJA Network" src="/assets/hoja/logo_hoja_new.png" />
+            <a className="w-56 lg:w-40 xl:w-48 2xl:w-56 h-[4.4375rem] flex shrink-0 items-center cursor-pointer max-md:w-40 max-md:mb-2 max-lg:order-[1] md:max-lg:w-44 md:max-lg:h-13.5" data-cid="Ln33" href="/" id="logo">
+              <img className="h-14 w-auto block max-w-full overflow-clip text-center max-md:mx-auto max-md:h-10 object-contain" data-cid="Ln34" alt="HOJA Network" src="/assets/hoja/logo_hoja_new.png" />
               <span className="w-px h-px block absolute -m-px overflow-hidden" data-cid="Ln35">
                 HOJA Network
               </span>
             </a>
             <nav className="min-w-0 flex-1 flex justify-center items-center my-[0.6875rem] mx-4 lg:mx-2 xl:mx-3 2xl:mx-4 max-md:w-[10.5rem] max-md:mx-[2.3px] max-lg:order-[3] max-lg:my-0 md:max-lg:w-[7.1875rem] md:max-lg:ml-2.5 md:max-lg:mr-0" data-cid="Ln36">
-              <input type="checkbox" id="rnav-open" className="peer hidden" aria-label="Toggle navigation menu" />
-              <label className="hidden relative py-[10.7px] px-4 text-background text-xl font-bold leading-7.5 text-left uppercase bg-accent cursor-pointer max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-md:[font-size:inherit] max-md:leading-[inherit]" data-cid="Ln37" aria-expanded="false" htmlFor="rnav-open" id="rnav-button">
-                <svg className="w-5 h-5 block shrink-0 text-background pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <span>Menu</span>
-              </label>
-              <ul className="flex flex-nowrap items-center justify-center [list-style-type:none] list-outside max-lg:hidden after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln39">
+              <details className="group relative max-lg:w-full">
+                <summary className="hidden relative min-h-12 py-3 px-4 text-background text-base font-bold text-left uppercase bg-accent cursor-pointer max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-lg:list-none max-lg:marker:content-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" data-cid="Ln37" id="rnav-button">
+                  <svg className="w-5 h-5 block shrink-0 text-background pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                  <LanguageText fr="Menu" en="Menu" />
+                </summary>
+                <ul className="flex flex-nowrap items-center justify-center [list-style-type:none] list-outside max-lg:hidden after:content-[''] after:table after:w-0 after:h-0 max-lg:after:w-auto max-lg:after:h-auto" data-cid="Ln39">
                 {ListRow_data.map((d, i) => <ListRow key={i} d={d} cids={ListRow_cids[i]} />)}
-              </ul>
-              {/* Responsive Mobile Drawer */}
-              <div className="hidden peer-checked:max-lg:block fixed inset-x-0 top-[11.875rem] md:max-lg:top-[6.975rem] bottom-0 z-50 bg-accent text-background overflow-y-auto px-6 py-8 shadow-2xl border-t border-white/10">
+                </ul>
+                {/* Native details/summary provides keyboard and assistive-technology support. */}
+              <div className="hidden group-open:max-lg:block fixed inset-x-0 top-[11.875rem] md:max-lg:top-[6.975rem] bottom-0 z-50 bg-accent text-background overflow-y-auto px-6 py-8 shadow-2xl border-t border-white/10">
                 <div className="max-w-md mx-auto space-y-5">
-                  <div className="flex justify-between items-center pb-4 border-b border-white/20">
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary">HOJA Network</span>
-                    <label htmlFor="rnav-open" className="text-xs uppercase font-bold text-background/90 hover:text-white cursor-pointer px-3 py-1.5 bg-white/15 rounded">✕ <LanguageText fr="Fermer" en="Close menu" /></label>
-                  </div>
+                  <div className="pb-4 border-b border-white/20"><span className="text-xs font-bold uppercase tracking-widest text-white">HOJA Network</span></div>
                   <div className="pb-4 border-b border-white/20"><LanguageSwitcher /></div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-background/70"><LanguageText fr="Découvrir HOJA" en="Discover HOJA" /></p>
-                  {UtilityNav_data.map((d) => <a key={d.href} href={d.href} className="block text-lg font-bold text-background hover:text-primary"><LanguageText fr={d.label} en={d.en} /></a>)}
-                  <p className="pt-3 border-t border-white/20 text-xs font-bold uppercase tracking-widest text-background/70"><LanguageText fr="Nos actions" en="Our work" /></p>
-                  {ListRow_data.map((d) => <a key={d.href} href={d.href} className="block text-lg font-bold text-background hover:text-primary">{d.href === "/who-we-are/our-network" ? <LanguageText fr="Notre réseau" en="Our Network" /> : d.href === "/impact" ? "Impact" : d.href === "/green-economy" ? <LanguageText fr="Économie verte" en="Green Economy" /> : d.href === "/hoja-academy" ? "HOJA Academy" : "HOJA Farm"}</a>)}
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/80"><LanguageText fr="Découvrir HOJA" en="Discover HOJA" /></p>
+                  {UtilityNav_data.map((d) => <a key={d.href} href={d.href} className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><LanguageText fr={d.label} en={d.en} /></a>)}
+                  <p className="pt-3 border-t border-white/20 text-xs font-bold uppercase tracking-widest text-white/80"><LanguageText fr="Nos actions" en="Our work" /></p>
+                  {ListRow_data.map((d) => <a key={d.href} href={d.href} className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">{d.href === "/who-we-are/our-network" ? <LanguageText fr="Notre réseau" en="Our Network" /> : d.href === "/impact" ? "Impact" : d.href === "/green-economy" ? <LanguageText fr="Économie verte" en="Green Economy" /> : d.href === "/hoja-academy" ? "HOJA Academy" : "HOJA Farm"}</a>)}
+                  <a href="/get-involved/partner-with-us" className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><LanguageText fr="Partenariats" en="Partnerships" /></a>
+                  <a href="/contact" className="block py-1 text-lg font-bold text-white hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><LanguageText fr="Contact" en="Contact" /></a>
                 </div>
               </div>
+              </details>
             </nav>
-            <a className="w-[8.75rem] shrink-0 whitespace-nowrap block relative py-3 px-3 overflow-hidden text-background text-base font-bold leading-6 text-center bg-primary cursor-pointer max-md:w-[10.5rem] max-md:ml-[2.3px] max-lg:order-[2] max-md:[font-size:inherit] max-md:leading-[inherit] md:max-lg:w-32.5 md:max-lg:ml-[17.9375rem] md:max-lg:text-xl md:max-lg:leading-7.5 before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[5.5rem] before:w-[4.6875rem] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_31.6562px] max-md:before:left-[7.6875rem] max-md:before:origin-[37.5px_22.6562px] md:max-lg:before:left-[5.3125rem] md:max-lg:before:origin-[37.5px_25.6562px]" data-cid="Ln46" href="/donate">
+            <a className="w-[8.75rem] shrink-0 whitespace-nowrap block relative py-3 px-3 overflow-hidden text-background text-base font-bold leading-6 text-center bg-accent cursor-pointer max-md:w-40 max-md:ml-[2.3px] max-lg:order-[2] max-md:[font-size:inherit] max-md:leading-[inherit] md:max-lg:w-32.5 md:max-lg:ml-[17.9375rem] md:max-lg:text-xl md:max-lg:leading-7.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[5.5rem] before:w-[4.6875rem] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_31.6562px] max-md:before:left-[7.6875rem] max-md:before:origin-[37.5px_22.6562px] md:max-lg:before:left-[5.3125rem] md:max-lg:before:origin-[37.5px_25.6562px]" data-cid="Ln46" href="/donate">
               <LanguageText fr="Faire un don" en="Donate" />
             </a>
           </div>
         </header>
-        <label className="w-px h-px block absolute top-0 left-0 -m-px overflow-hidden cursor-default" data-cid="Ln47" htmlFor="rnav-open">
-          Open responsive nav
-        </label>
         {children}
-        <footer className="block relative z-39 pt-16 overflow-hidden text-background bg-primary max-lg:pt-10" data-cid="Ln284">
+        <footer className="block relative z-39 pt-16 overflow-hidden text-background bg-[var(--primary-text)] max-lg:pt-10" data-cid="Ln284">
           <div className="block relative z-11 max-w-320 px-8 mx-auto max-md:px-4" data-cid="Ln285">
             <div className="flex mb-8 flex-wrap justify-between items-center max-lg:border-b-2 max-lg:border-solid max-lg:border-b-background max-lg:mb-6 max-lg:pb-6" data-cid="Ln286">
               <a className="w-56 block cursor-pointer max-md:w-[21.4375rem] md:max-lg:w-48" data-cid="Ln287" href="/">
@@ -460,17 +457,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </a>
               <ul className="block max-w-full text-left [list-style-type:none] list-outside max-md:mt-4 max-md:basis-full">
                 <li className="inline-block text-center">
-                  <a className="h-12 w-12 flex items-center justify-center rounded-[100%] text-primary bg-background hover:bg-background/90 cursor-pointer" data-cid="Ln292" href="https://www.linkedin.com/company/hoja-network" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                  <a className="h-12 w-12 flex items-center justify-center rounded-[100%] text-[var(--primary-text)] bg-background hover:bg-background/90 cursor-pointer" data-cid="Ln292" href="https://www.linkedin.com/company/hoja-network" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8m1.4 9.74v-8.37H5.06v8.37z" /></svg>
                   </a>
                 </li>
                 <li className="inline-block mx-[5px] text-center">
-                  <a className="h-12 w-12 flex items-center justify-center rounded-[100%] text-primary bg-background hover:bg-background/90 cursor-pointer" href="https://www.facebook.com/profile.php?id=61554708660088" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <a className="h-12 w-12 flex items-center justify-center rounded-[100%] text-[var(--primary-text)] bg-background hover:bg-background/90 cursor-pointer" href="https://www.facebook.com/profile.php?id=61554708660088" target="_blank" rel="noreferrer" aria-label="Facebook">
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21z" /></svg>
                   </a>
                 </li>
                 <li className="inline-block ml-[5px] text-center">
-                  <a className="h-12 w-12 flex items-center justify-center rounded-[100%] text-primary bg-background hover:bg-background/90 cursor-pointer" href="https://x.com/HOJANETWORK" target="_blank" rel="noreferrer" aria-label="X">
+                  <a className="h-12 w-12 flex items-center justify-center rounded-[100%] text-[var(--primary-text)] bg-background hover:bg-background/90 cursor-pointer" href="https://x.com/HOJANETWORK" target="_blank" rel="noreferrer" aria-label="X">
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.6 22H2.4l7.3-8.4L1.9 2h6.5l4.5 6.8zm-1.1 18h1.7L7.4 3.9H5.6z" /></svg>
                   </a>
                 </li>
@@ -486,13 +483,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <div className="flex max-w-[50%] my-8 ml-[328.3px] flex-wrap basis-1/2 overflow-hidden max-lg:max-w-full max-lg:mt-4 max-lg:basis-full max-lg:mb-0 max-lg:ml-0" data-cid="Ln336">
                 <div className="block relative max-w-[65%] p-8 basis-[65%] text-color-001 bg-surface max-md:max-w-full max-md:pb-4 max-md:px-4 max-md:basis-full after:content-[''] after:block after:absolute after:inset-y-0 after:-right-5 after:left-[23.45rem] after:bg-surface after:transform-[matrix(1,0,-0.109518,1,0,0)] after:origin-[20px_140.977px] max-md:after:top-[-18.7px] max-md:after:bottom-[10.425rem] max-md:after:inset-x-0 max-md:after:transform-[matrix(1,-0.109518,0,1,0,0)] max-md:after:origin-[171.5px_20.625px] md:max-lg:after:left-[27.35rem] md:max-lg:after:origin-[20px_163.227px]" data-cid="Ln337">
                   <p className="block relative z-1 [font-family:questa,_serif] text-[1.5625rem] leading-7.5">
-                    <LanguageText fr="Recevez les nouvelles de HOJA" en="Subscribe to HOJA newsletter" />
+                    <LanguageText fr="Recevoir les nouvelles de HOJA" en="Get HOJA updates" />
                   </p>
                   <p className="block mt-4">
-                    <LanguageText fr="Actualités, initiatives locales et nouvelles de HOJA." en="Inspiring grassroots innovations and impact updates straight into your inbox." />
+                    <LanguageText fr="Pour recevoir la lettre HOJA, envoyez une demande d’inscription par e-mail." en="To receive the HOJA newsletter, email us to request a subscription." />
                   </p>
-                  <a className="h-[48.3px] inline-block relative mt-4 py-[10.7px] px-[1.2rem] overflow-hidden text-background text-lg font-bold leading-[1.6875rem] text-center bg-primary cursor-pointer before:content-[''] before:block before:absolute before:inset-y-0 before:-right-7.5 before:left-[5.9625rem] before:w-[4.6875rem] before:h-[48.3px] before:bg-clr-0 before:transform-[matrix(1,0,-1,1,0,0)] before:origin-[37.5px_24.1562px]" data-cid="Ln340" href="/contact">
-                    <LanguageText fr="Nous contacter" en="Contact us" />
+                  <a className="h-auto min-h-[48.3px] inline-flex items-center justify-center relative mt-4 py-3 px-[1.2rem] text-background text-base font-bold leading-6 text-center bg-accent hover:bg-accent/90 rounded-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" data-cid="Ln340" href="mailto:contact@hojanetwork.org?subject=HOJA%20newsletter%20subscription">
+                    <LanguageText fr="Demander l’inscription" en="Request to join the newsletter" />
                   </a>
                 </div>
                 <div className="h-[17.625rem] block max-w-[35%] basis-[35%] max-md:hidden md:max-lg:h-[326.5px]" data-cid="Ln341">

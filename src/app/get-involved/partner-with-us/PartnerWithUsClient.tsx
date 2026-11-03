@@ -61,7 +61,7 @@ export default function PartnerWithUsPage() {
       {/* Hero */}
       <section className="relative bg-accent text-background py-16 px-6 lg:py-24">
         <div className="max-w-300 mx-auto">
-          <div className="inline-block bg-primary text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
+          <div className="inline-block bg-[var(--primary-text)] text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
             {fr ? "Alliances stratégiques et partenariats" : "Strategic Alliances & Partnerships"}
           </div>
           <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
@@ -97,7 +97,7 @@ export default function PartnerWithUsPage() {
               </h3>
 
               <div className="border border-border p-6 rounded-sm bg-surface-2">
-                <h4 className="text-lg font-bold text-primary mb-2">{fr ? "1. Cuisson propre et transition vers les énergies renouvelables" : "1. Clean Cooking & Renewable Energy Transition"}</h4>
+                <h4 className="text-lg font-bold text-[var(--primary-text)] mb-2">{fr ? "1. Cuisson propre et transition vers les énergies renouvelables" : "1. Clean Cooking & Renewable Energy Transition"}</h4>
                 <p className="text-sm text-foreground/85 leading-relaxed">
                   {fr ? "Soutenez la distribution de foyers biomasse économes en combustible, de solutions solaires décentralisées et la formation de jeunes techniciens à la maintenance énergétique à Goma et dans les zones périurbaines." : "Support the distribution of fuel-efficient biomass cookstoves, decentralized solar micro-solutions, and sponsor youth technicians in clean energy maintenance across Goma and peri-urban hubs."}
                 </p>
@@ -224,7 +224,7 @@ export default function PartnerWithUsPage() {
               </p>
 
               {status === "success" ? (
-                <div className="p-6 bg-primary/10 border border-primary text-primary rounded-sm mb-6">
+                  <div className="p-6 bg-primary/10 border border-primary text-[var(--primary-text)] rounded-sm mb-6">
                   <h4 className="font-bold text-base mb-1">
                     {fr ? "✓ Demande de partenariat transmise avec succès !" : "✓ Partnership Inquiry Sent Successfully!"}
                   </h4>
@@ -337,10 +337,16 @@ export default function PartnerWithUsPage() {
                     />
                   </div>
 
+                  <p className="rounded-sm border border-border bg-surface-3 p-4 text-sm leading-relaxed text-foreground/90">
+                    {fr
+                      ? "Vos coordonnées et votre proposition sont transmises à l’équipe HOJA pour examiner votre demande. Évitez d’inclure des informations personnelles sensibles."
+                      : "Your contact details and proposal are sent to the HOJA team to review your inquiry. Please do not include sensitive personal information."}
+                  </p>
+
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full sm:w-auto py-3 px-8 bg-primary hover:bg-primary/90 text-background font-bold uppercase tracking-wider text-sm rounded-sm transition-colors cursor-pointer disabled:opacity-50"
+                    className="w-full sm:w-auto min-h-12 py-3 px-8 bg-accent hover:bg-accent/90 text-background font-bold uppercase tracking-wider text-sm rounded-sm transition-colors cursor-pointer disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
                     {status === "submitting"
                       ? fr

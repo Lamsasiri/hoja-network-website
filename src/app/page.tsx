@@ -1,6 +1,6 @@
 import HomePageClient from "./HomePageClient";
 import { createPageMetadata } from "../lib/seo";
-import { getPosts } from "../lib/wordpress";
+import { getPosts, isExpiredOpportunity, isRecentPost } from "../lib/wordpress";
 
 export const metadata = createPageMetadata({
   path: "/",
@@ -10,6 +10,7 @@ export const metadata = createPageMetadata({
 
 
 export default async function Page() {
-  const posts = await getPosts(3);
+  const latestPosts = await getPosts(20);
+  const posts = latestPosts.filter((post) => isRecentPost(post) && !isExpiredOpportunity(post)).slice(0, 3);
   return <HomePageClient posts={posts} />;
 }

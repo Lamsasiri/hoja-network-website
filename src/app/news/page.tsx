@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPosts, sanitizeMediaUrl } from "../../lib/wordpress";
+import { getPosts, isExpiredOpportunity, sanitizeMediaUrl } from "../../lib/wordpress";
 import LanguageText from "../../components/LanguageText";
 import { createPageMetadata } from "../../lib/seo";
 
@@ -17,17 +17,24 @@ export default async function NewsArchivePage() {
   return (
     <main className="mt-[10.3125rem] bg-background max-lg:mt-0" id="main">
       {/* Hero */}
-      <section className="relative bg-accent text-background py-16 px-6 lg:py-24">
-        <div className="max-w-300 mx-auto">
-          <div className="inline-block bg-primary text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
-            <LanguageText fr="Nouvelles du terrain" en="Dispatches from the Field" />
+      <section className="h-150 min-h-150 flex relative flex-wrap items-center overflow-hidden bg-color-011 max-md:h-auto max-lg:pt-20 max-lg:min-h-0 md:max-lg:h-[58.6rem] 2xl:h-202.5 2xl:min-h-202.5">
+        <div className="w-208 h-150 block absolute top-0 left-112 min-w-0 max-md:w-full max-md:h-64 max-lg:right-0 max-lg:static max-lg:left-auto md:max-lg:w-192 md:max-lg:h-135 2xl:w-312 2xl:h-202.5 2xl:left-168">
+          <img className="w-full h-150 block max-w-full overflow-clip object-cover text-center max-md:h-64 md:max-lg:h-135 2xl:h-202.5" alt="Jeunes de HOJA Network réunis lors d’une activité de terrain" src="/assets/hoja/photos/IMG_8227.jpg" />
+        </div>
+        <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4">
+          <div className="w-[34.2rem] block z-2 mr-[41.8rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:mt-8 max-md:mr-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]">
+            <div className="block p-6 text-background bg-accent">
+              <span className="inline-block bg-[var(--primary-text)] text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-3"><LanguageText fr="Nouvelles du terrain" en="Dispatches from the Field" /></span>
+              <h1 className="block [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]">
+                <LanguageText fr="Actualités, récits de terrain et nouvelles" en="News, Field Stories &amp; Updates" />
+              </h1>
+            </div>
+            <div className="block p-6">
+              <p className="block text-xl leading-6.5 text-foreground font-medium">
+                <LanguageText fr="Découvrez les actualités et récits vérifiés sur la protection de la nature, l’énergie propre, l’entrepreneuriat vert, l’éducation créative (HOJA EDUC), l’accompagnement des familles et la résilience communautaire dans l’est de la RDC et la région des Grands Lacs." en="Discover verified dispatches on nature protection, clean energy, green entrepreneurship, creative education (HOJA EDUC), parenting in crisis, and community resilience across Eastern DRC and the Great Lakes." />
+              </p>
+            </div>
           </div>
-          <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            <LanguageText fr="Actualités, récits de terrain et nouvelles" en="News, Field Stories &amp; Updates" />
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-200 leading-relaxed">
-            <LanguageText fr="Découvrez les actualités et récits vérifiés sur la protection de la nature, l’énergie propre, l’entrepreneuriat vert, l’éducation créative (HOJA EDUC), l’accompagnement des familles et la résilience communautaire dans l’est de la RDC et la région des Grands Lacs." en="Discover verified dispatches on nature protection, clean energy, green entrepreneurship, creative education (HOJA EDUC), parenting in crisis, and community resilience across Eastern DRC and the Great Lakes." />
-          </p>
         </div>
       </section>
 
@@ -45,19 +52,22 @@ export default async function NewsArchivePage() {
                   <div className="relative h-48 w-full overflow-hidden bg-surface-2">
                     <img
                       src={sanitizeMediaUrl(post.featuredMediaUrl)}
-                      alt={post.title}
+                      alt={post.featuredMediaAlt || post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
                 <div className="p-6">
+                  {isExpiredOpportunity(post) && <p className="mb-3 inline-flex rounded-sm bg-surface-4 px-3 py-1 text-xs font-bold uppercase tracking-wide text-foreground"><LanguageText fr="Candidature clôturée" en="Applications closed" /></p>}
                   {post.categories && post.categories.length > 0 && (
-                    <div className="text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--primary-text)] mb-2">
                       {post.categories[0]}
                     </div>
                   )}
-                  <h2 className="[font-family:questa,_serif] text-xl font-bold text-accent mb-3 leading-snug group-hover:text-primary transition-colors">
-                    <Link href={`/news/${post.slug}`}>
+                  <h2 className="[font-family:questa,_serif] text-xl font-bold text-accent mb-3 leading-snug group-hover:text-[var(--primary-text)] transition-colors">
+                    <Link className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" href={`/news/${post.slug}`}>
                       {post.title}
                     </Link>
                   </h2>

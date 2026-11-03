@@ -64,9 +64,14 @@ export default function ContactForm() {
           ? "Nous répondons aux demandes vérifiées sous 48 heures ouvrables."
           : "We respond to all verified inquiries within 48 business hours."}
       </p>
+      <p className="mb-6 rounded-sm border border-border bg-surface-3 p-4 text-sm leading-relaxed text-foreground/90">
+        {fr
+          ? "Les coordonnées et le contenu de votre message sont transmis à l’équipe HOJA pour traiter votre demande. Évitez d’inclure des informations personnelles sensibles."
+          : "Your contact details and message are sent to the HOJA team to respond to your inquiry. Please do not include sensitive personal information."}
+      </p>
 
       {status === "success" ? (
-        <div className="p-6 bg-primary/10 border border-primary text-primary rounded-sm mb-6">
+        <div className="p-6 bg-primary/10 border border-primary text-[var(--primary-text)] rounded-sm mb-6">
           <h4 className="font-bold text-base mb-1">
             {fr ? "✓ Message envoyé avec succès !" : "✓ Message Sent Successfully!"}
           </h4>
@@ -179,7 +184,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full sm:w-auto py-3 px-8 bg-primary hover:bg-primary/90 text-background font-bold uppercase tracking-wider text-sm rounded-sm transition-colors cursor-pointer disabled:opacity-50"
+            className="w-full sm:w-auto min-h-12 py-3 px-8 bg-accent hover:bg-accent/90 text-background font-bold uppercase tracking-wider text-sm rounded-sm transition-colors cursor-pointer disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {status === "submitting"
               ? fr

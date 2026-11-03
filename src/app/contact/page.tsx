@@ -14,17 +14,24 @@ export default function ContactPage() {
   return (
     <main className="mt-[10.3125rem] bg-background max-lg:mt-0" id="main">
       {/* Hero */}
-      <section className="relative bg-accent text-background py-16 px-6 lg:py-24">
-        <div className="max-w-300 mx-auto">
-          <div className="inline-block bg-primary text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-4">
-            <LanguageText fr="Restons en contact" en="Connect With Us" />
+      <section className="h-150 min-h-150 flex relative flex-wrap items-center overflow-hidden bg-color-011 max-md:h-auto max-lg:pt-20 max-lg:min-h-0 md:max-lg:h-[58.6rem] 2xl:h-202.5 2xl:min-h-202.5">
+        <div className="w-208 h-150 block absolute top-0 left-112 min-w-0 max-md:w-full max-md:h-64 max-lg:right-0 max-lg:static max-lg:left-auto md:max-lg:w-192 md:max-lg:h-135 2xl:w-312 2xl:h-202.5 2xl:left-168">
+          <img className="w-full h-150 block max-w-full overflow-clip object-cover text-center max-md:h-64 md:max-lg:h-135 2xl:h-202.5" alt="Équipe HOJA Network réunie à Goma" src="/assets/hoja/photos/HOJA-TEAM-BUILDING.jpg" />
+        </div>
+        <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4">
+          <div className="w-[34.2rem] block z-2 mr-[41.8rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:mt-8 max-md:mr-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]">
+            <div className="block p-6 text-background bg-accent">
+              <span className="inline-block bg-[var(--primary-text)] text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-3"><LanguageText fr="Restons en contact" en="Connect With Us" /></span>
+              <h1 className="block [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]">
+                <LanguageText fr="Contacter HOJA Network" en="Contact HOJA Network" />
+              </h1>
+            </div>
+            <div className="block p-6">
+              <p className="block text-xl leading-6.5 text-foreground font-medium">
+                <LanguageText fr="Contactez nos bureaux de Goma (RDC) et de Rubavu (Rwanda) pour vos demandes institutionnelles, partenariats ou programmes communautaires." en="Reach our field offices in Goma (DRC) and Rubavu (Rwanda) for institutional inquiries, partnerships, or community programs." />
+              </p>
+            </div>
           </div>
-          <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold leading-tight max-w-240">
-            <LanguageText fr="Contacter HOJA Network" en="Contact HOJA Network" />
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-200 leading-relaxed">
-            <LanguageText fr="Contactez nos bureaux de Goma (RDC) et de Rubavu (Rwanda) pour vos demandes institutionnelles, partenariats ou programmes communautaires." en="Reach our field offices in Goma (DRC) and Rubavu (Rwanda) for institutional inquiries, partnerships, or community programs." />
-          </p>
         </div>
       </section>
 
@@ -40,7 +47,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* DRC Office */}
                 <div className="border border-border p-6 rounded-sm bg-surface-2">
-                  <div className="inline-block px-2.5 py-1 text-xs font-bold uppercase tracking-wider bg-primary text-background rounded-sm mb-3">
+                  <div className="inline-block px-2.5 py-1 text-xs font-bold uppercase tracking-wider bg-[var(--primary-text)] text-background rounded-sm mb-3">
                     <LanguageText fr="Siège (RDC)" en="Headquarters (DRC)" />
                   </div>
                   <h3 className="text-lg font-bold text-accent mb-2">Goma, North Kivu</h3>
@@ -53,7 +60,7 @@ export default function ContactPage() {
                     </p>
                     <p>
                       <strong><LanguageText fr="Téléphone / WhatsApp :" en="Phone / WhatsApp:" /></strong><br />
-                      <a href="tel:+243897715819" className="text-primary hover:underline font-semibold block">+243 897 715 819</a>
+                      <a href="tel:+243897715819" className="text-[var(--primary-text)] hover:underline font-semibold block">+243 897 715 819</a>
                     </p>
                     <p>
                       <strong><LanguageText fr="Enregistrement officiel :" en="Official Reg:" /></strong><br />
@@ -77,11 +84,11 @@ export default function ContactPage() {
                     </p>
                     <p>
                       <strong><LanguageText fr="Téléphone / WhatsApp :" en="Phone / WhatsApp:" /></strong><br />
-                      <a href="tel:+250794359736" className="text-primary hover:underline font-semibold block">+250 794 359 736</a>
+                      <a href="tel:+250794359736" className="text-[var(--primary-text)] hover:underline font-semibold block">+250 794 359 736</a>
                     </p>
                     <p>
                       <strong>E-mail :</strong><br />
-                      <a href="mailto:hojacommunication@gmail.com" className="text-primary hover:underline font-semibold block">hojacommunication@gmail.com</a>
+                      <a href="mailto:hojacommunication@gmail.com" className="text-[var(--primary-text)] hover:underline font-semibold block">hojacommunication@gmail.com</a>
                     </p>
                     <p>
                       <strong><LanguageText fr="Enregistrement RDB :" en="RDB Registration:" /></strong><br />
@@ -122,7 +129,7 @@ export default function ContactPage() {
               <p className="text-sm text-foreground/80 mb-3">
                 <LanguageText fr="Journalistes, chercheurs et partenaires médias couvrant l’autonomisation des jeunes, l’entrepreneuriat féminin, la protection de l’enfance ou l’action humanitaire dans la région des Grands Lacs :" en="Journalists, researchers, and media partners covering youth empowerment, women's enterprise, child protection, or humanitarian action in the Great Lakes region:" />
               </p>
-              <a href="mailto:contact@hojanetwork.org" className="text-xs font-bold text-primary hover:underline">
+              <a href="mailto:press@hojanetwork.org" className="text-xs font-bold text-[var(--primary-text)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 press@hojanetwork.org →
               </a>
             </div>

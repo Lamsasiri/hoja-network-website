@@ -64,7 +64,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
           : [];
       })
     : [];
-  const buttonHref = pageKey === "greenEconomyPage" ? "/moringa" : pageKey === "networkPage" ? "/contact" : pageKey === "academyPage" ? "/contact" : pageKey === "farmPage" || pageKey === "moringaPage" ? "/donate" : "/contact";
+  const buttonHref = pageKey === "greenEconomyPage" ? "/moringa" : pageKey === "networkPage" ? "/get-involved/partner-with-us" : pageKey === "academyPage" ? "mailto:contact@hojanetwork.org?subject=HOJA%20Academy%20application%20inquiry" : pageKey === "impactPage" ? "mailto:contact@hojanetwork.org?subject=HOJA%20impact%20reports" : pageKey === "moringaPage" ? "/hoja-farm" : pageKey === "farmPage" ? "/get-involved/partner-with-us" : "/contact";
   const heroImage = pageKey === "greenEconomyPage"
     ? "/assets/hoja/photos/WhatsApp Image 2026-10-17 at 22.04.47.jpeg"
     : pageKey === "academyPage"
@@ -111,7 +111,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
               <h3 className="block text-accent text-base font-bold mb-4 pb-2 border-b border-border">{t.nav.network}</h3>
               <nav><ul className="space-y-2.5 text-sm">{[
                 ["/our-network", t.nav.network], ["/impact", t.nav.impact], ["/green-economy", t.nav.greenEconomy], ["/hoja-academy", t.nav.academy], ["/hoja-farm", t.nav.farm], ["/donate", t.nav.donate],
-              ].map(([href, label]) => <li key={href}><Link href={href} className="text-foreground/80 hover:text-primary">{label}</Link></li>)}</ul></nav>
+              ].map(([href, label]) => <li key={href}><Link href={href} className="text-foreground/80 hover:text-[var(--primary-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{label}</Link></li>)}</ul></nav>
             </div>
           </aside>
           <div className="block relative float-left max-w-[66.66%] mr-[2.5375rem] basis-2/3 max-lg:max-w-none max-lg:mr-0 max-lg:basis-full">
@@ -141,7 +141,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                           <ul className="space-y-3 p-5 text-sm leading-relaxed text-foreground/85">
                             {domain.points.map((point, pointIndex) => (
                               <li key={pointIndex} className="flex gap-3">
-                                <span className="mt-0.5 font-bold text-primary" aria-hidden="true">✓</span>
+                                <span className="mt-0.5 font-bold text-[var(--primary-text)]" aria-hidden="true">✓</span>
                                 <span>{point}</span>
                               </li>
                             ))}
@@ -176,7 +176,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                           <ul className="space-y-3 p-5 text-sm leading-relaxed text-foreground/85">
                             {offer.points.map((point, pointIndex) => (
                               <li key={pointIndex} className="flex gap-3">
-                                <span className="mt-0.5 font-bold text-primary" aria-hidden="true">✓</span>
+                                <span className="mt-0.5 font-bold text-[var(--primary-text)]" aria-hidden="true">✓</span>
                                 <span>{point}</span>
                               </li>
                             ))}
@@ -201,7 +201,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                               <img className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" src={`/assets/hoja/photos/${visual.image}`} alt={visual.alt} />
                             </div>
                             <div className="flex gap-4 p-5">
-                              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">0{audienceIndex + 1}</span>
+                              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-[var(--primary-text)]">0{audienceIndex + 1}</span>
                               <p className="text-sm leading-relaxed text-foreground/85">{audience}</p>
                             </div>
                           </article>
@@ -213,7 +213,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                       {strings("results").map((result, resultIndex) => (
                         <article key={resultIndex} className="relative flex min-h-36 items-start gap-4 overflow-hidden rounded-sm border border-border bg-background p-5 shadow-sm transition-shadow hover:shadow-md">
                           <div className="absolute inset-y-0 left-0 w-1.5 bg-primary" aria-hidden="true" />
-                          <span className="[font-family:questa,_serif] text-3xl font-bold text-primary/70">0{resultIndex + 1}</span>
+                          <span className="[font-family:questa,_serif] text-3xl font-bold text-[var(--primary-text)]">0{resultIndex + 1}</span>
                           <p className="pt-1 text-sm leading-relaxed text-foreground/85">{result}</p>
                         </article>
                       ))}
@@ -222,8 +222,8 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                     <article className="relative overflow-hidden rounded-sm border border-border bg-surface-2 p-6 shadow-md">
                       <div className="absolute inset-y-0 left-0 w-1.5 bg-primary" aria-hidden="true" />
                       <div className="mb-4 flex items-center gap-3">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-primary" aria-hidden="true">→</span>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary">{t.common.language === "Français" ? "Candidatures ouvertes" : "Applications open"}</span>
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-[var(--primary-text)]" aria-hidden="true">→</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--primary-text)]">{t.common.language === "Français" ? "Candidatures ouvertes" : "Applications open"}</span>
                       </div>
                       <p className="text-base leading-relaxed text-foreground/90">{text("howToApplyText")}</p>
                     </article>
@@ -260,7 +260,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                           <ul className="space-y-3 p-5 text-sm leading-relaxed text-foreground/85">
                             {domain.points.map((point, pointIndex) => (
                               <li key={pointIndex} className="flex gap-3">
-                                <span className="mt-0.5 font-bold text-primary" aria-hidden="true">✓</span>
+                                <span className="mt-0.5 font-bold text-[var(--primary-text)]" aria-hidden="true">✓</span>
                                 <span>{point}</span>
                               </li>
                             ))}
@@ -273,7 +273,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                       {strings("impactPoints").map((impact, impactIndex) => (
                         <article key={impactIndex} className="relative flex min-h-32 items-start gap-4 overflow-hidden rounded-sm border border-border bg-background p-5 shadow-sm transition-shadow hover:shadow-md">
                           <div className="absolute inset-y-0 left-0 w-1.5 bg-primary" aria-hidden="true" />
-                          <span className="[font-family:questa,_serif] text-3xl font-bold text-primary/70">0{impactIndex + 1}</span>
+                          <span className="[font-family:questa,_serif] text-3xl font-bold text-[var(--primary-text)]">0{impactIndex + 1}</span>
                           <p className="pt-1 text-sm leading-relaxed text-foreground/85">{impact}</p>
                         </article>
                       ))}
@@ -320,7 +320,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                           <ul className="space-y-3 p-5 text-sm leading-relaxed text-foreground/85">
                             {step.points.map((point, pointIndex) => (
                               <li key={pointIndex} className="flex gap-3">
-                                <span className="mt-0.5 font-bold text-primary" aria-hidden="true">✓</span>
+                                <span className="mt-0.5 font-bold text-[var(--primary-text)]" aria-hidden="true">✓</span>
                                 <span>{point}</span>
                               </li>
                             ))}
@@ -333,7 +333,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                       {strings("impactPoints").map((impact, impactIndex) => (
                         <article key={impactIndex} className="relative flex min-h-32 items-start gap-4 overflow-hidden rounded-sm border border-border bg-background p-5 shadow-sm transition-shadow hover:shadow-md">
                           <div className="absolute inset-y-0 left-0 w-1.5 bg-primary" aria-hidden="true" />
-                          <span className="[font-family:questa,_serif] text-3xl font-bold text-primary/70">0{impactIndex + 1}</span>
+                          <span className="[font-family:questa,_serif] text-3xl font-bold text-[var(--primary-text)]">0{impactIndex + 1}</span>
                           <p className="pt-1 text-sm leading-relaxed text-foreground/85">{impact}</p>
                         </article>
                       ))}
@@ -342,8 +342,8 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                     <article className="relative overflow-hidden rounded-sm border border-border bg-surface-2 p-6 shadow-md">
                       <div className="absolute inset-y-0 left-0 w-1.5 bg-primary" aria-hidden="true" />
                       <div className="mb-4 flex items-center gap-3">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-primary" aria-hidden="true">i</span>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary">{t.common.language === "Français" ? "Information nutritionnelle" : "Nutrition information"}</span>
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-[var(--primary-text)]" aria-hidden="true">i</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--primary-text)]">{t.common.language === "Français" ? "Information nutritionnelle" : "Nutrition information"}</span>
                       </div>
                       <p className="text-base leading-relaxed text-foreground/90">{text("importantNoticeText")}</p>
                     </article>
@@ -394,7 +394,7 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                           <ul className="space-y-3 p-5 text-sm leading-relaxed text-foreground/85">
                             {dimension.points.map((point, pointIndex) => (
                               <li key={pointIndex} className="flex gap-3">
-                                <span className="mt-0.5 font-bold text-primary" aria-hidden="true">✓</span>
+                                <span className="mt-0.5 font-bold text-[var(--primary-text)]" aria-hidden="true">✓</span>
                                 <span>{point}</span>
                               </li>
                             ))}
@@ -406,8 +406,8 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
                     <article className="relative overflow-hidden rounded-sm border border-border bg-surface-2 p-6 shadow-md">
                       <div className="absolute inset-y-0 left-0 w-1.5 bg-primary" aria-hidden="true" />
                       <div className="mb-4 flex items-center gap-3">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-primary" aria-hidden="true">✓</span>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary">{t.common.language === "Français" ? "Résultats vérifiés" : "Verified results"}</span>
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-[var(--primary-text)]" aria-hidden="true">✓</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--primary-text)]">{t.common.language === "Français" ? "Information de suivi" : "Reporting information"}</span>
                       </div>
                       <p className="text-base leading-relaxed text-foreground/90">{text("transparencyText")}</p>
                     </article>
@@ -434,7 +434,11 @@ export default function LocalizedHojaPage({ pageKey }: { pageKey: PageKey }) {
               ))}
               <section className="p-6 bg-surface-2 rounded-sm border border-border">
                 <h2 className="[font-family:questa,_serif] text-2xl font-bold text-accent mb-4">{text("ctaTitle")}</h2>
-                <Link href={buttonHref} className="inline-block py-3 px-6 text-sm font-bold uppercase tracking-wider bg-primary text-background">{text("ctaButton")}</Link>
+                {buttonHref.startsWith("mailto:") ? (
+                  <a href={buttonHref} className="inline-flex min-h-12 items-center rounded-sm bg-accent px-6 py-3 text-sm font-bold uppercase tracking-wide text-background hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{text("ctaButton")}</a>
+                ) : (
+                  <Link href={buttonHref} className="inline-flex min-h-12 items-center rounded-sm bg-accent px-6 py-3 text-sm font-bold uppercase tracking-wide text-background hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{text("ctaButton")}</Link>
+                )}
               </section>
             </div>
           </div>

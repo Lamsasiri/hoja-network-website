@@ -52,6 +52,7 @@ export interface Translations {
     };
     keyFigures: {
       title: string;
+      periodNote: string;
       line1: string;
       line2: string;
       line3: string;
@@ -288,7 +289,7 @@ export const translations: Record<Language, Translations> = {
       hero: {
         title: "Entrepreneuriat, Autonomisation économique & Action climatique",
         whatWeDoLabel: "Ce que nous faisons",
-        whatWeDoText: "Former et accompagner les jeunes et les femmes dans l’entrepreneuriat pour contribuer aux changements climatiques et à l’autonomisation financière. Notre stratégie passe par l’innovation technologique et la création de valeur économique, tout en agissant pour l’environnement au Rwanda et en République démocratique du Congo.",
+        whatWeDoText: "Nous formons et accompagnons les jeunes et les femmes au Rwanda et en RDC pour développer des entreprises et des solutions utiles aux communautés et à l’environnement.",
         ctaExplore: "Explorer nos actions",
         ctaPartner: "Devenir partenaire",
       },
@@ -313,6 +314,7 @@ export const translations: Record<Language, Translations> = {
       },
       keyFigures: {
         title: "Nos Chiffres Clés",
+        periodNote: "Les périodes de référence et les rapports justificatifs de ces chiffres ne sont pas indiqués ici. Contactez HOJA pour demander les informations de suivi disponibles.",
         line1: "Plus de 10 000 parents formés, 5,6 millions de personnes touchées par les campagnes.",
         line2: "Plus de 1 000 jeunes femmes soutenues, 500 entreprises créées, ayant un impact sur 10 000 femmes et jeunes.",
         line3: "Plus de 10 000 personnes sensibilisées, 3 000 bénéficiaires ayant accès aux soins de santé, 500 victimes soutenues.",
@@ -418,8 +420,8 @@ export const translations: Record<Language, Translations> = {
         "Réduction prouvée des émissions de carbone et valorisation des déchets",
         "Biodiversité protégée et promotion de pratiques régénératives",
       ],
-      transparencyTitle: "Transparence et redevabilité",
-      transparencyText: "Nos résultats sont vérifiés par des partenaires indépendants et audités selon les standards internationaux. Nous publions des rapports d'impact réguliers avec données probantes et géolocalisées.",
+      transparencyTitle: "À propos des chiffres et des rapports",
+      transparencyText: "Les chiffres d’activité affichés sur le site n’indiquent pas encore leur période de référence ni les documents qui les étayent. Les cibles stratégiques sont présentées séparément ci-dessous. Contactez HOJA pour demander les informations de suivi disponibles.",
       targetsTitle: "Nos cibles prioritaires à 3 ans :",
       targets: [
         "500 entreprises locales accompagnées et viables",
@@ -427,8 +429,8 @@ export const translations: Record<Language, Translations> = {
         "10 000 hectares restaurés ou intégrés en agroforesterie",
         "50 000 personnes touchées directement au Rwanda et en RDC",
       ],
-      ctaTitle: "Consulter nos rapports d’impact audités",
-      ctaButton: "Télécharger les rapports",
+      ctaTitle: "Demander les documents de suivi disponibles",
+      ctaButton: "Demander les rapports d’impact",
     },
     greenEconomyPage: {
       title: "Économie verte et solutions durables",
@@ -584,9 +586,9 @@ export const translations: Record<Language, Translations> = {
         "Plus de 2 000 emplois directs et indirects pérennisés",
       ],
       howToApplyTitle: "Comment postuler à nos promotions :",
-      howToApplyText: "HOJA Academy accueille des candidatures en continu tout au long de l’année au Rwanda et en RDC. Les sélections sont opérées selon le potentiel économique de l'initiative, la détermination de l'équipe et son alignement avec les besoins de son territoire.",
+      howToApplyText: "HOJA Academy accueille des demandes toute l’année au Rwanda et en RDC. La sélection prend en compte le potentiel économique de l’initiative, l’engagement de l’équipe et son adéquation aux besoins du territoire. Pour demander les modalités de candidature, écrivez à contact@hojanetwork.org.",
       ctaTitle: "Rejoignez la prochaine cohorte de HOJA Academy",
-      ctaButton: "Candidater maintenant",
+      ctaButton: "Contacter HOJA Academy pour candidater",
     },
     farmPage: {
       title: "HOJA Farm",
@@ -698,7 +700,7 @@ export const translations: Record<Language, Translations> = {
       hero: {
         title: "Entrepreneurship, Economic Empowerment & Climate Action",
         whatWeDoLabel: "What We Do",
-        whatWeDoText: "Training and supporting youth and women in entrepreneurship to combat climate change and achieve financial empowerment. Our strategy drives technological innovation and economic value creation while protecting the environment across Rwanda and the Democratic Republic of Congo.",
+        whatWeDoText: "We train and support young people and women in Rwanda and the DRC to build businesses and solutions that serve communities and the environment.",
         ctaExplore: "Explore Our Actions",
         ctaPartner: "Partner with Us",
       },
@@ -723,6 +725,7 @@ export const translations: Record<Language, Translations> = {
       },
       keyFigures: {
         title: "Key Impact Figures",
+        periodNote: "Reference periods and supporting reports for these figures are not listed here. Contact HOJA to request the available monitoring information.",
         line1: "Over 10,000 parents trained · 5.6 million people reached through awareness campaigns",
         line2: "Over 1,000 young women supported · 500 enterprises created · Impact across 10,000 women and youth",
         line3: "Over 10,000 people reached with awareness campaigns, 3,000 beneficiaries with access to healthcare, and 500 survivors supported.",
@@ -828,8 +831,8 @@ export const translations: Record<Language, Translations> = {
         "Direct carbon emission reductions through biomass and clean energy",
         "Biodiversity preserved through regenerative, nature-positive practices",
       ],
-      transparencyTitle: "Transparency & Governance",
-      transparencyText: "Our results are independently verified by external partners and evaluated against international humanitarian and development standards. We publish regular impact reports with open, geo-referenced evidence.",
+      transparencyTitle: "About the figures and reports",
+      transparencyText: "The activity figures shown on this website do not yet list their reference periods or supporting documents. Strategic targets are presented separately below. Contact HOJA to request the available monitoring information.",
       targetsTitle: "Our 3-Year Strategic Targets:",
       targets: [
         "500 local enterprises incubated and economically thriving",
@@ -837,8 +840,8 @@ export const translations: Record<Language, Translations> = {
         "10,000 hectares restored or enriched through agroforestry",
         "50,000 people directly impacted across Rwanda and the DRC",
       ],
-      ctaTitle: "Review our verified impact evaluations and reports",
-      ctaButton: "Download Reports",
+      ctaTitle: "Request available impact monitoring documents",
+      ctaButton: "Request impact reports",
     },
     greenEconomyPage: {
       title: "Green Economy & Sustainable Solutions",
@@ -994,9 +997,9 @@ export const translations: Record<Language, Translations> = {
         "Over 2,000 direct and indirect jobs created and preserved",
       ],
       howToApplyTitle: "Application Process:",
-      howToApplyText: "HOJA Academy evaluates applications year-round in Rwanda and the DRC. Admissions are granted based on the economic viability of the venture, team grit, and clear alignment with community needs.",
+      howToApplyText: "HOJA Academy receives inquiries throughout the year in Rwanda and the DRC. Selection considers the venture’s economic potential, the team’s commitment, and alignment with local needs. To request application instructions, email contact@hojanetwork.org.",
       ctaTitle: "Join the next cohort of HOJA Academy",
-      ctaButton: "Apply Now",
+      ctaButton: "Contact HOJA Academy about applying",
     },
     farmPage: {
       title: "HOJA Farm",

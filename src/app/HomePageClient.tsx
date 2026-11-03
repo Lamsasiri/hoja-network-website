@@ -94,7 +94,7 @@ const MediaCard2_styles = [
         {/* Hero Section */}
         <section className="h-170 min-h-170 flex relative py-12 flex-wrap items-center overflow-hidden bg-color-009 max-md:h-auto max-lg:pb-8 max-lg:min-h-0 max-lg:pt-0 md:max-lg:h-[966px] 2xl:h-229.5 2xl:min-h-229.5" data-cid="n49">
           <div className="w-240 h-170 block absolute top-0 left-80 min-w-0 max-md:w-full max-md:h-[263.7px] max-lg:right-0 max-lg:static max-lg:left-auto md:max-lg:w-192 md:max-lg:h-135 2xl:w-360 2xl:h-229.5 2xl:left-120" data-cid="n50">
-            <video className="w-full h-170 block max-w-full overflow-clip object-cover text-center max-md:h-66 md:max-lg:h-135 2xl:h-229.5" data-cid="n51" autoPlay muted loop playsInline preload="metadata" poster="/assets/hoja/photos/home-hero-great-lakes.webp" aria-hidden="true">
+            <video className="w-full h-170 block max-w-full overflow-clip object-cover text-center max-md:h-52 md:max-lg:h-135 2xl:h-229.5" data-cid="n51" autoPlay muted loop playsInline preload="metadata" poster="/assets/hoja/photos/home-hero-great-lakes.webp" aria-hidden="true">
               <source src="/assets/hoja/videos/homepage-hero-virunga-zoom.mp4" type="video/mp4" />
             </video>
           </div>
@@ -113,10 +113,10 @@ const MediaCard2_styles = [
                   {t.home.hero.whatWeDoText}
                 </p>
                 <div className="flex flex-wrap gap-3 mt-6">
-                  <Link className="h-[48.3px] inline-flex items-center justify-center py-[10.7px] px-6 text-background text-base font-bold bg-primary hover:bg-primary/90 transition-colors rounded-sm" href="/impact">
+                  <Link className="h-[48.3px] inline-flex items-center justify-center py-[10.7px] px-6 text-background text-base font-bold bg-accent hover:bg-accent/90 transition-colors rounded-sm" href="/impact">
                     {t.home.hero.ctaExplore}
                   </Link>
-                  <Link className="h-[48.3px] inline-flex items-center justify-center py-[10.7px] px-6 text-foreground text-base font-bold border-2 border-accent hover:bg-surface-2 transition-colors rounded-sm" href="/donate">
+                  <Link className="h-[48.3px] inline-flex items-center justify-center py-[10.7px] px-6 text-foreground text-base font-bold border-2 border-accent hover:bg-surface-2 transition-colors rounded-sm" href="/get-involved/partner-with-us">
                     {t.home.hero.ctaPartner}
                   </Link>
                 </div>
@@ -132,7 +132,7 @@ const MediaCard2_styles = [
               {t.home.whyHoja.title}
             </h2>
           </header>
-          <div className="h-[38.1875rem] block absolute top-0 inset-x-0 z-0 bg-primary max-md:h-[53.4rem] md:max-lg:h-[40rem]" />
+          <div className="h-[38.1875rem] block absolute top-0 inset-x-0 z-0 bg-[var(--primary-text)] max-md:h-[53.4rem] md:max-lg:h-[40rem]" />
           <div className="block relative z-2 max-w-320 px-8 mx-auto max-md:px-4">
             <div className="w-312 flex relative -mx-4 flex-wrap max-md:w-full max-md:mx-0 md:max-lg:w-180 md:max-lg:-mx-2">
               {MediaCard_data.map((d, i) => <MediaCard key={i} d={d} cids={MediaCard_cids[i]} styles={MediaCard_styles[i]} />)}
@@ -173,7 +173,7 @@ const MediaCard2_styles = [
         {/* Institutional Anchors */}
         <section className="block relative py-12 overflow-hidden max-lg:py-8" data-cid="n121">
           <header className="block relative z-11 max-w-320 pt-8 pb-12 text-center mx-auto max-md:pb-6" data-cid="n122">
-            <h2 className="block text-primary [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]" data-cid="n123" data-component="heading">
+            <h2 className="block text-[var(--primary-text)] [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]" data-cid="n123" data-component="heading">
               {t.home.approach.title}
             </h2>
             <p className="w-180 block max-w-full mx-auto pt-2 pb-4 text-foreground/80 text-base" data-cid="n124">
@@ -182,7 +182,7 @@ const MediaCard2_styles = [
           </header>
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap items-stretch mx-auto max-md:px-4" data-cid="n125">
             <div className="block relative max-w-[37%] basis-[37%] min-h-[26rem] order-[1] max-md:max-w-full max-md:basis-full max-md:min-h-64 max-md:mb-5" data-cid="n126">
-              <img className="w-full h-full block rounded-sm max-w-full overflow-clip object-cover text-center min-h-80 max-md:min-h-64" data-cid="n127" data-component="image" alt="HOJA impact field" src="/assets/hoja/photos/home-impact.webp" />
+              <img className="w-full h-full block rounded-sm max-w-full overflow-clip object-cover text-center min-h-80 max-md:min-h-64" data-cid="n127" data-component="image" alt="Waterfall and forested landscape" src="/assets/hoja/photos/home-impact.webp" />
             </div>
             <div className="relative z-10 -ml-24 max-w-[70%] basis-[70%] py-4 self-center order-[2] max-md:ml-0 max-md:max-w-full max-md:basis-full max-md:py-0">
               <ul className="flex flex-col gap-4 [list-style-type:none] list-outside max-md:gap-3">
@@ -193,7 +193,6 @@ const MediaCard2_styles = [
                       <div
                         className={`flex w-[28%] min-w-24 shrink-0 items-center justify-center px-3 py-4 text-background max-md:w-[30%] ${stat.color}`}
                         style={{ clipPath: numberOnRight ? "polygon(12% 0, 100% 0, 100% 100%, 0 100%)" : "polygon(0 0, 100% 0, 88% 100%, 0 100%)" }}
-                        aria-hidden="true"
                       >
                         <span className="[font-family:questa,_serif] text-4xl font-extrabold leading-none text-background md:text-5xl">{stat.value}</span>
                       </div>
@@ -204,12 +203,13 @@ const MediaCard2_styles = [
                   );
                 })}
               </ul>
+              <p className="mt-4 px-2 text-sm leading-relaxed text-foreground/80">{t.home.keyFigures.periodNote} <Link className="font-bold text-[var(--primary-text)] underline underline-offset-2" href="/contact">{t.common.language === "Français" ? "Contacter HOJA" : "Contact HOJA"}</Link></p>
             </div>
           </div>
         </section>
 
         {/* Building Capacity Section */}
-        <section className="block relative py-16 bg-primary text-background" data-cid="n154">
+        <section className="block relative py-16 bg-[var(--primary-text)] text-background" data-cid="n154">
           <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4">
             <div className="block max-w-[45%] self-center basis-[45%] max-lg:max-w-full max-lg:basis-full max-lg:order-[2]" data-cid="n156">
             <img className="w-full h-80 block max-w-full overflow-clip text-center object-cover rounded-sm shadow-md" data-cid="n157" data-component="image" alt="Agroforesterie et régénération des sols par HOJA Network" src="/assets/hoja/photos/home-green-economy.webp" />
@@ -222,7 +222,7 @@ const MediaCard2_styles = [
                 {t.home.capacities.description}
               </p>
               <div className="mt-6">
-                <Link className="inline-block py-3 px-6 text-sm font-bold uppercase tracking-wider bg-accent text-background hover:bg-accent/90 transition-colors rounded-sm" href="/donate">
+                <Link className="inline-block py-3 px-6 text-sm font-bold uppercase tracking-wider bg-accent text-background hover:bg-accent/90 transition-colors rounded-sm" href="/get-involved/partner-with-us">
                   {t.home.capacities.cta} →
                 </Link>
               </div>
@@ -233,7 +233,7 @@ const MediaCard2_styles = [
         {/* Verified partner logos from the HOJA WordPress media library */}
         <section className="block relative py-12 overflow-hidden" data-cid="partners-ecosystem">
           <header className="block max-w-320 px-8 mb-6 text-center mx-auto max-md:px-4">
-            <h2 className="text-primary [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] max-lg:text-[1.75rem]">{t.home.partners.title}</h2>
+            <h2 className="text-[var(--primary-text)] [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] max-lg:text-[1.75rem]">{t.home.partners.title}</h2>
           </header>
           <PartnerLogoTicker />
         </section>
@@ -241,7 +241,7 @@ const MediaCard2_styles = [
         {/* News Spotlight & Field Stories */}
         <section className="block relative py-12 overflow-hidden max-lg:py-8" data-cid="n167">
           <header className="block relative z-11 max-w-320 mb-8 px-8 text-center mx-auto max-md:px-4" data-cid="n168">
-            <h2 className="block text-primary [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]" data-cid="n169" data-component="heading">
+            <h2 className="block text-[var(--primary-text)] [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]" data-cid="n169" data-component="heading">
               {t.home.news.title}
             </h2>
             <p className="text-foreground/75 mt-2">
@@ -250,7 +250,8 @@ const MediaCard2_styles = [
           </header>
           <div className="block relative z-11 max-w-320 px-8 mx-auto max-md:px-4" data-cid="n170">
             <div className="w-312 flex relative -mx-4 flex-wrap max-md:w-full max-md:mx-0 md:max-lg:w-180 md:max-lg:-mx-2" data-cid="n171">
-              {posts.slice(0, 3).map((post, i) => <MediaCard2 key={post.id} d={{ alt: post.title, imgSrc: post.featuredMediaUrl || "", srcSet: post.featuredMediaUrl || "", title: post.title, description: post.excerpt, ariaLabel: t.home.news.readArticle, href: `/news/${post.slug}` }} cids={MediaCard2_cids[i]} styles={{}} />)}
+              {posts.slice(0, 3).map((post, i) => <MediaCard2 key={post.id} d={{ alt: post.featuredMediaAlt || post.title, imgSrc: post.featuredMediaUrl || "", srcSet: post.featuredMediaUrl || "", title: post.title, description: post.excerpt, ariaLabel: t.home.news.readArticle, href: `/news/${post.slug}` }} cids={MediaCard2_cids[i]} styles={{}} />)}
+              {posts.length === 0 && <p className="w-full py-6 text-center text-foreground/80">{t.common.language === "Français" ? "Aucune actualité récente disponible. Consultez toutes les actualités." : "No recent updates are available. Browse all news."} <Link href="/news" className="font-bold text-[var(--primary-text)] underline">{t.common.language === "Français" ? "Toutes les actualités" : "All news"}</Link></p>}
             </div>
           </div>
         </section>

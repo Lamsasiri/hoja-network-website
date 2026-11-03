@@ -52,18 +52,23 @@ const TIMELINE = [
 export default function HistoryPage() {
   return (
     <main className="block mt-[10.3125rem] bg-background max-lg:mt-0" id="main">
-      <section className="py-16 bg-accent text-background">
-        <div className="max-w-320 px-8 mx-auto max-md:px-4">
-          <div className="max-w-3xl">
-            <span className="text-primary font-bold uppercase tracking-wider text-xs block mb-2">
-              <LanguageText fr="Nos étapes clés depuis 2017" en="Our Milestones Since 2017" />
-            </span>
-            <h1 className="[font-family:questa,_serif] text-3xl md:text-5xl font-bold mb-4">
-              <LanguageText fr="Notre histoire et notre évolution" en="Our History &amp; Growth" />
-            </h1>
-            <p className="text-lg leading-relaxed text-background/80">
-              <LanguageText fr="D’une initiative d’autonomisation des jeunes à un réseau régional établi, qui soutient l’entrepreneuriat local, l’éducation des enfants et la résilience des familles dans la région des Grands Lacs." en="From an initial youth empowerment initiative to an established regional network supporting local enterprise, child education, and family resilience in the Great Lakes." />
-            </p>
+      <section className="h-150 min-h-150 flex relative flex-wrap items-center overflow-hidden bg-color-011 max-md:h-auto max-lg:pt-20 max-lg:min-h-0 md:max-lg:h-[58.6rem] 2xl:h-202.5 2xl:min-h-202.5">
+        <div className="w-208 h-150 block absolute top-0 left-112 min-w-0 max-md:w-full max-md:h-64 max-lg:right-0 max-lg:static max-lg:left-auto md:max-lg:w-192 md:max-lg:h-135 2xl:w-312 2xl:h-202.5 2xl:left-168">
+          <img className="w-full h-150 block max-w-full overflow-clip object-cover text-center max-md:h-64 md:max-lg:h-135 2xl:h-202.5" alt="Rassemblement de responsables et partenaires de HOJA Network" src="/assets/hoja/photos/HOJA-YOUNG-PARLIAMENTARIAT-OF-KENYOU.jpg" />
+        </div>
+        <div className="flex relative z-11 max-w-320 px-8 flex-wrap mx-auto max-md:px-4">
+          <div className="w-[34.2rem] block z-2 mr-[41.8rem] self-center bg-background shadow-[var(--clr-1)_0px_4px_4px_0px] max-md:w-full max-lg:mt-8 max-md:mr-0 md:max-lg:w-[35.2rem] md:max-lg:mr-[8.8rem]">
+            <div className="block p-6 text-background bg-accent">
+              <span className="inline-block bg-[var(--primary-text)] text-background font-bold text-xs uppercase tracking-widest px-3 py-1 mb-3"><LanguageText fr="Nos étapes clés depuis 2017" en="Our Milestones Since 2017" /></span>
+              <h1 className="block [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]">
+                <LanguageText fr="Notre histoire et notre évolution" en="Our History &amp; Growth" />
+              </h1>
+            </div>
+            <div className="block p-6">
+              <p className="block text-xl leading-6.5 text-foreground font-medium">
+                <LanguageText fr="D’une initiative d’autonomisation des jeunes à un réseau régional établi, qui soutient l’entrepreneuriat local, l’éducation des enfants et la résilience des familles dans la région des Grands Lacs." en="From an initial youth empowerment initiative to an established regional network supporting local enterprise, child education, and family resilience in the Great Lakes." />
+              </p>
+            </div>
           </div>
         </div>
       </section>
