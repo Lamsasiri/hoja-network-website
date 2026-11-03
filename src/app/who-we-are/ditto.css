@@ -10,12 +10,12 @@
 @media (min-width: 1601px) {
 [data-cid="n49"]::after{right:1056px;left:-1152px;width:2016px;height:810px}
 }
-[data-cid="n58"]::after{content:"";display:block;position:absolute;top:1242.03px;right:0px;bottom:-27.5px;left:0px;z-index:10;height:90px;background-image:url("/assets/cloned/svg/7fe604364786.svg");background-size:cover;background-position:50% 50%}
+[data-cid="n58"]::after{content:"";display:block;position:absolute;top:auto;right:0px;bottom:-27.5px;left:0px;z-index:10;height:90px;background-image:url("/assets/cloned/svg/7fe604364786.svg");background-size:cover;background-position:50% 50%}
 @media (max-width: 571px) {
-[data-cid="n58"]::after{top:1440.3px}
+[data-cid="n58"]::after{top:auto;bottom:-27.5px;height:72px;background-position:50% 50%}
 }
 @media (min-width: 572px) and (max-width: 1024px) {
-[data-cid="n58"]::after{top:1262.17px}
+[data-cid="n58"]::after{top:auto;bottom:-27.5px;height:80px;background-position:50% 50%}
 }
 @media (min-width: 1601px) {
 [data-cid="n58"]::after{}

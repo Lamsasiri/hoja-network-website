@@ -73,10 +73,20 @@ export function isRecentPost(post: WPPost, now = new Date(), maxAgeDays = 365): 
 export function sanitizeMediaUrl(url?: string): string | undefined {
   if (!url || typeof url !== "string") return undefined;
   const trimmed = url.trim();
-  if (trimmed.startsWith("https://") || trimmed.startsWith("http://") || trimmed.startsWith("/")) {
-    return trimmed;
+  if (trimmed.startsWith("/")) return trimmed;
+
+  try {
+    const mediaUrl = new URL(trimmed);
+    if (mediaUrl.protocol !== "https:" && mediaUrl.protocol !== "http:") return undefined;
+    // WordPress still returns uploads under the former public site host. The
+    // frontend now runs on Vercel, so serve those media files from the CMS host.
+    if (mediaUrl.hostname === "hojanetwork.org" && mediaUrl.pathname.startsWith("/wp-content/uploads/")) {
+      mediaUrl.host = "wp.hojanetwork.org";
+    }
+    return mediaUrl.toString();
+  } catch {
+    return undefined;
   }
-  return undefined;
 }
 
 export function sanitizeHtml(html = ""): string {
@@ -89,7 +99,11 @@ export function sanitizeHtml(html = ""): string {
     .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "");
 }
 
-const WP_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || "https://hojanetwork.org/wp-json/wp/v2";
+const configuredWpApiUrl = process.env.NEXT_PUBLIC_WORDPRESS_URL || "https://wp.hojanetwork.org/wp-json/wp/v2";
+const WP_API_URL = configuredWpApiUrl.replace(
+  /^https?:\/\/(?:www\.)?hojanetwork\.org(?=\/wp-json\/wp\/v2(?:\/|$))/i,
+  "https://wp.hojanetwork.org",
+);
 
 function decodeEntities(value: string): string {
   return value

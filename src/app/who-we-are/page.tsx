@@ -121,7 +121,7 @@ export default function WhoWeArePage() {
 
         {/* Subnav & Mission Content */}
         <div className="flex relative max-w-full py-12 flex-wrap items-start max-lg:py-8" data-cid="n58" id="content">
-          <div className="flex relative z-11 max-w-320 px-8 flex-row-reverse flex-wrap justify-between items-start grow basis-2/3 mx-auto max-md:px-4 max-lg:flex-col max-lg:grow-[initial] max-lg:basis-[initial]" data-cid="n59">
+          <div className="flex relative z-11 w-full max-w-320 px-8 flex-row-reverse flex-wrap justify-between items-start mx-auto max-md:px-4 max-lg:flex-col" data-cid="n59">
             <aside className="w-full h-auto block sticky top-[12.3125rem] float-right z-1000 max-w-[30%] basis-[30%] overflow-hidden bg-background max-lg:top-8 max-lg:mb-6 max-lg:static max-lg:max-w-none max-lg:basis-full" data-cid="n60">
               <div className="block p-5 bg-surface-3 rounded-sm border border-border">
                 <h3 className="block text-accent text-base font-bold mb-4 pb-2 border-b border-border">
@@ -212,7 +212,7 @@ export default function WhoWeArePage() {
             <h2 className="block [font-family:questa,_serif] text-[2.4375rem] leading-[2.9375rem] [overflow-wrap:break-word] max-lg:text-[1.75rem] max-lg:leading-[2.125rem]">
               <LanguageText fr="Nos principes fondamentaux" en="Our Core Principles" />
             </h2>
-            <p className="w-160 block max-w-full mx-auto pt-2 pb-4 text-foreground/80 text-sm">
+            <p className="w-160 block max-w-full mx-auto pt-2 pb-4 text-background/80 text-sm">
               <LanguageText fr="Les valeurs qui guident nos relations avec les communautés, les partenaires de la conservation et les entrepreneurs locaux :" en="Values guiding our daily interactions with communities, conservation partners, and local entrepreneurs:" />
             </p>
           </header>

@@ -3,27 +3,30 @@ const path = require("node:path");
 const puppeteer = require("puppeteer-core");
 
 const root = path.resolve(__dirname, "..");
-const outputDir = path.join(root, "out");
+const buildDir = path.join(root, ".next");
 const baseUrl = process.env.BASE_URL || "http://localhost:3000";
 const defaultChrome = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 const chromePath = process.env.CHROME_PATH || (fs.existsSync(defaultChrome) ? defaultChrome : undefined);
 
-function exportedRoutes(directory = outputDir, prefix = "") {
-  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    const relative = path.posix.join(prefix, entry.name);
-    const absolute = path.join(directory, entry.name);
+function builtRoutes() {
+  const appManifestPath = path.join(buildDir, "server", "app-paths-manifest.json");
+  const prerenderManifestPath = path.join(buildDir, "prerender-manifest.json");
+  if (!fs.existsSync(appManifestPath) || !fs.existsSync(prerenderManifestPath)) {
+    throw new Error("Next.js production build missing; run npm run build first.");
+  }
 
-    if (entry.isDirectory()) return exportedRoutes(absolute, relative);
-    if (!entry.isFile() || !entry.name.endsWith(".html") || entry.name === "404.html") return [];
-
-    const route = relative.endsWith("/index.html")
-      ? `/${relative.slice(0, -"/index.html".length)}`
-      : relative === "index.html"
-        ? "/"
-        : `/${relative.slice(0, -".html".length)}`;
-
-    return [route || "/"];
-  });
+  const appManifest = JSON.parse(fs.readFileSync(appManifestPath, "utf8"));
+  const prerenderManifest = JSON.parse(fs.readFileSync(prerenderManifestPath, "utf8"));
+  const pageTemplates = Object.keys(appManifest)
+    .filter((route) => route.endsWith("/page"))
+    .map((route) => route.slice(0, -"/page".length) || "/")
+    .filter((route) => route !== "/_not-found");
+  const pageTemplateSet = new Set(pageTemplates);
+  const pages = pageTemplates.filter((route) => !route.includes("["));
+  const prerendered = Object.entries(prerenderManifest.routes)
+    .filter(([route, info]) => !route.includes("[") && pageTemplateSet.has(info.srcRoute || route))
+    .map(([route]) => route);
+  return [...new Set([...pages, ...prerendered])].sort((a, b) => a.localeCompare(b));
 }
 
 function normalizeRoute(value) {
@@ -31,42 +34,16 @@ function normalizeRoute(value) {
   return decodeURIComponent(route);
 }
 
-function routeHtmlPath(route) {
-  const stem = route === "/" ? "index" : route.slice(1);
-  const candidates = [path.join(outputDir, `${stem}.html`), path.join(outputDir, stem, "index.html")];
-  return candidates.find((candidate) => fs.existsSync(candidate));
-}
-
-function redirectTarget(route) {
-  const htmlPath = routeHtmlPath(route);
-  if (!htmlPath) return null;
-  const html = fs.readFileSync(htmlPath, "utf8");
-  const meta = html.match(/http-equiv=["']refresh["'][^>]*content=["'][^"']*url=([^"']+)/i);
-  const next = html.match(/NEXT_REDIRECT;(?:replace|push);([^;]+);/);
-  const target = meta?.[1] || next?.[1];
-  return target ? normalizeRoute(target) : null;
-}
-
-function exportedPathExists(route) {
-  const candidate = path.resolve(outputDir, `.${route}`);
-  if (!candidate.startsWith(`${outputDir}${path.sep}`)) return false;
-  try {
-    return fs.statSync(candidate).isFile();
-  } catch {
-    return false;
-  }
-}
-
 async function assert(condition, message, failures) {
   if (!condition) failures.push(message);
 }
 
 async function main() {
-  if (!fs.existsSync(outputDir)) throw new Error("Static export missing; run npm run build first.");
+  if (!fs.existsSync(buildDir)) throw new Error("Next.js production build missing; run npm run build first.");
   if (!chromePath) throw new Error("Chrome/Chromium not found. Set CHROME_PATH to its executable.");
 
-  const routes = exportedRoutes().sort((a, b) => a.localeCompare(b));
-    const responsiveRoutes = routes.filter((route) => !redirectTarget(route));
+  const routes = builtRoutes();
+  const responsiveRoutes = routes;
   const routeSet = new Set(routes);
   const failures = [];
   const diagnostics = { console: [], page: [], requests: [], responseErrors: [], brokenImages: [], missingAlt: [], badLinks: [], localAssets: new Set() };
@@ -91,14 +68,6 @@ async function main() {
     for (const route of routes) {
       let response;
       try {
-        const target = redirectTarget(route);
-        if (target) {
-          response = await fetch(new URL(route, baseUrl));
-          await assert(response.status < 400, `Route ${route}: HTTP ${response.status}`, failures);
-          if (!routeSet.has(target)) failures.push(`Route ${route}: invalid or missing redirect target ${target}`);
-          continue;
-        }
-
         response = await page.goto(new URL(route, baseUrl).href, { waitUntil: "domcontentloaded", timeout: 20000 });
         await page.evaluate(async () => Promise.race([
           Promise.all(Array.from(document.images, (image) => image.decode().catch(() => undefined))),
@@ -135,16 +104,26 @@ async function main() {
       for (const asset of result.localAssets) diagnostics.localAssets.add(decodeURIComponent(asset.slice(1)));
       for (const href of result.internalLinks) {
         const pathname = normalizeRoute(href);
-        if (!routeSet.has(pathname) && !exportedPathExists(pathname)) diagnostics.badLinks.push(`${route} -> ${pathname}`);
+        if (!routeSet.has(pathname) && !["/sitemap.xml", "/robots.txt", "/llms.txt"].includes(pathname)) {
+          diagnostics.badLinks.push(`${route} -> ${pathname}`);
+        }
       }
     }
 
     for (const route of responsiveRoutes) {
-      for (const width of [390, 768, 1024, 1440]) {
+      for (const width of [375, 390, 430, 768, 1024, 1366, 1440, 1920]) {
         await page.setViewport({ width, height: 900 });
         await page.goto(new URL(route, baseUrl).href, { waitUntil: "domcontentloaded", timeout: 20000 });
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
         if (overflow) failures.push(`Horizontal overflow at ${width}px on ${route}`);
+        if (route === "/who-we-are" && width >= 1025) {
+          const columnsOverlap = await page.evaluate(() => {
+            const aside = document.querySelector("#content aside")?.getBoundingClientRect();
+            const article = document.querySelector('#content [data-cid="n89"]')?.getBoundingClientRect();
+            return Boolean(aside && article && article.right > aside.left + 1);
+          });
+          if (columnsOverlap) failures.push(`Mission text overlaps the sidebar at ${width}px on ${route}`);
+        }
       }
     }
 
@@ -152,10 +131,10 @@ async function main() {
       await page.setViewport({ width: 390, height: 844 });
       await page.goto(new URL("/", baseUrl).href, { waitUntil: "domcontentloaded" });
       await page.click("#rnav-button");
-      const menuOpened = await page.$eval("#rnav-open", (input) => input.checked);
+      const menuOpened = await page.$eval("#rnav-button", (summary) => summary.closest("details")?.open ?? false);
       if (!menuOpened) failures.push("Mobile navigation menu did not open");
       await page.click("#rnav-button");
-      const menuClosed = await page.$eval("#rnav-open", (input) => !input.checked);
+      const menuClosed = await page.$eval("#rnav-button", (summary) => !(summary.closest("details")?.open ?? true));
       if (!menuClosed) failures.push("Mobile navigation menu did not close");
 
       await page.evaluate(() => localStorage.setItem("hoja_lang", "fr"));
@@ -188,11 +167,24 @@ async function main() {
       if (finalPath !== originalPath) failures.push("Language switcher changed the current route");
     }
 
+    const redirectRoutes = new Set([
+      "/founder",
+      "/leadership",
+      "/ignite-change",
+      "/topic",
+      "/partnership",
+      "/our-network",
+      "/who-we-are/governance-team",
+      "/who-we-are/team",
+      "/what-we-do/child-protection-safeguarding",
+      "/what-we-do/artificial-intelligence-innovation",
+      "/what-we-do/biomass-lake-kivu-ecosystem",
+      "/what-we-do/economic-development-women-empowerment",
+    ]);
     const languageRoutes = routes.filter((route) =>
       route !== "/news" &&
       !route.startsWith("/news/") &&
-      !redirectTarget(route) &&
-      route !== "/founder"
+      !redirectRoutes.has(route)
     );
     const languageFailures = [];
     let bilingualRoutesChecked = 0;
@@ -258,8 +250,11 @@ async function main() {
 
     if (routeSet.has("/contact")) {
       await page.goto(new URL("/contact", baseUrl).href, { waitUntil: "domcontentloaded" });
-      const contactAction = await page.$eval('form[action^="mailto:"]', (form) => form.getAttribute("action")).catch(() => null);
-      if (!contactAction?.startsWith("mailto:")) failures.push("Contact form action is not the documented mailto flow");
+      const contactFormReady = await page.evaluate(() => {
+        const form = document.querySelector("#contact-name")?.closest("form");
+        return Boolean(form && form.querySelector("#contact-email[required]") && form.querySelector("#contact-subject[required]") && form.querySelector("#contact-message[required]") && form.querySelector('button[type="submit"]'));
+      });
+      if (!contactFormReady) failures.push("Contact form is missing required labeled fields or a submit button");
     }
 
     for (const item of diagnostics.console) failures.push(`Browser console: ${item}`);
@@ -279,7 +274,7 @@ async function main() {
       responsiveRoutes: responsiveRoutes.length,
       bilingualRoutesChecked,
       bilingualRouteFailures: languageFailures,
-      viewports: [390, 768, 1024, 1440],
+      viewports: [375, 390, 430, 768, 1024, 1366, 1440, 1920],
       consoleErrors: diagnostics.console.length,
       pageErrors: diagnostics.page.length,
       failedRequests: diagnostics.requests.length,
